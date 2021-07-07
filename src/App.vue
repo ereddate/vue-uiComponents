@@ -8,7 +8,9 @@ export default {
   data() {
     return {};
   },
-  created() {},
+  created() {
+    this.$uiComponents.fontSize(16);
+  },
 };
 </script>
 <style lang="less"></style>
