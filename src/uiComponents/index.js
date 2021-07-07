@@ -1,7 +1,11 @@
 import uiCard from "./components/card/card";
+import uiButton from "./components/button/button";
+import uiIcon from "./components/icon/icon";
 import locale from "./locale/index";
 const components = {
     uiCard,
+    uiButton,
+    uiIcon,
 };
 const uiComponents = {
     ...components,

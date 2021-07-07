@@ -1,18 +1,24 @@
 <template>
   <div class="ui_card">
     ui-card{{ $t("lang.你好") }}
-    <div class="ui_card_button" @click="setLangHandle('zh')">setLang("zh")</div>
-    <div class="ui_card_button" @click="setLangHandle('en')">setLang("en")</div>
+    <ui-button
+      :item="{ text: text, clickHandle: setLangHandle, icon: 'time' }"
+    ></ui-button>
   </div>
 </template>
 <script>
 export default {
   data() {
-    return {};
+    return {
+      text: "切换",
+      bool: false,
+    };
   },
   methods: {
-    setLangHandle(v) {
-      this.$i18n.set(v);
+    setLangHandle() {
+      this.bool = this.bool ? false : true;
+      console.log(this.bool);
+      this.$i18n.set(this.bool ? "zh" : "en");
     },
   },
 };
