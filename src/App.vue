@@ -4,6 +4,13 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {};
+  },
+  created() {
+    console.log(this);
+  },
+};
 </script>
 <style lang="less"></style>

@@ -1,4 +1,5 @@
 import Card from "./components/card/card";
+import locale from "./locale/index";
 const components = {
     Card,
 };
@@ -7,14 +8,17 @@ const uiComponents = {
 };
 class UiComponents {
     constructor(ops) {
+        this.version = process.env.VERSION;
+        this.i18n = locale.i18n;
         this.options = ops;
         return this;
     }
-    install(Vue, options) {
+    install(Vue, options = {}) {
         console.log("options:", options);
         Object.keys(uiComponents).forEach((key) => {
             Vue.component(key, uiComponents[key]);
         });
+        locale.set(options.i18n);
     }
     uninstall() {}
 }
