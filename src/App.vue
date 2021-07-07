@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Card></Card>
+    <ui-card></ui-card>
   </div>
 </template>
 <script>
@@ -8,9 +8,7 @@ export default {
   data() {
     return {};
   },
-  created() {
-    console.log(this);
-  },
+  created() {},
 };
 </script>
 <style lang="less"></style>
