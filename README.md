@@ -24,9 +24,26 @@ Vue+Vue-i18n+Less
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+拷贝/uiComponents目录中的文件到您的项目中，在main.js引用，如下：
+
+```
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router/router";
+import UIComponents from "./uiComponents/index";
+
+Vue.use(UIComponents, {
+    i18n: "en", //语言
+});
+
+const i18n = UIComponents.i18n; //语言
+new Vue({
+    i18n,
+    router,
+    render: (h) => h(App),
+}).$mount("#app");
+```
+
 
 #### 参与贡献
 
