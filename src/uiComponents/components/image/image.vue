@@ -6,14 +6,15 @@
       @load="imgLoadHandle"
       v-if="!loaded"
     />
-    <span
+    <img :src="item.image" :style="{ objectFit: item.fit || '' }" v-else />
+    <!-- <span
       :style="{
         backgroundImage: 'url(' + item.image + ')',
         height: item.height ? item.height / 23.44 + 'rem' : '100%',
       }"
       class="ui_image_success"
       v-else
-    ></span>
+    ></span> -->
   </span>
 </template>
 <script>

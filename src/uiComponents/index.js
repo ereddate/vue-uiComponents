@@ -7,7 +7,13 @@ const uiComponents = {
 };
 
 let formateKey = function(key) {
-    return key.substr(0, 2) + "-" + key.substr(2, key.length - 2).toLowerCase();
+    key = key.replace(/[a-zA-Z]/gim, function(a) {
+        if (!/[a-z]/.test(a)) {
+            a = "-" + a.toLowerCase();
+        }
+        return a;
+    });
+    return key; //.substr(0, 2) + "-" + key.substr(2, key.length - 2).toLowerCase();
 };
 class UiComponents {
     constructor() {
@@ -19,7 +25,6 @@ class UiComponents {
     install(Vue, options = {}) {
         console.log("options:", options);
         locale.set(options.i18n);
-
         Object.keys(uiComponents).forEach((key) => {
             Vue.component(formateKey(key), uiComponents[key]);
         });
@@ -37,6 +42,7 @@ class UiComponents {
                     window.addEventListener("resize", function() {
                         that.setFontSize(v);
                     });
+                    return this;
                 },
             };
         }.call(Vue);

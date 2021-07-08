@@ -82,6 +82,24 @@ export const common = {
         for (let n in p) t[n] = p[n];
         return t;
     },
+    setMourn() {
+        let head = document.querySelector("head"),
+            style = document.createElement("style");
+        style.innerHTML = `
+            .filter {
+                -webkit-filter: grayscale(100%); /* webkit */
+                -moz-filter: grayscale(100%); /*firefox*/
+                -ms-filter: grayscale(100%); /*ie9*/
+                -o-filter: grayscale(100%); /*opera*/
+                filter: grayscale(100%);
+                filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); /*ie*/
+                filter: gray; /*ie9- */
+            }
+        `;
+        head.appendChild(style);
+        document.body.className += " filter";
+        return this;
+    },
     isPromise(obj) {
         return (!!obj &&
             (typeof obj === "object" || typeof obj === "function") &&

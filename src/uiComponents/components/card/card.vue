@@ -65,7 +65,6 @@ export default {
 .ui_card {
   clear: both;
   overflow: hidden;
-  min-height: (180 / @base);
   background-color: #ffffff;
   border-radius: (5 / @base);
   font-size: (14 / @base);

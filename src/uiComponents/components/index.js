@@ -2,9 +2,13 @@ import Vue from "vue";
 import uiCard from "./card/card";
 import uiButton from "./button/button";
 import uiIcon from "./icon/icon";
-import uiLink from "./alink/alink.vue";
-import uiImage from "./image/image.vue";
-
+import uiLink from "./alink/alink";
+import uiImage from "./image/image";
+import uiBanner from "./banner/banner";
+import uiGotop from "./gotop/gotop";
+import uiLoading from "./loading/loading";
+import uiTimeline from "./timeline/timeline";
+import uiTimelineItem from "./timeline-item/timeline-item";
 Vue.component("ui-remote-script", {
     render: function(createElement) {
         var self = this;
@@ -42,4 +46,9 @@ export const components = {
     uiIcon,
     uiLink,
     uiImage,
+    uiBanner,
+    uiGotop,
+    uiLoading,
+    uiTimeline,
+    uiTimelineItem,
 };
