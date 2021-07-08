@@ -44,6 +44,28 @@ new Vue({
 }).$mount("#app");
 ```
 
+#### 扩展
+只需要在components目录创建相应的index.js和组件名.vue文件，并在components根目录的index.js中引入就可以扩展了，如下：
+index.js
+
+```
+import component from "./component.vue";
+export default component;
+```
+components根目录中的index.js，如下：
+
+```
+...
+import uiComponent from "./input/index";
+...
+export const components = {
+    ...
+    uiComponent,
+    ...
+}
+```
+引用时就可以<ui-component :item="{argname:argvalue}"></ui-component>,建议按例子插入参数。
+
 
 #### 参与贡献
 
