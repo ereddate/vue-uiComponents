@@ -1,5 +1,5 @@
 <template>
-  <i class="iconfont" :class="'icon-' + item.icon"></i>
+  <i class="ui_icon iconfont" :class="'icon-' + item.icon"></i>
 </template>
 <script>
 export default {
@@ -18,4 +18,8 @@ export default {
 </script>
 <style lang="less">
 @import url("../../static/fonts/iconfont.css");
+.ui_icon {
+  vertical-align: middle;
+  display: inline;
+}
 </style>
