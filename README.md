@@ -24,7 +24,7 @@ Vue+Vue-i18n+Less
 
 #### 使用说明
 
-拷贝/uiComponents目录中的文件到您的项目中，在main.js引用，如下：
+拷贝/uiComponents目录到您的项目中，在main.js引用，如下：
 
 ```
 import Vue from "vue";
