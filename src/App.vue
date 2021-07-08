@@ -5,20 +5,16 @@
         <span>title</span>
       </template>
       <template #right>
-        <ui-button
-          :item="{
+        <ui-button :item="{
             icon: 'search',
-          }"
-        ></ui-button>
+          }"></ui-button>
       </template>
     </ui-navbar>
     <ui-panel :item="{ style: { marginTop: 56 / 23.44 + 'rem' } }">
       <template #content>
         <ui-card :item="card.item">
           <template #handle>
-            <ui-button
-              :item="{ icon: 'more', text: 'more', clickHandle: clickHandle }"
-            ></ui-button>
+            <ui-button :item="{ icon: 'more', text: 'more', clickHandle: clickHandle }"></ui-button>
           </template>
           <template #content>
             <div>content</div>
@@ -26,14 +22,8 @@
         </ui-card>
         <ui-card>
           <template #content>
-            <div
-              class="content_image"
-              v-for="(img, index) in imgs"
-              :key="index"
-            >
-              <ui-image
-                :item="{ image: img.image, height: 80, fit: img.fit }"
-              ></ui-image>
+            <div class="content_image" v-for="(img, index) in imgs" :key="index">
+              <ui-image :item="{ image: img.image, height: 80, fit: img.fit }"></ui-image>
             </div>
           </template>
         </ui-card>
@@ -46,11 +36,11 @@
                   icon: 'more',
                   text: 'more',
                   clickHandle: clickHandle,
-                  type: 'primary',
+                  class: 'primary',
                 }"
               ></ui-button>
               <ui-link :item="{ router: { path: '/home' } }">
-                <template #content> test </template>
+                <template #content>test</template>
               </ui-link>
               <div class="loading_back">
                 <ui-loading></ui-loading>
@@ -69,28 +59,36 @@
         </ui-card>
         <ui-card>
           <template #content>
-            <ui-banner
-              :item="banner"
-              v-for="(banner, index) in banners"
-              :key="index"
-            ></ui-banner>
+            <ui-banner :item="banner" v-for="(banner, index) in banners" :key="index"></ui-banner>
           </template>
         </ui-card>
         <ui-card>
           <template #content>
             <ui-timeline :item="timeline">
               <template #item="{ item }">
-                <ui-timeline-item
-                  :item="time"
-                  v-for="(time, index) in item"
-                  :key="index"
-                >
-                  <template #task>
-                    {{ index }}
-                  </template>
+                <ui-timeline-item :item="time" v-for="(time, index) in item" :key="index">
+                  <template #task>{{ index }}</template>
                 </ui-timeline-item>
               </template>
             </ui-timeline>
+          </template>
+        </ui-card>
+        <ui-card>
+          <template #content>
+            <ui-form :item="{}">
+              <template #content>
+                <ui-input
+                  :item="{
+                  title: '标题',
+                  name: 'name',
+                  end: true,
+                  enterHandle: enterHandle,
+                  rules: { required: true, message: '请填写内容' },
+                }"
+                ></ui-input>
+                <ui-button :item="{type:'submit', class:'primary', text:'提交'}"></ui-button>
+              </template>
+            </ui-form>
           </template>
         </ui-card>
       </template>

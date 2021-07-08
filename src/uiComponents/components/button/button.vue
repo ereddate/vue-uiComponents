@@ -1,12 +1,13 @@
 <template>
-  <div
+  <button
+    :type="item.type||'button'"
     class="ui_button"
     @click="buttonClickHandle"
-    :class="item.type || 'mini'"
+    :class="item.class || 'mini'"
   >
     <ui-icon :item="{ icon: item.icon }" v-if="item.icon"></ui-icon>
     <span v-if="item.text">{{ i18n("lang." + item.text) }}</span>
-  </div>
+  </button>
 </template>
 <script>
 export default {

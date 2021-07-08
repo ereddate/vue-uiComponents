@@ -12,49 +12,51 @@ import uiTimelineItem from "./timeline-item/index";
 import uiNavbar from "./navbar/index";
 import uiPanel from "./panel/index";
 import uiInput from "./input/index";
+import uiForm from "./form/index";
 Vue.component("ui-remote-script", {
-    render: function(createElement) {
-        var self = this;
-        return createElement("script", {
-            attrs: {
-                type: "text/javascript",
-                src: this.src,
-            },
-            on: {
-                load: function(event) {
-                    self.$emit("load", event);
-                },
-                error: function(event) {
-                    self.$emit("error", event);
-                },
-                readystatechange: function(event) {
-                    if (this.readyState == "complete") {
-                        self.$emit("load", event);
-                    }
-                },
-            },
-        });
-    },
-    props: {
-        src: {
-            type: String,
-            required: true,
+  render: function (createElement) {
+    var self = this;
+    return createElement("script", {
+      attrs: {
+        type: "text/javascript",
+        src: this.src,
+      },
+      on: {
+        load: function (event) {
+          self.$emit("load", event);
         },
+        error: function (event) {
+          self.$emit("error", event);
+        },
+        readystatechange: function (event) {
+          if (this.readyState == "complete") {
+            self.$emit("load", event);
+          }
+        },
+      },
+    });
+  },
+  props: {
+    src: {
+      type: String,
+      required: true,
     },
+  },
 });
 
 export const components = {
-    uiCard,
-    uiButton,
-    uiIcon,
-    uiLink,
-    uiImage,
-    uiBanner,
-    uiGotop,
-    uiLoading,
-    uiTimeline,
-    uiTimelineItem,
-    uiNavbar,
-    uiPanel,
-    uiInput,
+  uiCard,
+  uiButton,
+  uiIcon,
+  uiLink,
+  uiImage,
+  uiBanner,
+  uiGotop,
+  uiLoading,
+  uiTimeline,
+  uiTimelineItem,
+  uiNavbar,
+  uiPanel,
+  uiInput,
+  uiForm,
 };

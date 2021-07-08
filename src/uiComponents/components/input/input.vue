@@ -1,13 +1,12 @@
 <template>
   <div class="ui_input">
     <div class="ui_input_content" :class="error.is && 'error'">
-      <label :for="item.name || 'ui-input'" v-if="item.title">{{
+      <label :for="item.name || 'ui-input'" v-if="item.title">
+        {{
         item.title
-      }}</label>
-      <ui-icon
-        :item="{ icon: item.icon || 'search' }"
-        v-if="item.start && item.icon"
-      ></ui-icon>
+        }}
+      </label>
+      <ui-icon :item="{ icon: item.icon || 'search' }" v-if="item.start && item.icon"></ui-icon>
       <slot name="start" v-if="item.start && !item.icon"></slot>
       <input
         :type="item.type || 'text'"
@@ -17,18 +16,15 @@
         :maxlength="item.maxLength || 120"
         :readonly="item.readonly || false"
         :id="item.name || 'ui-input'"
+        :name="item.name || 'ui-input'"
+        :value="text"
         @keypress="keypressHandle"
         @blur="blurHandle"
       />
-      <ui-icon
-        :item="{ icon: item.icon || 'search' }"
-        v-if="item.end"
-      ></ui-icon>
+      <ui-icon :item="{ icon: item.icon || 'search' }" v-if="item.end"></ui-icon>
       <slot name="end" v-if="item.end && !item.icon"></slot>
     </div>
-    <div class="error" v-if="error.is">
-      {{ error.message }}
-    </div>
+    <div class="error" v-if="error.is">{{ error.message }}</div>
   </div>
 </template>
 <script>
@@ -50,6 +46,9 @@ export default {
       },
     };
   },
+  created(){
+    this.$on("rulesExec", this.rulesExec)
+  },
   watch: {
     "$data.text"(v) {
       this.rulesExec(v);
@@ -64,6 +63,7 @@ export default {
             is: true,
             message: rules.message || "内容不能为空",
           };
+          return true;
         } else {
           this.error = {
             is: false,
@@ -71,6 +71,7 @@ export default {
           };
         }
       }
+      return false;
     },
     blurHandle() {
       this.rulesExec(this.text);
