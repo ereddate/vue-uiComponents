@@ -20,6 +20,7 @@ Vue+Vue-i18n+Less
 11. ui-timeline
 12. ui-timeline-item
 13. ui-remote-script
+14. ui-input
 
 #### 使用说明
 
