@@ -6,11 +6,20 @@
 #### 软件架构
 Vue+Vue-i18n+Less
 
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
+#### 组件列表
+1.  ui-link
+2.  ui-banner
+3.  ui-button
+4.  ui-card
+5.  ui-gotop
+6.  ui-icon
+7.  ui-image
+8.  ui-loading
+9.  ui-navbar
+10. ui-panel
+11. ui-timeline
+12. ui-timeline-item
+13. ui-remote-script
 
 #### 使用说明
 
