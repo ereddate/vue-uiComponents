@@ -1,71 +1,100 @@
 <template>
   <div id="app">
-    <ui-card :item="card.item">
-      <template #handle>
+    <ui-navbar :item="{ goback: true, fixed: true }">
+      <template #center>
+        <span>title</span>
+      </template>
+      <template #right>
         <ui-button
-          :item="{ icon: 'more', text: 'more', clickHandle: clickHandle }"
+          :item="{
+            icon: 'search',
+          }"
         ></ui-button>
       </template>
+    </ui-navbar>
+    <ui-panel :item="{ style: { marginTop: 56 / 23.44 + 'rem' } }">
       <template #content>
-        <div>content</div>
-      </template>
-    </ui-card>
-    <ui-card>
-      <template #content>
-        <div class="content_image" v-for="(img, index) in imgs" :key="index">
-          <ui-image
-            :item="{ image: img.image, height: 80, fit: img.fit }"
-          ></ui-image>
-        </div>
-      </template>
-    </ui-card>
-    <ui-card :item="cardA">
-      <template #content>
-        <div>
-          content
-          <ui-button
-            :item="{
-              icon: 'more',
-              text: 'more',
-              clickHandle: clickHandle,
-              type: 'primary',
-            }"
-          ></ui-button>
-          <ui-link :item="{ router: { path: '/home' } }">
-            <template #content> test </template>
-          </ui-link>
-          <div class="loading_back">
-            <ui-loading></ui-loading>
-          </div>
-        </div>
-      </template>
-    </ui-card>
-    <ui-card>
-      <template #content>
-        <ui-banner
-          :item="banner"
-          v-for="(banner, index) in banners"
-          :key="index"
-        ></ui-banner>
-      </template>
-    </ui-card>
-    <ui-card>
-      <template #content>
-        <ui-timeline :item="timeline">
-          <template #item="{ item }">
-            <ui-timeline-item
-              :item="time"
-              v-for="(time, index) in item"
+        <ui-card :item="card.item">
+          <template #handle>
+            <ui-button
+              :item="{ icon: 'more', text: 'more', clickHandle: clickHandle }"
+            ></ui-button>
+          </template>
+          <template #content>
+            <div>content</div>
+          </template>
+        </ui-card>
+        <ui-card>
+          <template #content>
+            <div
+              class="content_image"
+              v-for="(img, index) in imgs"
               :key="index"
             >
-              <template #task>
-                {{ index }}
-              </template>
-            </ui-timeline-item>
+              <ui-image
+                :item="{ image: img.image, height: 80, fit: img.fit }"
+              ></ui-image>
+            </div>
           </template>
-        </ui-timeline>
+        </ui-card>
+        <ui-card :item="cardA">
+          <template #content>
+            <div>
+              content
+              <ui-button
+                :item="{
+                  icon: 'more',
+                  text: 'more',
+                  clickHandle: clickHandle,
+                  type: 'primary',
+                }"
+              ></ui-button>
+              <ui-link :item="{ router: { path: '/home' } }">
+                <template #content> test </template>
+              </ui-link>
+              <div class="loading_back">
+                <ui-loading></ui-loading>
+              </div>
+              <ui-input
+                :item="{
+                  title: '标题',
+                  name: 'name',
+                  end: true,
+                  enterHandle: enterHandle,
+                  rules: { required: true, message: '请填写内容' },
+                }"
+              ></ui-input>
+            </div>
+          </template>
+        </ui-card>
+        <ui-card>
+          <template #content>
+            <ui-banner
+              :item="banner"
+              v-for="(banner, index) in banners"
+              :key="index"
+            ></ui-banner>
+          </template>
+        </ui-card>
+        <ui-card>
+          <template #content>
+            <ui-timeline :item="timeline">
+              <template #item="{ item }">
+                <ui-timeline-item
+                  :item="time"
+                  v-for="(time, index) in item"
+                  :key="index"
+                >
+                  <template #task>
+                    {{ index }}
+                  </template>
+                </ui-timeline-item>
+              </template>
+            </ui-timeline>
+          </template>
+        </ui-card>
       </template>
-    </ui-card>
+    </ui-panel>
     <ui-gotop></ui-gotop>
   </div>
 </template>
@@ -338,6 +367,9 @@ export default {
   methods: {
     clickHandle(e) {
       console.log(e);
+    },
+    enterHandle(e, v) {
+      console.log(e, v);
     },
   },
 };

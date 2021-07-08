@@ -59,7 +59,7 @@ export default {
   line-height: (20 / @base);
   padding: (5 / @base);
   font-size: (26 / @base);
-  box-shadow: 0 2px 12px rgba(100, 101, 102, 0.12);
+  box-shadow: 0 (2 / @base) (12 / @base) rgba(100, 101, 102, 0.12);
   text-align: center;
 }
 </style>

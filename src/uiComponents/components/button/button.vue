@@ -5,7 +5,7 @@
     :class="item.type || 'mini'"
   >
     <ui-icon :item="{ icon: item.icon }" v-if="item.icon"></ui-icon>
-    {{ i18n("lang." + item.text) }}
+    <span v-if="item.text">{{ i18n("lang." + item.text) }}</span>
   </div>
 </template>
 <script>
@@ -26,7 +26,7 @@ export default {
       return this.$uiComponents.i18n(v);
     },
     buttonClickHandle(e) {
-      this.$props.item.clickHandle(e);
+      this.$props.item.clickHandle && this.$props.item.clickHandle(e);
     },
   },
 };
@@ -39,6 +39,9 @@ export default {
   padding: (5 / @base) (10 / @base);
   border-radius: (5 / @base);
   margin: (5 / @base);
+  span {
+    margin: 0 (2.5 / @base);
+  }
   &.primary {
     color: #fff;
     background-color: #07c160;

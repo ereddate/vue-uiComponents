@@ -1,14 +1,17 @@
 import Vue from "vue";
-import uiCard from "./card/card";
-import uiButton from "./button/button";
-import uiIcon from "./icon/icon";
-import uiLink from "./alink/alink";
-import uiImage from "./image/image";
-import uiBanner from "./banner/banner";
-import uiGotop from "./gotop/gotop";
-import uiLoading from "./loading/loading";
-import uiTimeline from "./timeline/timeline";
-import uiTimelineItem from "./timeline-item/timeline-item";
+import uiCard from "./card/index";
+import uiButton from "./button/index";
+import uiIcon from "./icon/index";
+import uiLink from "./alink/index";
+import uiImage from "./image/index";
+import uiBanner from "./banner/index";
+import uiGotop from "./gotop/index";
+import uiLoading from "./loading/index";
+import uiTimeline from "./timeline/index";
+import uiTimelineItem from "./timeline-item/index";
+import uiNavbar from "./navbar/index";
+import uiPanel from "./panel/index";
+import uiInput from "./input/index";
 Vue.component("ui-remote-script", {
     render: function(createElement) {
         var self = this;
@@ -51,4 +54,7 @@ export const components = {
     uiLoading,
     uiTimeline,
     uiTimelineItem,
+    uiNavbar,
+    uiPanel,
+    uiInput,
 };
