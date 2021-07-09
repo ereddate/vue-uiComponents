@@ -1,7 +1,11 @@
 <template>
   <div class="ui_form">
     <div class="ui_form_content">
-      <form @submit.prevent="submitHandle">
+      <form
+        @submit.prevent="submitHandle"
+        :autocomplete="autocomplete"
+        :ref="item.name || 'ui-form'"
+      >
         <slot name="content" :item="item"></slot>
       </form>
     </div>
@@ -9,29 +13,40 @@
 </template>
 <script>
 export default {
-    props:{
-        item:{
-            type:Object,
-            default(){
-                return {}
-            }
-        }
+  props: {
+    item: {
+      type: Object,
+      default() {
+        return {};
+      },
     },
-    data(){
-        return {}
-    },
-    methods:{
-        submitHandle(e){
-            console.log(e)
-            let form = e.target, len = form.length, formData = {};
-            for (let i=0;i<len;i++){
-                let item = form[i];
-                item.name && (formData[item.name] = item.value);
-            }
-            console.log(formData)
+  },
+  data() {
+    return {
+      autocomplete: "on",
+    };
+  },
+  mounted() {},
+  methods: {
+    submitHandle() {
+      let error = { is: false, message: "" },
+        values = {};
+      for (let i = 0; i < this.$children.length; i++) {
+        let item = this.$children[i].$children[0];
+        item && item.name && item.value && (values[item.name] = item.value);
+        error = item && item.rulesValidate ? item.rulesValidate() : error;
+        if (error.is) {
+          break;
         }
-    }
-}
+      }
+      if (error.is) {
+        this.$props.item.faildHandle && this.$props.item.faildHandle(error);
+        return;
+      }
+      this.$props.item.submitHandle && this.$props.item.submitHandle(values);
+    },
+  },
+};
 </script>
 <style lang="less">
 .ui_form {

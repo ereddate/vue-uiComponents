@@ -13,50 +13,62 @@ import uiNavbar from "./navbar/index";
 import uiPanel from "./panel/index";
 import uiInput from "./input/index";
 import uiForm from "./form/index";
+import uiFormItem from "./form-item/index";
+import uiDivider from "./divider/index";
+import uiToast from "./toast/index";
+import uiList from "./list/index";
+import uiListItem from "./list-item/index";
+import uiToggleButton from "./toggle-button/index";
 Vue.component("ui-remote-script", {
-  render: function (createElement) {
-    var self = this;
-    return createElement("script", {
-      attrs: {
-        type: "text/javascript",
-        src: this.src,
-      },
-      on: {
-        load: function (event) {
-          self.$emit("load", event);
-        },
-        error: function (event) {
-          self.$emit("error", event);
-        },
-        readystatechange: function (event) {
-          if (this.readyState == "complete") {
-            self.$emit("load", event);
-          }
-        },
-      },
-    });
-  },
-  props: {
-    src: {
-      type: String,
-      required: true,
+    render: function(createElement) {
+        var self = this;
+        return createElement("script", {
+            attrs: {
+                type: "text/javascript",
+                src: this.src,
+            },
+            on: {
+                load: function(event) {
+                    self.$emit("load", event);
+                },
+                error: function(event) {
+                    self.$emit("error", event);
+                },
+                readystatechange: function(event) {
+                    if (this.readyState == "complete") {
+                        self.$emit("load", event);
+                    }
+                },
+            },
+        });
     },
-  },
+    props: {
+        src: {
+            type: String,
+            required: true,
+        },
+    },
 });
 
 export const components = {
-  uiCard,
-  uiButton,
-  uiIcon,
-  uiLink,
-  uiImage,
-  uiBanner,
-  uiGotop,
-  uiLoading,
-  uiTimeline,
-  uiTimelineItem,
-  uiNavbar,
-  uiPanel,
-  uiInput,
-  uiForm,
+    uiCard,
+    uiButton,
+    uiIcon,
+    uiLink,
+    uiImage,
+    uiBanner,
+    uiGotop,
+    uiLoading,
+    uiTimeline,
+    uiTimelineItem,
+    uiNavbar,
+    uiPanel,
+    uiInput,
+    uiForm,
+    uiFormItem,
+    uiDivider,
+    uiToast,
+    uiList,
+    uiListItem,
+    uiToggleButton,
 };

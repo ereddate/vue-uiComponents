@@ -1,6 +1,7 @@
 import { components } from "./components/index";
 import locale from "./locale/index";
 import { common } from "./utils/common";
+import jQuery from "jquery";
 
 const uiComponents = {
     ...components,
@@ -30,8 +31,26 @@ class UiComponents {
         });
 
         let that = this;
+        Vue.prototype.$toast = function(v) {
+            const toast = new Vue({
+                render(h) {
+                    return h(components.uiToast, {
+                        props: { item: { message: v, isShow: true, position: "bottom" } },
+                    });
+                },
+            }).$mount();
+            document.body.appendChild(toast.$el);
+            return {
+                destroy() {
+                    setTimeout(() => {
+                        document.body.removeChild(toast.$el);
+                    }, 1500);
+                },
+            };
+        };
         Vue.prototype.$uiComponents = function() {
             return {
+                query: jQuery,
                 i18n(v) {
                     let text = locale.i18n.messages[locale.i18n.locale][v.split(".")[1]];
                     return text || v.split(".")[1];

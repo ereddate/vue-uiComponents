@@ -1,6 +1,6 @@
 <template>
   <button
-    :type="item.type||'button'"
+    :type="item.type || 'button'"
     class="ui_button"
     @click="buttonClickHandle"
     :class="item.class || 'mini'"
@@ -39,7 +39,7 @@ export default {
   display: inline-block;
   padding: (5 / @base) (10 / @base);
   border-radius: (5 / @base);
-  margin: (5 / @base);
+  margin: (5 / @base) 0;
   span {
     margin: 0 (2.5 / @base);
   }
