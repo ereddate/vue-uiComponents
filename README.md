@@ -6,22 +6,6 @@
 #### 软件架构
 Vue+Vue-i18n+Less
 
-#### 组件列表
-1.  ui-link
-2.  ui-banner
-3.  ui-button
-4.  ui-card
-5.  ui-gotop
-6.  ui-icon
-7.  ui-image
-8.  ui-loading
-9.  ui-navbar
-10. ui-panel
-11. ui-timeline
-12. ui-timeline-item
-13. ui-remote-script
-14. ui-input
-
 #### 使用说明
 
 拷贝/uiComponents目录到您的项目中，在main.js引用，如下：
@@ -65,6 +49,33 @@ export const components = {
 }
 ```
 引用时就可以<ui-component :item="{argname:argvalue}"></ui-component>,建议按例子插入参数。
+
+#### 组件列表
+1.  ui-link
+2.  ui-banner
+3.  ui-button
+4.  ui-card
+5.  ui-gotop
+6.  ui-icon
+7.  ui-image
+8.  ui-loading
+9.  ui-navbar
+10. ui-panel
+11. ui-timeline
+12. ui-timeline-item
+13. ui-remote-script
+14. ui-input
+15. ui-form
+16. ui-form-item
+17. ui-toast
+18. ui-toggle-button
+19. ui-list
+20. ui-list-item
+21. ui-divider
+
+this.$toast('message');
+
+
 
 
 #### 参与贡献
