@@ -27,8 +27,9 @@ Vue+Vue-i18n+Less
 18. ui-toggle-button
 19. ui-list
 20. ui-list-item
-21. divider
+21. ui-divider
 
+this.$toast('message');
 
 #### 使用说明
 
