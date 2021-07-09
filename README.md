@@ -4,7 +4,7 @@
 基于Vue的UI组件库
 
 #### 软件架构
-Vue+Vue-i18n+Less
+Vue+Vue-i18n+Less+animate.css
 
 #### 使用说明
 
