@@ -49,6 +49,11 @@ export default {
     .ui_timeline_content_item {
       display: flex;
       .timeline_item {
+        &.content {
+          overflow: scroll;
+          overflow-x: hidden;
+          height: (200 / @base);
+        }
         &.line {
           display: flex;
           justify-content: center;

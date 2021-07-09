@@ -1,7 +1,11 @@
 <template>
-  <div class="ui_toast" :class="item.position" v-if="isShow">
-    {{ message }}
-  </div>
+  <ui-animate :item="{ type: 'fadeIn', speed: 1 }" v-if="isShow">
+    <template #content>
+      <div class="ui_toast" :class="item.position">
+        {{ message }}
+      </div>
+    </template>
+  </ui-animate>
 </template>
 <script>
 export default {

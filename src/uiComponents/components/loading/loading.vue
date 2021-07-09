@@ -3,15 +3,30 @@
     <span
       class="ui_loading_spinner"
       style="color: currentcolor; width: 20px; height: 20px"
+      v-if="item.type === 'default'"
       ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
       ><i></i><i></i
+    ></span>
+    <span class="ui_loading_spinner circular" v-if="item.type === 'circle'"
+      ><svg viewBox="25 25 50 50" class="ui_loading_circular">
+        <circle cx="50" cy="50" r="20" fill="none"></circle></svg
     ></span>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  props: {
+    item: {
+      type: Object,
+      default() {
+        return { type: "default" };
+      },
+    },
+  },
+};
 </script>
 <style lang="less">
+@base: 23.44rem;
 .ui_loading {
   position: relative;
   color: #c8c9cc;
@@ -21,9 +36,9 @@ export default {};
   .ui_loading_spinner {
     position: relative;
     display: inline-block;
-    width: 30px;
+    width: (30 / @base);
     max-width: 100%;
-    height: 30px;
+    height: (30 / @base);
     max-height: 100%;
     vertical-align: middle;
     -webkit-animation: ui-rotate 0.8s linear infinite;
@@ -38,7 +53,7 @@ export default {};
 
       &::before {
         display: block;
-        width: 2px;
+        width: (2 / @base);
         height: 25%;
         margin: 0 auto;
         background-color: currentColor;
@@ -46,6 +61,20 @@ export default {};
         content: " ";
       }
     }
+    &.circular {
+      animation-duration: 2s;
+      circle {
+        animation: ui-circular 1.5s ease-in-out infinite;
+        stroke: currentColor;
+        stroke-width: 3;
+        stroke-linecap: round;
+      }
+    }
+  }
+  .ui_loading_circular {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 }
 .generate-spinner(@n, @i: 1) when (@i =< @n) {
@@ -62,6 +91,20 @@ export default {};
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@keyframes ui-circular {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -40;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -120;
   }
 }
 </style>

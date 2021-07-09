@@ -19,6 +19,7 @@ import uiToast from "./toast/index";
 import uiList from "./list/index";
 import uiListItem from "./list-item/index";
 import uiToggleButton from "./toggle-button/index";
+import uiAnimate from "./animate/index";
 Vue.component("ui-remote-script", {
     render: function(createElement) {
         var self = this;
@@ -71,4 +72,5 @@ export const components = {
     uiList,
     uiListItem,
     uiToggleButton,
+    uiAnimate,
 };
