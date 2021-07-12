@@ -140,13 +140,18 @@ window.define("模块名",[依赖],function(Vue){组件体});
 
 使用
 this.$组件名.getData({}).then(v=>{}).catch(v=>{})
+```
 
 2.this.$uiComponents
 提供了很多可能的方法，如下：
+
+```
 setMourn()，isPromise(obj)，isFunction(obj)，isArray(obj)，isEmpty(obj)，isTelphoneCode(obj)，isEmptyObject(obj)，
 isPlainObject(obj)，dateFormate(date, "formate")，query()，i18n()，extend({}, {})，fontSize(num)
 ...
 ```
+
+
 
 
 
