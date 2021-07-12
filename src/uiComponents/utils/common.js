@@ -77,11 +77,6 @@ Vue.prototype.$dispatch = function() {
 };
 
 export const common = {
-    extend(t, p) {
-        t = t || {};
-        for (let n in p) t[n] = p[n];
-        return t;
-    },
     setMourn() {
         let head = document.querySelector("head"),
             style = document.createElement("style");
