@@ -29,8 +29,8 @@ new Vue({
 ```
 
 #### 扩展
-只需要在components目录创建相应的index.js和组件名.vue文件，并在components根目录的index.js中引入就可以扩展了，如下：
-index.js
+只需要在components目录创建相应组件的目录，并在其目录下创建的index.js和组件名.vue文件，同时在components根目录的index.js中引入就可以扩展了，如下：
+组件目录下的index.js及相应的.vue文件
 
 ```
 import component from "./component.vue";
@@ -40,7 +40,7 @@ components根目录中的index.js，如下：
 
 ```
 ...
-import uiComponent from "./input/index";
+import uiComponent from "./组件同名目录/index";
 ...
 export const components = {
     ...
@@ -48,7 +48,9 @@ export const components = {
     ...
 }
 ```
-引用时就可以<ui-component :item="{argname:argvalue}"></ui-component>,建议按例子插入参数。
+引用时如下面的写法就可以使用了,建议按例子插入参数。
+
+`<ui-component :item="{name:value}"></ui-component>`
 
 #### 组件列表
 1.  ui-link
