@@ -4,7 +4,7 @@
 基于Vue的UI组件库
 
 #### 软件架构
-Vue+Vue-i18n+Less+animate.css+(elementUI|vantUI|无)+jQuery+fundebug
+Vue+Vue-i18n+Less+animate.css
 
 #### 使用说明
 
@@ -18,11 +18,6 @@ import UIComponents from "./uiComponents/index";
 
 Vue.use(UIComponents, {
     i18n: "zh", //语言
-    model:"pc|h5", //pc = elemenetUI, h5 = vantUI
-    isDebug: true|false, 
-    debug:{
-        apiKey:""
-    }
 });
 
 const i18n = UIComponents.i18n; //语言
@@ -142,12 +137,12 @@ window.define("模块名",[依赖],function(Vue){组件体});
 this.$组件名.getData({}).then(v=>{}).catch(v=>{})
 ```
 
-2.this.$uiComponents
+2.this.$uic
 提供了很多可能的方法，如下：
 
 ```
 setMourn()，isPromise(obj)，isFunction(obj)，isArray(obj)，isEmpty(obj)，isTelphoneCode(obj)，isEmptyObject(obj)，
-isPlainObject(obj)，dateFormate(date, "formate")，query()，i18n()，extend({}, {})，fontSize(num)
+isPlainObject(obj)，dateFormate(date, "formate")，i18n()，extend({}, {})，fontSize(num)
 ...
 ```
 
