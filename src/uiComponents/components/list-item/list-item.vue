@@ -24,12 +24,12 @@ export default {
 @base: 23.44rem;
 .ui_list_item {
   .ui_list_item_content {
-    padding: (12 / @base) (24 / @base);
+    padding: (8 / @base) (16 / @base);
     &.small {
-      padding: (8 / @base) (16 / @base);
+      padding: (4 / @base) (8 / @base);
     }
     &.large {
-      padding: (24 / @base) (48 / @base);
+      padding: (16 / @base) (32 / @base);
     }
   }
 }

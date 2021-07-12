@@ -1,24 +1,22 @@
 <template>
   <div class="ui_list">
     <div class="ui_list_content">
-      <div class="ui_list_content_header">
-        <span v-if="item.header && item.header.title">{{
+      <div class="ui_list_content_header" v-if="item.header">
+        <span v-if="item.header.title">
+          {{
           item.header.title
-        }}</span>
-        <slot
-          v-if="item.header && !item.header.title"
-          :item="item.header"
-        ></slot>
+          }}
+        </span>
+        <slot v-if="!item.header.title" :item="item.header"></slot>
       </div>
       <slot name="content" :item="item"></slot>
-      <div class="ui_list_content_footer">
-        <span v-if="item.footer && item.footer.title">{{
+      <div class="ui_list_content_footer" v-if="item.footer">
+        <span v-if="item.footer.title">
+          {{
           item.footer.title
-        }}</span>
-        <slot
-          v-if="item.footer && !item.footer.title"
-          :item="item.footer"
-        ></slot>
+          }}
+        </span>
+        <slot v-if="!item.footer.title" :item="item.footer"></slot>
       </div>
     </div>
   </div>

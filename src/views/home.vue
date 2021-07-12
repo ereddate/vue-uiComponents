@@ -5,11 +5,9 @@
         <span>title</span>
       </template>
       <template #right>
-        <ui-button
-          :item="{
+        <ui-button :item="{
             icon: 'search',
-          }"
-        ></ui-button>
+          }"></ui-button>
       </template>
     </ui-navbar>
     <ui-animate :item="{ type: 'fadeInLeft', speed: 2 }">
@@ -19,7 +17,7 @@
             <ui-card>
               <template #content>
                 <ui-animate :item="{ type: 'fadeInLeft', speed: 3 }">
-                  <template #content> ui-animate test </template>
+                  <template #content>ui-animate test</template>
                 </ui-animate>
               </template>
             </ui-card>
@@ -39,14 +37,8 @@
             </ui-card>
             <ui-card>
               <template #content>
-                <div
-                  class="content_image"
-                  v-for="(img, index) in imgs"
-                  :key="index"
-                >
-                  <ui-image
-                    :item="{ image: img.image, height: 80, fit: img.fit }"
-                  ></ui-image>
+                <div class="content_image" v-for="(img, index) in imgs" :key="index">
+                  <ui-image :item="{ image: img.image, height: 80, fit: img.fit }"></ui-image>
                 </div>
               </template>
             </ui-card>
@@ -83,22 +75,14 @@
             </ui-card>
             <ui-card>
               <template #content>
-                <ui-banner
-                  :item="banner"
-                  v-for="(banner, index) in banners"
-                  :key="index"
-                ></ui-banner>
+                <ui-banner :item="banner" v-for="(banner, index) in banners" :key="index"></ui-banner>
               </template>
             </ui-card>
             <ui-card>
               <template #content>
                 <ui-timeline :item="timeline">
                   <template #item="{ item }">
-                    <ui-timeline-item
-                      :item="time"
-                      v-for="(time, index) in item"
-                      :key="index"
-                    >
+                    <ui-timeline-item :item="time" v-for="(time, index) in item" :key="index">
                       <template #task>{{ index }}</template>
                     </ui-timeline-item>
                   </template>
@@ -158,12 +142,9 @@
                     </ui-divider>
                     <div style="text-align: center">
                       test
-                      <ui-divider :item="{ type: 'vertical' }"></ui-divider>
-                      test
-                      <ui-divider :item="{ type: 'vertical' }"></ui-divider>
-                      test
-                      <ui-divider :item="{ type: 'vertical' }"></ui-divider>
-                      test
+                      <ui-divider :item="{ type: 'vertical' }"></ui-divider>test
+                      <ui-divider :item="{ type: 'vertical' }"></ui-divider>test
+                      <ui-divider :item="{ type: 'vertical' }"></ui-divider>test
                     </div>
                   </template>
                 </ui-form>
@@ -174,11 +155,7 @@
                 <ui-toggle-button :item="uiToggleButton"></ui-toggle-button>
                 <ui-list :item="uiList">
                   <template #content="{ item }">
-                    <ui-list-item
-                      :item="item"
-                      v-for="(column, index) in item.content"
-                      :key="index"
-                    >
+                    <ui-list-item :item="item" v-for="(column, index) in item.content" :key="index">
                       <template #content>{{ column.title }}</template>
                     </ui-list-item>
                   </template>
@@ -187,7 +164,30 @@
             </ui-card>
             <ui-card>
               <template #content>
-                <ui-image-text-item :item="imageTexts"></ui-image-text-item>
+                <ui-list :item="uiListA">
+                  <template #content="{item}">
+                    <ui-list-item :item="item">
+                      <template #content>
+                        <ui-image-text-item :item="{...imageTexts, type:'top'}"></ui-image-text-item>
+                      </template>
+                    </ui-list-item>
+                    <ui-list-item :item="item">
+                      <template #content>
+                        <ui-image-text-item :item="{...imageTexts, type:'left'}"></ui-image-text-item>
+                      </template>
+                    </ui-list-item>
+                    <ui-list-item :item="item">
+                      <template #content>
+                        <ui-image-text-item :item="{...imageTexts, type:'bottom'}"></ui-image-text-item>
+                      </template>
+                    </ui-list-item>
+                    <ui-list-item :item="item">
+                      <template #content>
+                        <ui-image-text-item :item="{...imageTexts, type:'right'}"></ui-image-text-item>
+                      </template>
+                    </ui-list-item>
+                  </template>
+                </ui-list>
               </template>
             </ui-card>
           </template>
@@ -202,10 +202,12 @@ export default {
   data() {
     return {
       imageTexts: {
+        type:"right",
         image:
           "http://img.mp.itc.cn/upload/20170816/7ec1b62f383249d0b050b67625478563_th.jpg",
         title: "一文理解ES6中的代理模式——Proxy",
         desc: "forEach(observer => observer());return result;}观察者函数都放进Set集合，当修改obj的值，在会set函数中拦截，自动执行Set所有的观察者 ",
+        url:""
       },
       uiToggleButton: {
         buttons: [
@@ -220,6 +222,9 @@ export default {
           },
         ],
         changeHandle: this.changeHandle,
+      },
+      uiListA: {
+        type: "small",
       },
       uiList: {
         type: "small",

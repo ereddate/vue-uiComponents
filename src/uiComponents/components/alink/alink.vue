@@ -4,9 +4,12 @@
       :href="item.url"
       v-if="item.url"
       :style="{ height: item.height ? item.height / 23.44 + 'rem' : 'auto' }"
-      ><slot name="content"></slot
-    ></a>
-    <a @click="clickHandle" v-else><slot name="content"></slot></a>
+    >
+      <slot name="content"></slot>
+    </a>
+    <a @click="clickHandle" v-else>
+      <slot name="content"></slot>
+    </a>
   </span>
 </template>
 <script>
@@ -29,8 +32,12 @@ export default {
 <style lang="less">
 .ui_alink {
   display: block;
+  width: 100%;
+  height: 100%;
   a {
     display: block;
+    width: 100%;
+    height: 100%;
   }
 }
 </style>
