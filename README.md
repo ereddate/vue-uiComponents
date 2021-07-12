@@ -73,6 +73,8 @@ export const components = {
 20. ui-list-item
 21. ui-divider
 22. ui-animate
+23. ui-image-text-item
+24. ui-text-item
 
 this.$toast('message');
 
