@@ -4,7 +4,7 @@
 基于Vue的UI组件库
 
 #### 软件架构
-Vue+Vue-i18n+Less+animate.css
+Vue+Vue-i18n+Less+animate.css+(elementUI|vantUI|无)+jQuery+fundebug
 
 #### 使用说明
 
@@ -17,7 +17,12 @@ import router from "./router/router";
 import UIComponents from "./uiComponents/index";
 
 Vue.use(UIComponents, {
-    i18n: "en", //语言
+    i18n: "zh", //语言
+    model:"pc|h5", //pc = elemenetUI, h5 = vantUI
+    isDebug: true|false, 
+    debug:{
+        apiKey:""
+    }
 });
 
 const i18n = UIComponents.i18n; //语言
@@ -76,6 +81,72 @@ export const components = {
 
 this.$toast('message');
 
+#### 功能
+1.  this.$addModel 添加路由
+
+```
+使用
+let that = this;
+this.$addModel(Promise.resolve({
+        data: {
+          router: [
+            {...
+             component: {
+                path: "http://xxx.com/xxx/xxx.js",
+                name: "模块名",
+             }
+            }
+          ]
+        }
+    })
+).then(v=>{
+    that.$router.push("/")
+}).catch(v=>{})
+```
+
+路由对应组件
+```
+window.define("模块名",[依赖],function(Vue){组件体});
+模块名和组件名应该一样。
+
+组件体
+{
+    name:组件名,
+    component:Vue.component(组件名, 组件参数),
+    store:{
+        data(){
+            return {
+                state:{}, 
+                actions:{
+                    getData(store, json){
+                        return ...
+                    }
+                }, 
+                mutations:{},
+                ...
+            }
+        },
+        mixin(){
+            return {
+                调用actions的方法
+                getData(json){
+                    return this.store.dispatch("getData", json);
+                },
+                ...
+            }
+        }
+    }
+}
+
+使用
+this.$组件名.getData({}).then(v=>{}).catch(v=>{})
+
+2.this.$uiComponents
+提供了很多可能的方法，如下：
+setMourn()，isPromise(obj)，isFunction(obj)，isArray(obj)，isEmpty(obj)，isTelphoneCode(obj)，isEmptyObject(obj)，
+isPlainObject(obj)，dateFormate(date, "formate")，query()，i18n()，extend({}, {})，fontSize(num)
+...
+```
 
 
 
