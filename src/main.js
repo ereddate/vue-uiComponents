@@ -6,7 +6,6 @@ import store from "./store/store";
 
 Vue.use(UIComponents, {
     i18n: "en",
-    isDebug: true,
 });
 
 const i18n = UIComponents.i18n;

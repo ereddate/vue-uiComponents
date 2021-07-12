@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     i18n(v) {
-      return this.$uiComponents.i18n(v);
+      return this.$uic.i18n(v);
     },
   },
 };

@@ -33,10 +33,10 @@ export default {
   },
   methods: {
     parseDate(v) {
-      return this.$uiComponents.dateFormate(v, "yyyy-MM-dd");
+      return this.$uic.dateFormate(v, "yyyy-MM-dd");
     },
     parseTime(v) {
-      return this.$uiComponents.dateFormate(v, "hh:MM:ss");
+      return this.$uic.dateFormate(v, "hh:MM:ss");
     },
   },
 };

@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     i18n(v) {
-      return this.$uiComponents.i18n(v);
+      return this.$uic.i18n(v);
     },
     buttonClickHandle(e) {
       this.$props.item.clickHandle && this.$props.item.clickHandle(e);

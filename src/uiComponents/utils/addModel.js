@@ -1,39 +1,17 @@
-window.doms = {};
+window._doms = {};
 window.define = function(name, dependents, func) {
     if (dependents && dependents.length > 0) {
-        window.doms[name] = {
+        window._doms[name] = {
             name,
             dependents,
             func,
         };
     } else {
-        window.doms[name] = { name, func };
+        window._doms[name] = { name, func };
     }
 };
 window.$getComponent = function(name, target) {
-    return window.doms[name].func(target);
-};
-
-let loadFile = function(ops, index) {
-    return new Promise((resolve, reject) => {
-        let dom = document.getElementById(ops.name);
-        if (dom) {
-            resolve(dom);
-        } else {
-            dom = document.createElement("script");
-            dom.src = ops.path;
-            dom.id = ops.name;
-            dom.index = index;
-            dom.onload = function() {
-                resolve(dom);
-            };
-            dom.onerror = function() {
-                reject();
-            };
-            let head = document.querySelector("head");
-            head.appendChild(dom);
-        }
-    });
+    return window._doms[name].func(target);
 };
 
 class ExtendCustomStore {
@@ -57,13 +35,12 @@ class ExtendCustomStore {
 }
 
 export const done = function(Vue, common) {
-    Vue.prototype.$loadFile = loadFile;
+    Vue.prototype.$loadFile = common.loadFile;
     Vue.prototype.$addModel = Vue.$addModel = function(getData) {
         let that = this,
             extendMod = function(dom, router) {
                 let mod = window.$getComponent(dom.id, Vue);
                 router.component = mod.component;
-                console.log(router);
                 that.$router.addRoute(router);
                 if (mod.store) {
                     Vue.prototype["$" + mod.name] = Vue["$" + mod.name] =
@@ -79,11 +56,12 @@ export const done = function(Vue, common) {
                         that
                             .$loadFile(router.component, i)
                             .then((dom) => {
-                                let obj = window.doms[dom.id];
+                                let obj = window._doms[dom.id];
                                 if (obj.dependents) {
                                     obj.dependents.forEach((depend, i) => {
                                         obj.dependents[i] = new Promise((resolve, reject) => {
-                                            loadFile({ path: depend, name: depend }, i)
+                                            that
+                                                .$loadFile({ path: depend, name: depend }, i)
                                                 .then((dom) => resolve(dom))
                                                 .catch((v) => reject(v));
                                         });

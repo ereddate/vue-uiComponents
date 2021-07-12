@@ -76,7 +76,60 @@ Vue.prototype.$dispatch = function() {
     return this;
 };
 
+let formateKey = function(key) {
+    key = key.replace(/[a-zA-Z]/gim, function(a) {
+        if (!/[a-z]/.test(a)) {
+            a = "-" + a.toLowerCase();
+        }
+        return a;
+    });
+    return key; //.substr(0, 2) + "-" + key.substr(2, key.length - 2).toLowerCase();
+};
+let loadFile = function(ops, index) {
+    return new Promise((resolve, reject) => {
+        let dom = document.getElementById(ops.name);
+        if (dom) {
+            resolve(dom);
+        } else {
+            dom = document.createElement(/\.css/.test(ops.path) ? "link" : "script");
+            if (/\.css/.test(ops.path)) {
+                dom.rel = "stylesheet";
+                dom.href = ops.path;
+            } else {
+                dom.src = ops.path;
+            }
+            dom.id = ops.name;
+            dom.index = index;
+            dom.onload = function() {
+                resolve(dom);
+            };
+            dom.onerror = function() {
+                reject();
+            };
+            let head = document.querySelector("head");
+            head.appendChild(dom);
+        }
+    });
+};
+
 export const common = {
+    setFontSize(num) {
+        num = num || 16;
+        var iWidth = (document.documentElement || document.body).clientWidth,
+            iHeight = (document.documentElement || document.body).clientHeight,
+            fontSize =
+            (window.orientation &&
+                (window.orientation === 90 || window.orientation === -90)) ||
+            iHeight < iWidth ?
+            iHeight / num :
+            iWidth / num;
+        window.baseFontSize = fontSize;
+        document.getElementsByTagName("html")[0].style.fontSize =
+            fontSize.toFixed(2) + "px";
+        return fontSize;
+    },
+    formateKey,
+    loadFile,
     setMourn() {
         let head = document.querySelector("head"),
             style = document.createElement("style");

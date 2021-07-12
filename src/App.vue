@@ -10,33 +10,8 @@ export default {
     return {};
   },
   created() {
-    this.$uiComponents.fontSize(16);
+    this.$uic.fontSize(16);
     this.$toast("test").destroy();
-    this.$addModel(
-      Promise.resolve({
-        data: {
-          router: [
-            {
-              path: "/testA",
-              name: "testA",
-              component: {
-                path: "http://172.29.153.79:8080/test/test.js",
-                name: "testA",
-              },
-              meta: {
-                title: "testA",
-              },
-            },
-          ],
-        },
-      })
-    )
-      .then(() => {
-        //that.$router.push("/testA");
-      })
-      .catch((v) => {
-        console.log(v);
-      });
   },
   methods: {
     changeHandle(v) {
@@ -49,7 +24,33 @@ export default {
       this.$toast(v).destroy();
     },
     clickHandle() {
-      this.$router.push("/testA");
+      let that = this;
+      this.$addModel(
+        Promise.resolve({
+          data: {
+            router: [
+              {
+                path: "/testA",
+                name: "testA",
+                component: {
+                  path: "http://172.29.153.79:8080/test/test.js",
+                  name: "testA",
+                },
+                meta: {
+                  title: "testA",
+                },
+              },
+            ],
+          },
+        })
+      )
+        .then(() => {
+          that.$router.push("/testA");
+        })
+        .catch((v) => {
+          console.log(v);
+        });
+      //this.$router.push("/testA");
     },
     enterHandle(e, v) {
       console.log(e, v);

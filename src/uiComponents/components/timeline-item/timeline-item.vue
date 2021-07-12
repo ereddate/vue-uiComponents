@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     parseTime(v) {
-      return this.$uiComponents.dateFormate(v, "hh:mm");
+      return this.$uic.dateFormate(v, "hh:mm");
     },
   },
 };

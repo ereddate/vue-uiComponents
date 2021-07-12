@@ -67,7 +67,7 @@ export default {
     rulesValidate(v) {
       let rules = this.$props.item.rules;
       if (rules && rules.required) {
-        if (this.$uiComponents.isEmpty(v || this.value)) {
+        if (this.$uic.isEmpty(v || this.value)) {
           this.error = {
             is: true,
             message: rules.message || "内容不能为空",
@@ -96,7 +96,7 @@ export default {
       }
     },
     i18n(v) {
-      return this.$uiComponents.i18n(v);
+      return this.$uic.i18n(v);
     },
   },
 };
