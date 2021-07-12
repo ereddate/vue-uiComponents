@@ -185,6 +185,11 @@
                 </ui-list>
               </template>
             </ui-card>
+            <ui-card>
+              <template #content>
+                <ui-image-text-item :item="imageTexts"></ui-image-text-item>
+              </template>
+            </ui-card>
           </template>
         </ui-panel>
       </template>
@@ -196,6 +201,12 @@
 export default {
   data() {
     return {
+      imageTexts: {
+        image:
+          "http://img.mp.itc.cn/upload/20170816/7ec1b62f383249d0b050b67625478563_th.jpg",
+        title: "一文理解ES6中的代理模式——Proxy",
+        desc: "forEach(observer => observer());return result;}观察者函数都放进Set集合，当修改obj的值，在会set函数中拦截，自动执行Set所有的观察者 ",
+      },
       uiToggleButton: {
         buttons: [
           {

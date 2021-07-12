@@ -20,6 +20,8 @@ import uiList from "./list/index";
 import uiListItem from "./list-item/index";
 import uiToggleButton from "./toggle-button/index";
 import uiAnimate from "./animate/index";
+import uiTextItem from "./ui-text-item/index";
+import uiImageTextItem from "./imageText-item/index";
 Vue.component("ui-remote-script", {
     render: function(createElement) {
         var self = this;
@@ -73,4 +75,6 @@ export const components = {
     uiListItem,
     uiToggleButton,
     uiAnimate,
+    uiTextItem,
+    uiImageTextItem,
 };
