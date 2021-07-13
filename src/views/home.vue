@@ -5,15 +5,78 @@
         <span>title</span>
       </template>
       <template #right>
-        <ui-button :item="{
+        <ui-button
+          :item="{
             icon: 'search',
-          }"></ui-button>
+          }"
+        ></ui-button>
       </template>
     </ui-navbar>
     <ui-animate :item="{ type: 'fadeInLeft', speed: 2 }">
       <template #content>
         <ui-panel :item="{ style: { marginTop: 56 / 23.44 + 'rem' } }">
           <template #content>
+            <ui-card>
+              <template #content>
+                <ui-scroll-view
+                  :item="{
+                    flex: 'row',
+                    width: 335,
+                    scrollTo: scrollValue || 30,
+                    scrolltolower: scrolltolower,
+                    scrolltoupper: scrolltoupper,
+                    scroll: scrollHandle,
+                  }"
+                >
+                  <template #content>
+                    <div :style="{ width: (4 * 200) / 23.44 + 'rem' }">
+                      <div
+                        v-for="(i, index) in [1, 2, 3, 4]"
+                        :key="index"
+                        :style="{
+                          width: 200 / 23.44 + 'rem',
+                          height: 30 / 23.44 + 'rem',
+                          float: 'left',
+                        }"
+                      >
+                        {{ i }}
+                      </div>
+                    </div>
+                  </template>
+                </ui-scroll-view>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
+                <button @click="scrollValue += 200">+</button
+                ><button @click="scrollValue -= 200">-</button>
+                <ui-scroll-view
+                  :item="{
+                    flex: 'column',
+                    height: 200,
+                    scrollTo: scrollValue || 30,
+                    scrolltolower: scrolltolower,
+                    scrolltoupper: scrolltoupper,
+                    scroll: scrollHandle,
+                  }"
+                >
+                  <template #content>
+                    <div :style="{ width: (4 * 200) / 23.44 + 'rem' }">
+                      <div
+                        v-for="(i, index) in [1, 2, 3, 4]"
+                        :key="index"
+                        :style="{
+                          width: '100%',
+                          height: 200 / 23.44 + 'rem',
+                        }"
+                      >
+                        {{ i }}
+                      </div>
+                    </div>
+                  </template>
+                </ui-scroll-view>
+              </template>
+            </ui-card>
             <ui-card>
               <template #content>
                 <ui-animate :item="{ type: 'fadeInLeft', speed: 3 }">
@@ -37,8 +100,14 @@
             </ui-card>
             <ui-card>
               <template #content>
-                <div class="content_image" v-for="(img, index) in imgs" :key="index">
-                  <ui-image :item="{ image: img.image, height: 80, fit: img.fit }"></ui-image>
+                <div
+                  class="content_image"
+                  v-for="(img, index) in imgs"
+                  :key="index"
+                >
+                  <ui-image
+                    :item="{ image: img.image, height: 80, fit: img.fit }"
+                  ></ui-image>
                 </div>
               </template>
             </ui-card>
@@ -75,14 +144,22 @@
             </ui-card>
             <ui-card>
               <template #content>
-                <ui-banner :item="banner" v-for="(banner, index) in banners" :key="index"></ui-banner>
+                <ui-banner
+                  :item="banner"
+                  v-for="(banner, index) in banners"
+                  :key="index"
+                ></ui-banner>
               </template>
             </ui-card>
             <ui-card>
               <template #content>
                 <ui-timeline :item="timeline">
                   <template #item="{ item }">
-                    <ui-timeline-item :item="time" v-for="(time, index) in item" :key="index">
+                    <ui-timeline-item
+                      :item="time"
+                      v-for="(time, index) in item"
+                      :key="index"
+                    >
                       <template #task>{{ index }}</template>
                     </ui-timeline-item>
                   </template>
@@ -155,7 +232,11 @@
                 <ui-toggle-button :item="uiToggleButton"></ui-toggle-button>
                 <ui-list :item="uiList">
                   <template #content="{ item }">
-                    <ui-list-item :item="item" v-for="(column, index) in item.content" :key="index">
+                    <ui-list-item
+                      :item="item"
+                      v-for="(column, index) in item.content"
+                      :key="index"
+                    >
                       <template #content>{{ column.title }}</template>
                     </ui-list-item>
                   </template>
@@ -165,25 +246,33 @@
             <ui-card>
               <template #content>
                 <ui-list :item="uiListA">
-                  <template #content="{item}">
+                  <template #content="{ item }">
                     <ui-list-item :item="item">
                       <template #content>
-                        <ui-image-text-item :item="{...imageTexts, type:'top'}"></ui-image-text-item>
+                        <ui-image-text-item
+                          :item="{ ...imageTexts, type: 'top' }"
+                        ></ui-image-text-item>
                       </template>
                     </ui-list-item>
                     <ui-list-item :item="item">
                       <template #content>
-                        <ui-image-text-item :item="{...imageTexts, type:'left'}"></ui-image-text-item>
+                        <ui-image-text-item
+                          :item="{ ...imageTexts, type: 'left' }"
+                        ></ui-image-text-item>
                       </template>
                     </ui-list-item>
                     <ui-list-item :item="item">
                       <template #content>
-                        <ui-image-text-item :item="{...imageTexts, type:'bottom'}"></ui-image-text-item>
+                        <ui-image-text-item
+                          :item="{ ...imageTexts, type: 'bottom' }"
+                        ></ui-image-text-item>
                       </template>
                     </ui-list-item>
                     <ui-list-item :item="item">
                       <template #content>
-                        <ui-image-text-item :item="{...imageTexts, type:'right'}"></ui-image-text-item>
+                        <ui-image-text-item
+                          :item="{ ...imageTexts, type: 'right' }"
+                        ></ui-image-text-item>
                       </template>
                     </ui-list-item>
                   </template>
@@ -201,13 +290,14 @@
 export default {
   data() {
     return {
+      scrollValue: 0,
       imageTexts: {
-        type:"right",
+        type: "right",
         image:
           "http://img.mp.itc.cn/upload/20170816/7ec1b62f383249d0b050b67625478563_th.jpg",
         title: "一文理解ES6中的代理模式——Proxy",
         desc: "forEach(observer => observer());return result;}观察者函数都放进Set集合，当修改obj的值，在会set函数中拦截，自动执行Set所有的观察者 ",
-        url:""
+        url: "",
       },
       uiToggleButton: {
         buttons: [
@@ -516,6 +606,15 @@ export default {
     };
   },
   methods: {
+    scrollHandle(v) {
+      console.log(v, v.handle);
+    },
+    scrolltoupper(v) {
+      console.log(v, v.handle);
+    },
+    scrolltolower(v) {
+      console.log(v, v.handle);
+    },
     changeHandle(v) {
       let type = this.uiToggleButton.buttons[v].title.toLowerCase();
       this.uiList.type = type;
