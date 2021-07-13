@@ -54,7 +54,12 @@ export const components = {
 
 引用时如下面的写法就可以使用了,建议按例子插入参数。
 
-`<ui-component :item="{name:value}"></ui-component>`
+`<ui-component :item="{name:value}">
+    <template #content="{item}">
+        {{item.name}}
+        ...
+    </template>
+ </ui-component>`
 
 #### 组件列表
 1.  ui-link
