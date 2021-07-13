@@ -87,6 +87,7 @@ export const components = {
 23. ui-image-text-item
 24. ui-text-item
 25. ui-scroll-view
+26. ui-collapse
 
 this.$toast('message');
 
