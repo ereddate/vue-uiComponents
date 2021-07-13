@@ -24,61 +24,65 @@ import uiTextItem from "./text-item/index";
 import uiImageTextItem from "./imageText-item/index";
 import uiScrollView from "./scroll-view/index";
 import uiCollapse from "./collapse/index";
+import uiCollapseGroup from "./collapse-group/index";
+import uiSwiper from "./swiper/index";
 Vue.component("ui-remote-script", {
-    render: function(createElement) {
-        var self = this;
-        return createElement("script", {
-            attrs: {
-                type: "text/javascript",
-                src: this.src,
-            },
-            on: {
-                load: function(event) {
-                    self.$emit("load", event);
-                },
-                error: function(event) {
-                    self.$emit("error", event);
-                },
-                readystatechange: function(event) {
-                    if (this.readyState == "complete") {
-                        self.$emit("load", event);
-                    }
-                },
-            },
-        });
-    },
-    props: {
-        src: {
-            type: String,
-            required: true,
+  render: function (createElement) {
+    var self = this;
+    return createElement("script", {
+      attrs: {
+        type: "text/javascript",
+        src: this.src,
+      },
+      on: {
+        load: function (event) {
+          self.$emit("load", event);
         },
+        error: function (event) {
+          self.$emit("error", event);
+        },
+        readystatechange: function (event) {
+          if (this.readyState == "complete") {
+            self.$emit("load", event);
+          }
+        },
+      },
+    });
+  },
+  props: {
+    src: {
+      type: String,
+      required: true,
     },
+  },
 });
 
 export const components = {
-    uiCard,
-    uiButton,
-    uiIcon,
-    uiLink,
-    uiImage,
-    uiBanner,
-    uiGotop,
-    uiLoading,
-    uiTimeline,
-    uiTimelineItem,
-    uiNavbar,
-    uiPanel,
-    uiInput,
-    uiForm,
-    uiFormItem,
-    uiDivider,
-    uiToast,
-    uiList,
-    uiListItem,
-    uiToggleButton,
-    uiAnimate,
-    uiTextItem,
-    uiImageTextItem,
-    uiScrollView,
-    uiCollapse,
+  uiCard,
+  uiButton,
+  uiIcon,
+  uiLink,
+  uiImage,
+  uiBanner,
+  uiGotop,
+  uiLoading,
+  uiTimeline,
+  uiTimelineItem,
+  uiNavbar,
+  uiPanel,
+  uiInput,
+  uiForm,
+  uiFormItem,
+  uiDivider,
+  uiToast,
+  uiList,
+  uiListItem,
+  uiToggleButton,
+  uiAnimate,
+  uiTextItem,
+  uiImageTextItem,
+  uiScrollView,
+  uiCollapse,
+  uiCollapseGroup,
+  uiSwiper,
 };

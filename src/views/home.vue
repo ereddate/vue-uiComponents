@@ -18,30 +18,28 @@
           <template #content>
             <ui-card>
               <template #content>
-                <ui-collapse
-                  :item="{
-                    title: 'test',
-                    collapse: false,
-                  }"
-                >
-                  <template #content> 123456 </template>
-                </ui-collapse>
-                <ui-collapse
-                  :item="{
-                    title: 'test',
-                    collapse: true,
-                  }"
-                >
-                  <template #content> 123456 </template>
-                </ui-collapse>
-                <ui-collapse
-                  :item="{
-                    title: 'test',
-                    collapse: false,
-                  }"
-                >
-                  <template #content> 123456 </template>
-                </ui-collapse>
+                <ui-swiper :item="swiperData">
+                  <template #content="{ item }"> {{ item }} </template>
+                </ui-swiper>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
+                <ui-collapse-group :item="collapseData">
+                  <template #content="{ item }">
+                    <ui-collapse
+                      v-for="(collapse, index) in item.data"
+                      :key="index"
+                      :item="{
+                        title: collapse.title,
+                        collapse: item.current === index ? true : false,
+                        index: index,
+                      }"
+                    >
+                      <template #content> 123456 </template>
+                    </ui-collapse>
+                  </template>
+                </ui-collapse-group>
               </template>
             </ui-card>
             <ui-card>
@@ -318,6 +316,27 @@
 export default {
   data() {
     return {
+      swiperData: {
+        width: 335,
+        height: 200,
+        data: [{ a: 1 }, { a: 2 }, { a: 3 }, { a: 4 }, { a: 5 }],
+      },
+      collapseData: {
+        data: [
+          {
+            title: "test",
+          },
+          {
+            title: "test",
+          },
+          {
+            title: "test",
+          },
+          {
+            title: "test",
+          },
+        ],
+      },
       scrollValue: 0,
       imageTexts: {
         type: "right",

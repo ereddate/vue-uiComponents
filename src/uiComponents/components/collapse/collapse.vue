@@ -54,6 +54,9 @@ export default {
     "$props.item.collapse"(v) {
       this.collapse = v;
     },
+    "$data.collapse"(v) {
+      if (v) this.$parent.$emit("changeHandle", this.$props.item.index);
+    },
   },
   methods: {
     toggleHandle() {
