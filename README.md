@@ -88,6 +88,8 @@ export const components = {
 24. ui-text-item
 25. ui-scroll-view
 26. ui-collapse
+27. ui-collapse-group
+28. ui-swiper
 
 this.$toast('message');
 
