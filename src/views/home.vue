@@ -18,6 +18,34 @@
           <template #content>
             <ui-card>
               <template #content>
+                <ui-collapse
+                  :item="{
+                    title: 'test',
+                    collapse: false,
+                  }"
+                >
+                  <template #content> 123456 </template>
+                </ui-collapse>
+                <ui-collapse
+                  :item="{
+                    title: 'test',
+                    collapse: true,
+                  }"
+                >
+                  <template #content> 123456 </template>
+                </ui-collapse>
+                <ui-collapse
+                  :item="{
+                    title: 'test',
+                    collapse: false,
+                  }"
+                >
+                  <template #content> 123456 </template>
+                </ui-collapse>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
                 <ui-scroll-view
                   :item="{
                     flex: 'row',

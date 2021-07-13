@@ -23,6 +23,7 @@ import uiAnimate from "./animate/index";
 import uiTextItem from "./text-item/index";
 import uiImageTextItem from "./imageText-item/index";
 import uiScrollView from "./scroll-view/index";
+import uiCollapse from "./collapse/index";
 Vue.component("ui-remote-script", {
     render: function(createElement) {
         var self = this;
@@ -79,4 +80,5 @@ export const components = {
     uiTextItem,
     uiImageTextItem,
     uiScrollView,
+    uiCollapse,
 };
