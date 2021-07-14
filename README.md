@@ -28,6 +28,8 @@ new Vue({
 }).$mount("#app");
 ```
 
+注：DEMO在/src/views/home.vue中
+
 #### 扩展
 只需要在components目录创建相应组件的目录，并在其目录下创建的index.js和组件名.vue文件，同时在components根目录的index.js中引入就可以扩展了，如下：
 组件目录下的index.js及相应的.vue文件
@@ -90,8 +92,16 @@ export const components = {
 26. ui-collapse
 27. ui-collapse-group
 28. ui-swiper
+29. ui-dialog
+30. ui-dialog-item
 
+
+```
+this.$confirm('message', function(){console.log('enter!')}, function(){console.log('cancel!')});
+this.$message('message', function(){console.log('enter!')});
 this.$toast('message');
+```
+
 
 #### 功能
 1.  this.$addModel 添加路由
