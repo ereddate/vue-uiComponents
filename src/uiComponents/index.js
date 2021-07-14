@@ -67,7 +67,7 @@ class UiComponents {
     uninstall() {}
 }
 
-const extend = (target, args) => {
+window.extend = (target, args) => {
     target = target || {};
     for (let n in args) {
         common.isArray(target) ?
@@ -79,9 +79,9 @@ const extend = (target, args) => {
     return target;
 };
 let UIC = new UiComponents();
-extend(UIC, {
+window.extend(UIC, {
     setFontSize: common.setFontSize,
-    extend: extend,
+    extend: window.extend,
 });
 
 if (typeof window !== "undefined" && window.Vue) {

@@ -19,7 +19,9 @@
             <ui-card>
               <template #content>
                 <ui-swiper :item="swiperData">
-                  <template #content="{ item }"> {{ item }} </template>
+                  <template #content="{ item }">
+                    <ui-image :item="{ ...item }"></ui-image>
+                  </template>
                 </ui-swiper>
               </template>
             </ui-card>
@@ -318,8 +320,21 @@ export default {
     return {
       swiperData: {
         width: 335,
-        height: 200,
-        data: [{ a: 1 }, { a: 2 }, { a: 3 }, { a: 4 }, { a: 5 }],
+        height: 160,
+        data: [
+          {
+            image:
+              "https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/192539/39/12312/101788/60e6db3aE0d576a57/4b80b83036d1edaf.jpg!cr_1053x420_4_0!q70.jpg.dpg",
+          },
+          {
+            image:
+              "https://imgcps.jd.com/ling4/41438815868/5LyR6Zey5pe25YWJ/5paH5Lu25pS257qz5aW95biu5omL/p-5d91a4f642dd5b7c7d52cbcf/7ec597ee/cr_1053x420_4_0/s1125x690/q70.jpg",
+          },
+          {
+            image:
+              "https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/172985/20/11254/250873/60ab712bE2cfd0e52/f184257039a404d1.png!cr_1053x420_4_0!q70.jpg.dpg",
+          },
+        ],
       },
       collapseData: {
         data: [

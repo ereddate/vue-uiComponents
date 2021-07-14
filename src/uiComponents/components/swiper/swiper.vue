@@ -1,38 +1,41 @@
 <template>
   <div
     class="ui_swiper"
-    :style="{ width: item.width / 23.44 + 'rem' }"
-    @touchstart="touchstartHandle"
-    @touchmove="touchmoveHandle"
-    @touchend="touchendHandle"
-    @touchcancel="touchcancelHandle"
+    :style="{
+      width: item.width / 23.44 + 'rem',
+      height: item.height / 23.44 + 'rem',
+    }"
+    ref="swipe"
   >
     <div
       class="ui_swiper_content"
       :style="{
-        width: (item.width * item.data.length) / 23.44 + 'rem',
+        width: item.width / 23.44 + 'rem',
         height: item.height / 23.44 + 'rem',
       }"
     >
       <div
-        class="content animate__animated animate__infinite no"
-        v-for="(swipe, index) in [...item.data, item.data[0]]"
-        :key="index"
+        clang="scroll_content"
         :style="{
-          width: item.width / 23.44 + 'rem',
+          width: (item.width * item.data.length) / 23.44 + 'rem',
           height: item.height / 23.44 + 'rem',
-          'animation-duration': (item.speed || defaultSpeed) + 's',
+          transform: 'translateX(-' + (current * item.width) / 23.44 + 'rem)',
+          transition: 'transform 1s',
         }"
-        :ref="'swipe_' + index"
-        :class="
-          current + 1 === index
-            ? 'animate__fadeOutLeft on'
-            : current === index
-            ? 'animate__fadeOutLeft on'
-            : ''
-        "
       >
-        <slot name="content" :item="swipe"></slot>
+        <div
+          class="content animate__animated"
+          v-for="(swipe, index) in [...item.data]"
+          :key="index"
+          :style="{
+            width: item.width / 23.44 + 'rem',
+            height: item.height / 23.44 + 'rem',
+            'animation-duration': '0.5s',
+          }"
+          :ref="'swipe_' + index"
+        >
+          <slot name="content" :item="swipe"></slot>
+        </div>
       </div>
     </div>
     <div class="dots">
@@ -59,35 +62,56 @@ export default {
   },
   data() {
     return {
+      type: "left",
       current: -1,
-      defaultSpeed: 2,
+      defaultSpeed: 3,
+      isloading: false,
     };
   },
   created() {
     this.play();
   },
+  mounted() {
+    let that = this;
+    this.$uic.swipe(this.$refs["swipe"], {
+      callback(e, direction) {
+        that.type = direction;
+        switch (direction) {
+          case "left":
+            that.current += 1;
+            that.scrollTo(that.current);
+            break;
+          default:
+            that.current =
+              that.current - 1 < 0
+                ? that.$props.item.data.length - 1
+                : that.current - 1;
+            that.scrollTo(that.current);
+            break;
+        }
+      },
+    });
+  },
   beforeDestroy() {
     this.timeout && clearTimeout(this.timeout);
   },
   methods: {
-    touchmoveHandle() {},
-    touchstartHandle() {},
-    touchendHandle() {},
-    touchcancelHandle() {},
     play() {
       this.scrollTo(this.current + 1);
     },
     scrollTo(n) {
       let that = this;
+      this.isloading = true;
       if (n >= this.$props.item.data.length) {
         this.current = 0;
-        this.timeout && clearTimeout(this.timeout);
-        this.timeout = setTimeout(() => {
-          that.play();
-        }, (this.$props.item.speed || this.defaultSpeed) * 1000);
-        return;
+      } else {
+        this.current = n;
       }
-      this.current = n;
+      //console.log(this.$refs["swipe"]);
+      //this.$refs["swipe"].scrollLeft = this.current * this.$props.item.width;
+      this.playTimeout = setTimeout(() => {
+        that.isloading = false;
+      }, 1000);
       this.timeout && clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         that.play();
@@ -99,9 +123,9 @@ export default {
 <style lang="less">
 @base: 23.44rem;
 .ui_swiper {
-  overflow: hidden;
   position: relative;
   .ui_swiper_content {
+    overflow: hidden;
     .content {
       float: left;
       &.no {
@@ -140,22 +164,22 @@ export default {
   }
 }
 @-webkit-keyframes fadeOutLeft {
-  from {
+  0% {
     opacity: 1;
   }
 
-  to {
+  100% {
     opacity: 1;
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
   }
 }
 @keyframes fadeOutLeft {
-  from {
+  0% {
     opacity: 1;
   }
 
-  to {
+  100% {
     opacity: 1;
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
