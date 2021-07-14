@@ -47,6 +47,62 @@ class UiComponents {
                 },
             };
         };
+        Vue.prototype.$confirm = function(v, enterHandle, cancelHandle) {
+            typeof v === "string" && (v = { message: v });
+            const alert = new Vue({
+                render(h) {
+                    return h(components.uiDialog, {
+                        props: { item: { type: "default", isShow: true } },
+                        scopedSlots: {
+                            content: () =>
+                                h(components.uiDialogItem, {
+                                    props: {
+                                        item: {
+                                            type: "confirm",
+                                            message: v.message,
+                                            cancelDialogHandle: function() {
+                                                cancelHandle && cancelHandle();
+                                                document.body.removeChild(alert.$el);
+                                            },
+                                            enterDialogHandle: function() {
+                                                enterHandle && enterHandle();
+                                                document.body.removeChild(alert.$el);
+                                            },
+                                        },
+                                    },
+                                }),
+                        },
+                    });
+                },
+            }).$mount();
+            document.body.appendChild(alert.$el);
+        };
+        Vue.prototype.$message = function(v, enterHandle) {
+            typeof v === "string" && (v = { message: v });
+            const alert = new Vue({
+                render(h) {
+                    return h(components.uiDialog, {
+                        props: { item: { type: "default", isShow: true } },
+                        scopedSlots: {
+                            content: () =>
+                                h(components.uiDialogItem, {
+                                    props: {
+                                        item: {
+                                            type: "alert",
+                                            message: v.message,
+                                            enterDialogHandle: function() {
+                                                enterHandle && enterHandle();
+                                                document.body.removeChild(alert.$el);
+                                            },
+                                        },
+                                    },
+                                }),
+                        },
+                    });
+                },
+            }).$mount();
+            document.body.appendChild(alert.$el);
+        };
         Vue.prototype.$uic = function() {
             return {
                 i18n(v) {

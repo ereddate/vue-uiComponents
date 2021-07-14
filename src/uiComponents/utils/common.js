@@ -117,7 +117,7 @@ const swipe = function(target, options) {
     var browser = {
         addEventListener: !!window.addEventListener,
         /* touch: "ontouchstart" in window ||
-                    (window.DocumentTouch && document instanceof DocumentTouch), */
+                                            (window.DocumentTouch && document instanceof DocumentTouch), */
     };
     if (typeof options == "function") {
         options = window.extend({}, {
@@ -183,7 +183,7 @@ const swipe = function(target, options) {
                     y: touches.pageY,
                 };
                 delta = {};
-                element.addEventListener("touchmove", this, false);
+                element.addEventListener("touchmove", this, { passive: true });
                 element.addEventListener("touchend", this, false);
             },
             move: function(event) {
@@ -205,17 +205,17 @@ const swipe = function(target, options) {
             },
             end: function(event) {
                 var direction = calculateDirection(start, end);
-                var a = 150;
+                var a = 100;
                 (delta.x < -a || delta.x > a || delta.y < -a || delta.y > a) &&
                 options.callback &&
                     options.callback.call(element, event, direction);
-                element.removeEventListener("touchmove", events, false);
-                element.removeEventListener("touchend", events, false);
+                element.removeEventListener("touchmove", events, { passive: true });
+                element.removeEventListener("touchend", events, { passive: false });
             },
         };
         if (browser.addEventListener) {
             //if (browser.touch) {
-            element.addEventListener("touchstart", events, false);
+            element.addEventListener("touchstart", events, { passive: false });
             //}
         }
     }

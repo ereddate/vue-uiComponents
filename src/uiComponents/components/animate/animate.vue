@@ -1,6 +1,6 @@
 <template>
   <div
-    class="ui_animate animate__animated animate__infinite"
+    class="ui_animate animate__animated"
     :class="isStart && 'animate__' + item.type"
     :style="{ 'animation-duration': (item.speed || 1) + 's' }"
   >

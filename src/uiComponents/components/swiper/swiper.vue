@@ -69,7 +69,7 @@ export default {
     };
   },
   created() {
-    this.play();
+    this.$props.item.autoPlay ? this.play() : (this.current = 0);
   },
   mounted() {
     let that = this;
@@ -84,7 +84,9 @@ export default {
           default:
             that.current =
               that.current - 1 < 0
-                ? that.$props.item.data.length - 1
+                ? that.$props.item.loop
+                  ? that.$props.item.data.length - 1
+                  : 0
                 : that.current - 1;
             that.scrollTo(that.current);
             break;
@@ -101,20 +103,23 @@ export default {
     },
     scrollTo(n) {
       let that = this;
-      this.isloading = true;
+      //this.isloading = true;
       if (n >= this.$props.item.data.length) {
-        this.current = 0;
+        this.current = this.$props.item.loop
+          ? 0
+          : this.$props.item.data.length - 1;
       } else {
         this.current = n;
       }
       //console.log(this.$refs["swipe"]);
       //this.$refs["swipe"].scrollLeft = this.current * this.$props.item.width;
-      this.playTimeout = setTimeout(() => {
+      /*       this.playTimeout = setTimeout(() => {
         that.isloading = false;
-      }, 1000);
+      }, 1000); */
+
       this.timeout && clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
-        that.play();
+        that.$props.item.autoPlay && that.play();
       }, (this.$props.item.speed || this.defaultSpeed) * 1000);
     },
   },
@@ -126,6 +131,7 @@ export default {
   position: relative;
   .ui_swiper_content {
     overflow: hidden;
+    border-radius: (5 / @base);
     .content {
       float: left;
       &.no {
@@ -149,8 +155,8 @@ export default {
       padding: (5 / @base);
       .dot {
         border-radius: (20 / @base);
-        width: (15 / @base);
-        height: (4.5 / @base);
+        width: (10 / @base);
+        height: (3.5 / @base);
         overflow: hidden;
         background-color: #cccccc;
         float: left;

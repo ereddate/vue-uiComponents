@@ -312,15 +312,28 @@
       </template>
     </ui-animate>
     <ui-gotop></ui-gotop>
+    <ui-dialog :item="{ ...dialog, cancelDialogHandle, enterDialogHandle }">
+      <template #content="{ item }">
+        <ui-dialog-item :item="{ ...item }"></ui-dialog-item>
+      </template>
+    </ui-dialog>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
+      dialog: {
+        width: 200,
+        isShow: false,
+        type: "default",
+      },
       swiperData: {
         width: 335,
         height: 160,
+        autoPlay: true,
+        loop: true,
+        speed: 2,
         data: [
           {
             image:
@@ -333,6 +346,18 @@ export default {
           {
             image:
               "https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/172985/20/11254/250873/60ab712bE2cfd0e52/f184257039a404d1.png!cr_1053x420_4_0!q70.jpg.dpg",
+          },
+          {
+            image:
+              "https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/20133/31/7038/158978/5c675d70E85733fe0/989fe25311a37e2f.jpg!cr_1125x449_0_166!q70.jpg.dpg",
+          },
+          {
+            image:
+              "https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/179092/31/12467/102983/60e6af65E4b2fbef7/0691a58b9fb5177b.jpg!cr_1053x420_4_0!q70.jpg.dpg",
+          },
+          {
+            image:
+              "https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/178764/20/13914/201953/60eca470Ef0753e01/2cdb8520c2fc59c5.jpg!cr_1125x449_0_166!q70.jpg.dpg",
           },
         ],
       },
@@ -667,7 +692,27 @@ export default {
       },
     };
   },
+  created() {
+    let that = this;
+    that.$message("你确认吗？", function () {
+      that.$confirm(
+        "你需要再确认吗？",
+        function () {
+          console.log("enter!");
+        },
+        function () {
+          console.log("cancel!");
+        }
+      );
+    });
+  },
   methods: {
+    cancelDialogHandle() {
+      this.dialog.isShow = false;
+    },
+    enterDialogHandle() {
+      this.dialog.isShow = false;
+    },
     scrollHandle(v) {
       console.log(v, v.handle);
     },
