@@ -94,6 +94,8 @@ export const components = {
 28. ui-swiper
 29. ui-dialog
 30. ui-dialog-item
+31. ui-image-list
+32. ui-image-list-item
 
 
 ```
