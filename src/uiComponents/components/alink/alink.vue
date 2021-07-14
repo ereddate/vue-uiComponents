@@ -4,6 +4,7 @@
       :href="item.url"
       v-if="item.url"
       :style="{ height: item.height ? item.height / 23.44 + 'rem' : 'auto' }"
+      :target="item.target || '_blank'"
     >
       <slot name="content"></slot>
     </a>

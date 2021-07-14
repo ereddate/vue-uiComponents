@@ -69,6 +69,7 @@ export default {
         align-items: center;
         align-content: center;
         .ui_button {
+          width: 50%;
           margin: 0 (2.5 / @base);
         }
       }

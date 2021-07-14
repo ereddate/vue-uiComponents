@@ -307,6 +307,11 @@
                 </ui-list>
               </template>
             </ui-card>
+            <ui-image-list :item="{ data: imageList }">
+              <template #content="{ item }">
+                <ui-image-list-item :item="item"></ui-image-list-item>
+              </template>
+            </ui-image-list>
           </template>
         </ui-panel>
       </template>
@@ -323,6 +328,68 @@
 export default {
   data() {
     return {
+      imageList: [
+        {
+          type: "goods",
+          data: {
+            image: [
+              "//img12.360buyimg.com/mobilecms/s372x372_jfs/t1/175554/34/17766/223577/60deb22bE3c2d674c/98fd91bb8925e6b7.jpg!q70.dpg.webp",
+            ],
+            title:
+              "艾森雅 意式科技布沙发三人位小户型客厅组合沙发 三人位（2.1米） 高回弹海绵款",
+            price: 1490,
+            unit: "¥",
+          },
+        },
+        {
+          type: "goods",
+          data: {
+            image: [
+              "//img12.360buyimg.com/mobilecms/s372x372_jfs/t1/175554/34/17766/223577/60deb22bE3c2d674c/98fd91bb8925e6b7.jpg!q70.dpg.webp",
+            ],
+            title:
+              "艾森雅 意式科技布沙发三人位小户型客厅组合沙发 三人位（2.1米） 高回弹海绵款",
+            price: 1490,
+            unit: "¥",
+          },
+        },
+        {
+          type: "goods",
+          data: {
+            image: [
+              "//img12.360buyimg.com/mobilecms/s372x372_jfs/t1/175554/34/17766/223577/60deb22bE3c2d674c/98fd91bb8925e6b7.jpg!q70.dpg.webp",
+            ],
+            title:
+              "艾森雅 意式科技布沙发三人位小户型客厅组合沙发 三人位（2.1米） 高回弹海绵款",
+            price: 1490,
+            unit: "¥",
+          },
+        },
+        {
+          type: "goods",
+          data: {
+            image: [
+              "//img12.360buyimg.com/mobilecms/s372x372_jfs/t1/175554/34/17766/223577/60deb22bE3c2d674c/98fd91bb8925e6b7.jpg!q70.dpg.webp",
+            ],
+            title:
+              "艾森雅 意式科技布沙发三人位小户型客厅组合沙发 三人位（2.1米） 高回弹海绵款",
+            price: 1490,
+            unit: "¥",
+          },
+        },
+        {
+          type: "goods",
+          data: {
+            image: [
+              "//img12.360buyimg.com/mobilecms/s372x372_jfs/t1/175554/34/17766/223577/60deb22bE3c2d674c/98fd91bb8925e6b7.jpg!q70.dpg.webp",
+            ],
+            title:
+              "艾森雅 意式科技布沙发三人位小户型客厅组合沙发 三人位（2.1米） 高回弹海绵款",
+            price: 1490,
+            unit: "¥",
+          },
+        },
+      ],
       dialog: {
         width: 200,
         isShow: false,

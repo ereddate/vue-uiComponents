@@ -28,6 +28,8 @@ import uiCollapseGroup from "./collapse-group/index";
 import uiSwiper from "./swiper/index";
 import uiDialog from "./dialog/index";
 import uiDialogItem from "./dialog-item/index";
+import uiImageList from "./imageList/index";
+import uiImageListItem from "./imageList-item/index";
 Vue.component("ui-remote-script", {
     render: function(createElement) {
         var self = this;
@@ -89,4 +91,6 @@ export const components = {
     uiSwiper,
     uiDialog,
     uiDialogItem,
+    uiImageList,
+    uiImageListItem,
 };
