@@ -63,6 +63,8 @@ export const components = {
     </template>
  </ui-component>`
 
+注：slot的名称统一命名“content”
+
 #### 组件列表
 1.  ui-link
 2.  ui-banner
