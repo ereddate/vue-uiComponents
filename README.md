@@ -52,16 +52,20 @@ export const components = {
 ```
 命名要十分注意
 
-`如uiComponent，标签是<ui-component></ui-component>，uiComponentItem，就是<ui-component-item></ui-component-item>`
+```
+如uiComponent，标签是<ui-component></ui-component>，uiComponentItem，就是<ui-component-item></ui-component-item>
+```
 
 引用时如下面的写法就可以使用了,建议按例子插入参数。
 
-`<ui-component :item="{name:value}">
+```
+<ui-component :item="{name:value}">
     <template #content="{item}">
         {{item.name}}
         ...
     </template>
- </ui-component>`
+ </ui-component>
+```
 
 注：slot的名称统一命名“content”，父子级传值统一命名“item”，并且类型是Object
 
