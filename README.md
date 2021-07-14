@@ -93,9 +93,13 @@ export const components = {
 29. ui-dialog
 30. ui-dialog-item
 
+
+```
 this.$confirm('message', function(){console.log('enter!')}, function(){console.log('cancel!')});
 this.$message('message', function(){console.log('enter!')});
 this.$toast('message');
+```
+
 
 #### 功能
 1.  this.$addModel 添加路由
