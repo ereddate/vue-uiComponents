@@ -10,6 +10,7 @@ Vue+Vue-i18n+Less+animate.css
 
 拷贝/uiComponents目录到您的项目中，在main.js引用，如下：
 
+1.全局引入
 ```
 import Vue from "vue";
 import App from "./App.vue";
@@ -27,6 +28,24 @@ new Vue({
     render: (h) => h(App),
 }).$mount("#app");
 ```
+2.按需引入
+```
+    ...
+    <uiForm :item="{...}"></uiForm>
+  </div>
+</template>
+<script>
+import UIComponents from "../uiComponents/index";
+export default {
+  components: {
+    uiForm: UIComponents.components.uiForm,
+  },
+  data() {
+    ...
+  },
+  ...
+```
+
 
 注：DEMO在/src/views/home.vue中
 
