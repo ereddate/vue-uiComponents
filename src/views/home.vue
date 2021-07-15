@@ -18,6 +18,20 @@
           <template #content>
             <ui-card>
               <template #content>
+                <ui-picker
+                  :item="{ ...pickerData, enterHandle: pickChangeHandle }"
+                ></ui-picker
+                ><!-- 
+                <ui-picker-column
+                  :item="{
+                    data: pickerColumn,
+                    changeHandle: pickerColumnChangeHandle,
+                  }"
+                ></ui-picker-column> -->
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
                 <ui-swiper :item="swiperData">
                   <template #content="{ item }">
                     <ui-image :item="{ ...item }"></ui-image>
@@ -328,6 +342,179 @@
 export default {
   data() {
     return {
+      pickerData: {
+        data: [
+          {
+            data: [
+              {
+                title: "辽宁1",
+                children: [
+                  {
+                    title: "辽宁1",
+                  },
+                  {
+                    title: "辽宁2",
+                  },
+                  {
+                    title: "辽宁3",
+                  },
+                  {
+                    title: "辽宁4",
+                  },
+                  {
+                    title: "辽宁5",
+                  },
+                  {
+                    title: "辽宁6",
+                  },
+                  {
+                    title: "辽宁7",
+                  },
+                ],
+              },
+              {
+                title: "辽宁2",
+                children: [
+                  {
+                    title: "辽宁1",
+                  },
+                  {
+                    title: "辽宁2",
+                  },
+                  {
+                    title: "辽宁3",
+                  },
+                  {
+                    title: "辽宁4",
+                  },
+                  {
+                    title: "辽宁5",
+                  },
+                  {
+                    title: "辽宁6",
+                  },
+                  {
+                    title: "辽宁7",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            data: [
+              {
+                title: "辽宁1",
+                children: [
+                  {
+                    title: "辽宁1",
+                  },
+                  {
+                    title: "辽宁2",
+                  },
+                  {
+                    title: "辽宁3",
+                  },
+                  {
+                    title: "辽宁4",
+                  },
+                  {
+                    title: "辽宁5",
+                  },
+                  {
+                    title: "辽宁6",
+                  },
+                  {
+                    title: "辽宁7",
+                  },
+                ],
+              },
+              {
+                title: "辽宁2",
+                children: [
+                  {
+                    title: "辽宁1",
+                  },
+                  {
+                    title: "辽宁2",
+                  },
+                  {
+                    title: "辽宁3",
+                  },
+                  {
+                    title: "辽宁4",
+                  },
+                  {
+                    title: "辽宁5",
+                  },
+                  {
+                    title: "辽宁6",
+                  },
+                  {
+                    title: "辽宁7",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            data: [
+              {
+                title: "辽宁1",
+                children: [
+                  {
+                    title: "辽宁1",
+                  },
+                  {
+                    title: "辽宁2",
+                  },
+                  {
+                    title: "辽宁3",
+                  },
+                  {
+                    title: "辽宁4",
+                  },
+                  {
+                    title: "辽宁5",
+                  },
+                  {
+                    title: "辽宁6",
+                  },
+                  {
+                    title: "辽宁7",
+                  },
+                ],
+              },
+              {
+                title: "辽宁2",
+                children: [
+                  {
+                    title: "辽宁1",
+                  },
+                  {
+                    title: "辽宁2",
+                  },
+                  {
+                    title: "辽宁3",
+                  },
+                  {
+                    title: "辽宁4",
+                  },
+                  {
+                    title: "辽宁5",
+                  },
+                  {
+                    title: "辽宁6",
+                  },
+                  {
+                    title: "辽宁7",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+        title: "省份",
+      },
       imageList: [
         {
           type: "goods",
@@ -774,6 +961,12 @@ export default {
     });
   },
   methods: {
+    pickChangeHandle(v) {
+      console.log(v);
+    },
+    pickerColumnChangeHandle(v) {
+      this.$toast(JSON.stringify(v));
+    },
     cancelDialogHandle() {
       this.dialog.isShow = false;
     },

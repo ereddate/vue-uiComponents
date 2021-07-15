@@ -30,19 +30,35 @@ class UiComponents {
 
         done(Vue, common);
 
-        Vue.prototype.$toast = function(v) {
-            const toast = new Vue({
+        Vue.prototype.$toast = function(v, options = {}) {
+            this.timeout && clearTimeout(this.timeout);
+            let node = document.getElementById("toast");
+            node && document.body.removeChild(node.parentNode);
+            let that = this;
+            options = window.extend({
+                    auto: true,
+                },
+                options
+            );
+            this.toast = new Vue({
                 render(h) {
                     return h(components.uiToast, {
                         props: { item: { message: v, isShow: true, position: "bottom" } },
                     });
                 },
             }).$mount();
-            document.body.appendChild(toast.$el);
+            document.body.appendChild(this.toast.$el);
+            if (options.auto) {
+                that.timeout = setTimeout(() => {
+                    let node = document.getElementById("toast");
+                    node && document.body.removeChild(node.parentNode);
+                }, 1500);
+            }
             return {
                 destroy() {
-                    setTimeout(() => {
-                        document.body.removeChild(toast.$el);
+                    that.timeout = setTimeout(() => {
+                        let node = document.getElementById("toast");
+                        node && document.body.removeChild(node.parentNode);
                     }, 1500);
                 },
             };
