@@ -102,6 +102,8 @@ export const components = {
 30. ui-dialog-item
 31. ui-image-list
 32. ui-image-list-item
+33. ui-picker
+34. ui-picker-column
 
 
 ```
