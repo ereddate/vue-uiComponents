@@ -123,6 +123,7 @@ export const components = {
 32. ui-image-list-item
 33. ui-picker
 34. ui-picker-column
+35. ui-setpper
 
 
 ```
