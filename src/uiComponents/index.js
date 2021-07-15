@@ -154,6 +154,7 @@ let UIC = new UiComponents();
 window.extend(UIC, {
     setFontSize: common.setFontSize,
     extend: window.extend,
+    components,
 });
 
 if (typeof window !== "undefined" && window.Vue) {

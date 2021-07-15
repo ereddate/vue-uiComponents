@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ui-navbar :item="{ goback: true, fixed: true }">
+    <ui-navbar :item="{ goback: true, fixed: true, title: 'home' }">
       <template #center>
         <span>title</span>
       </template>
@@ -90,8 +90,15 @@
             </ui-card>
             <ui-card>
               <template #content>
-                <button @click="scrollValue += 200">+</button
-                ><button @click="scrollValue -= 200">-</button>
+                <ui-stepper
+                  :item="{
+                    step: 200,
+                    min: 0,
+                    max: 1000,
+                    value: 0,
+                    changeHandle: stepChangeHandle,
+                  }"
+                ></ui-stepper>
                 <ui-scroll-view
                   :item="{
                     flex: 'column',
@@ -336,10 +343,15 @@
         <ui-dialog-item :item="{ ...item }"></ui-dialog-item>
       </template>
     </ui-dialog>
+    <uiForm></uiForm>
   </div>
 </template>
 <script>
+import UIComponents from "../uiComponents/index";
 export default {
+  components: {
+    uiForm: UIComponents.components.uiForm,
+  },
   data() {
     return {
       pickerData: {
@@ -961,6 +973,9 @@ export default {
     });
   },
   methods: {
+    stepChangeHandle(v) {
+      this.scrollValue = v;
+    },
     pickChangeHandle(v) {
       console.log(v);
     },

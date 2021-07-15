@@ -35,21 +35,22 @@ export default {
     height: (22 / @base);
     overflow: hidden;
     text-overflow: ellipsis;
-    margin: (5 / @base) 0 (10 / @base) 0;
+    margin: (5 / @base) 0 (5 / @base) 0;
     h1 {
       font-size: (14 / @base);
       font-weight: 500;
-      padding: 0 0 (10 / @base) 0;
+      padding: 0;
       margin: 0;
     }
   }
   .desc {
     font-size: (12 / @base);
-    height: (50 / @base);
+    height: (46 / @base);
     overflow: hidden;
     text-overflow: ellipsis;
     color: #999;
-    margin: 0 0 (5 / @base) 0;
+    margin: 0 0 (10 / @base) 0;
+    line-height: (16 / @base);
   }
 }
 </style>

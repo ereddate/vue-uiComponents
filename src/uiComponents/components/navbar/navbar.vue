@@ -9,7 +9,9 @@
         <slot name="left" v-else></slot>
       </div>
       <div class="item">
-        <span v-if="item.title">{{ item.title }}</span>
+        <span class="title" v-if="item.title" @click="goTopHandle">{{
+          item.title
+        }}</span>
         <slot name="center" v-else></slot>
       </div>
       <div class="item">
@@ -36,6 +38,10 @@ export default {
       this.$props.item.clickHandle
         ? this.$props.item.clickHandle(e)
         : this.$router.back(-1);
+    },
+    goTopHandle() {
+      console.log("center");
+      window.scrollTo(1, 1);
     },
   },
 };
@@ -66,13 +72,21 @@ export default {
       display: flex;
       justify-content: center;
       flex-direction: column;
+      .title {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+      }
       &:first-child {
         width: 20%;
-        text-align: left;
+        justify-content: left;
+        align-items: flex-start;
       }
       &:last-child {
         width: 20%;
-        text-align: right;
+        justify-content: right;
+        align-items: flex-end;
       }
     }
   }

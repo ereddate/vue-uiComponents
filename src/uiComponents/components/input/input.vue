@@ -56,9 +56,16 @@ export default {
   },
   created() {
     this.name = this.$props.item.name || "ui-input";
+    this.value =
+      (typeof this.$props.item.value !== "undefined" &&
+        this.$props.item.value + "") ||
+      "";
     this.$on("rulesValidate", this.rulesValidate);
   },
   watch: {
+    "$props.item.value"(v) {
+      this.value = v;
+    },
     "$data.value"(v) {
       this.rulesValidate(v);
     },

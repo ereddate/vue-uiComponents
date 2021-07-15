@@ -58,9 +58,10 @@ export default {
           margin: 0 0 (5 / @base) 0;
         }
         p {
-          padding: 0;
+          padding: (10 / @base) 0 (30 / @base) 0;
           margin: 0;
           font-size: (14 / @base);
+          text-align: center;
         }
       }
       .tools {
@@ -69,7 +70,7 @@ export default {
         align-items: center;
         align-content: center;
         .ui_button {
-          width: 50%;
+          flex: 1;
           margin: 0 (2.5 / @base);
         }
       }

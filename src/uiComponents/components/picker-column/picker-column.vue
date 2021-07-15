@@ -12,7 +12,7 @@
       <ul
         class="list"
         :style="{
-          transform: 'translate3d(0px, ' + scrollValue + 'px, 0px)',
+          transform: 'translate3d(0px, ' + scrollValue / 23.44 + 'rem, 0px)',
           'transition-duration': '0ms',
           'transition-property': 'none',
         }"
@@ -167,10 +167,10 @@ export default {
   }
   .ui_picker_column_content {
     width: 100%;
-    height: 44px;
+    height: (44 / @base);
     position: absolute;
     left: 0;
-    top: 110px;
+    top: (110 / @base);
     z-index: 3;
     ul {
       padding: 0;

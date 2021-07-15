@@ -15,7 +15,7 @@
       :style="{
         width:
           item.type === 'default'
-            ? (item.width || 200) / 23.44 + 'rem'
+            ? (item.width || 260) / 23.44 + 'rem'
             : 'auto',
         height: item.height ? item.height / 23.44 + 'rem' : 'auto',
       }"
@@ -55,7 +55,7 @@ export default {
   align-items: center;
   .ui_dialog_content {
     background-color: #fff;
-    width: (200 / @base);
+    width: (260 / @base);
     min-height: (100 / @base);
     border-radius: (5 / @base);
     &.default {
