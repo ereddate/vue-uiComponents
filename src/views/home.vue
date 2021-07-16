@@ -8,6 +8,7 @@
         <ui-button
           :item="{
             icon: 'search',
+            clickHandle: searchClickHandle,
           }"
         ></ui-button>
       </template>
@@ -16,6 +17,18 @@
       <template #content>
         <ui-panel :item="{ style: { marginTop: 56 / 23.44 + 'rem' } }">
           <template #content>
+            <ui-card>
+              <template #content>
+                <ui-steps :item="{ ...stepsData }"></ui-steps>
+                <ui-button
+                  :item="{
+                    text: '下一步',
+                    clickHandle: stepsButtonHandle,
+                    class: 'default',
+                  }"
+                ></ui-button>
+              </template>
+            </ui-card>
             <ui-card>
               <template #content>
                 <ui-picker
@@ -344,6 +357,7 @@
       </template>
     </ui-dialog>
     <uiForm></uiForm>
+    <ui-action-sheet :item="actionSheet"></ui-action-sheet>
   </div>
 </template>
 <script>
@@ -354,6 +368,52 @@ export default {
   },
   data() {
     return {
+      stepsData: {
+        current: 2,
+        data: [
+          {
+            title: "在流程一",
+          },
+          {
+            title: "在流程二",
+          },
+          {
+            title: "在流程三",
+          },
+          {
+            title: "在流程四",
+          },
+          {
+            title: "在流程五",
+          },
+        ],
+      },
+      actionSheet: {
+        isShow: false,
+        title: "这是标题测试，test",
+        type: "down",
+        data: [
+          {
+            text: "1",
+            desc: "test 1",
+            value: 1,
+          },
+          {
+            text: "2",
+            value: 2,
+          },
+          {
+            text: "3",
+            desc: "test 3",
+            value: 3,
+          },
+          {
+            text: "4",
+            desc: "test 4",
+            value: 4,
+          },
+        ],
+      },
       pickerData: {
         data: [
           {
@@ -959,6 +1019,10 @@ export default {
     };
   },
   created() {
+    this.actionSheet = {
+      ...this.actionSheet,
+      selectHandle: this.actionSheetSelectHandle,
+    };
     let that = this;
     that.$message("你确认吗？", function () {
       that.$confirm(
@@ -973,6 +1037,19 @@ export default {
     });
   },
   methods: {
+    stepsButtonHandle() {
+      if (this.stepsData.current >= this.stepsData.data.length - 1) {
+        this.stepsData.current = 0;
+        return;
+      }
+      this.stepsData.current += 1;
+    },
+    actionSheetSelectHandle(value, index) {
+      this.$toast({ value, index });
+    },
+    searchClickHandle() {
+      this.actionSheet.isShow = true;
+    },
     stepChangeHandle(v) {
       this.scrollValue = v;
     },
