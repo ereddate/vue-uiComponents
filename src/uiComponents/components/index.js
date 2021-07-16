@@ -35,6 +35,11 @@ import uiPicker from "./picker/index";
 import uiStepper from "./stepper/index";
 import uiActionSheet from "./actionSheet/index";
 import uiSteps from "./steps/index";
+import uiIconsList from "./iconsList/index";
+import uiTabBar from "./tabbar/index";
+import uiNavbarList from "./navbarList/index";
+import uiMultipNavbar from "./multipNavbar/index";
+import uiPriceNotice from "./priceNotice/index";
 Vue.component("ui-remote-script", {
     render: function(createElement) {
         var self = this;
@@ -103,4 +108,9 @@ export const components = {
     uiStepper,
     uiActionSheet,
     uiSteps,
+    uiIconsList,
+    uiTabBar,
+    uiNavbarList,
+    uiMultipNavbar,
+    uiPriceNotice,
 };

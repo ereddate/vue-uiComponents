@@ -19,6 +19,30 @@
           <template #content>
             <ui-card>
               <template #content>
+                <ui-banner :item="crossBannerData"></ui-banner>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
+                <ui-price-notice :item="priceNoticeData"></ui-price-notice>
+                <ui-price-notice :item="priceNoticeDataA"></ui-price-notice>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
+                <ui-navbar-list :item="navbarListData"></ui-navbar-list>
+                <ui-multip-navbar :item="multipNavbarData"></ui-multip-navbar>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
+                <ui-icons-list
+                  :item="{ ...iconsListData, index: 0 }"
+                ></ui-icons-list>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
                 <ui-steps :item="{ ...stepsData }"></ui-steps>
                 <ui-button
                   :item="{
@@ -341,11 +365,15 @@
                 </ui-list>
               </template>
             </ui-card>
-            <ui-image-list :item="{ data: imageList }">
-              <template #content="{ item }">
-                <ui-image-list-item :item="item"></ui-image-list-item>
+            <ui-tab-bar :item="tabbarData">
+              <template #content>
+                <ui-image-list :item="{ data: imageList }">
+                  <template #content="{ item }">
+                    <ui-image-list-item :item="item"></ui-image-list-item>
+                  </template>
+                </ui-image-list>
               </template>
-            </ui-image-list>
+            </ui-tab-bar>
           </template>
         </ui-panel>
       </template>
@@ -368,6 +396,364 @@ export default {
   },
   data() {
     return {
+      crossBannerData: {
+        title: "Cross Banner",
+        slogan: "test",
+        type: "cross",
+        data: [
+          {
+            url: "",
+            image:
+              "//cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+            title: "米家直流变频落地扇1X",
+            desc: "模拟自然风算法 支持AI语音",
+            currentPrice: "279",
+            pastPrice: "330",
+            unit: "CNY",
+          },
+          {
+            url: "",
+            image:
+              "//cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+            title: "米家直流变频落地扇1X",
+            desc: "模拟自然风算法 支持AI语音",
+            currentPrice: "279",
+            pastPrice: "330",
+            unit: "CNY",
+          },
+          {
+            url: "",
+            image:
+              "//cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+            title: "米家直流变频落地扇1X",
+            desc: "模拟自然风算法 支持AI语音",
+            currentPrice: "279",
+            pastPrice: "330",
+            unit: "CNY",
+          },
+          {
+            url: "",
+            image:
+              "//cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+            title: "米家直流变频落地扇1X",
+            desc: "模拟自然风算法 支持AI语音",
+            currentPrice: "279",
+            pastPrice: "330",
+            unit: "CNY",
+          },
+          {
+            url: "",
+            image:
+              "//cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+            title: "米家直流变频落地扇1X",
+            desc: "模拟自然风算法 支持AI语音",
+            currentPrice: "279",
+            pastPrice: "330",
+            unit: "CNY",
+          },
+          {
+            url: "",
+            image:
+              "//cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+            title: "米家直流变频落地扇1X",
+            desc: "模拟自然风算法 支持AI语音",
+            currentPrice: "279",
+            pastPrice: "330",
+            unit: "CNY",
+          },
+        ],
+      },
+      priceNoticeData: {
+        title: "各国价格",
+        slogan: "人民币",
+        theme: "black",
+        data: [
+          {
+            url: "",
+            title: "中国",
+            price: "9.9",
+            unit: "CNY",
+            trend: "up",
+          },
+          {
+            url: "",
+            title: "印度尼西亚",
+            price: "9.9",
+            unit: "CNY",
+            trend: "up",
+          },
+          {
+            url: "",
+            title: "斯里兰卡",
+            price: "9.9",
+            unit: "CNY",
+            trend: "down",
+          },
+          {
+            url: "",
+            title: "牙买加",
+            price: "9.9",
+            unit: "CNY",
+            trend: "up",
+          },
+          {
+            url: "",
+            title: "中国",
+            price: "9.9",
+            unit: "CNY",
+            trend: "up",
+          },
+          {
+            url: "",
+            title: "印度尼西亚",
+            price: "9.9",
+            unit: "CNY",
+            trend: "down",
+          },
+          {
+            url: "",
+            title: "斯里兰卡",
+            price: "9.9",
+            unit: "CNY",
+            trend: "up",
+          },
+          {
+            url: "",
+            title: "牙买加",
+            price: "9.9",
+            unit: "CNY",
+            trend: "up",
+          },
+        ],
+      },
+      priceNoticeDataA: {
+        title: "各国价格",
+        slogan: "人民币",
+        theme: "white",
+        data: [
+          {
+            url: "",
+            title: "中国",
+            price: "9.9",
+            unit: "CNY",
+            trend: "up",
+          },
+          {
+            url: "",
+            title: "印度尼西亚",
+            price: "9.9",
+            unit: "CNY",
+            trend: "up",
+          },
+          {
+            url: "",
+            title: "斯里兰卡",
+            price: "9.9",
+            unit: "CNY",
+            trend: "down",
+          },
+          {
+            url: "",
+            title: "牙买加",
+            price: "9.9",
+            unit: "CNY",
+            trend: "up",
+          },
+          {
+            url: "",
+            title: "中国",
+            price: "9.9",
+            unit: "CNY",
+            trend: "up",
+          },
+          {
+            url: "",
+            title: "印度尼西亚",
+            price: "9.9",
+            unit: "CNY",
+            trend: "down",
+          },
+          {
+            url: "",
+            title: "斯里兰卡",
+            price: "9.9",
+            unit: "CNY",
+            trend: "up",
+          },
+          {
+            url: "",
+            title: "牙买加",
+            price: "9.9",
+            unit: "CNY",
+            trend: "up",
+          },
+        ],
+      },
+      multipNavbarData: {
+        data: [
+          {
+            title: "领券中心",
+            desc: "2张券待取",
+            icon: "search",
+            color: "blue",
+            router: "coupon",
+          },
+          {
+            title: "领券中心",
+            desc: "2张券待取",
+            icon: "search",
+            color: "red",
+            router: "coupon",
+          },
+          {
+            title: "领券中心",
+            desc: "2张券待取",
+            icon: "search",
+            color: "green",
+            router: "coupon",
+          },
+        ],
+      },
+      navbarListData: {
+        data: [
+          {
+            image:
+              "https://img.zcool.cn/community/01f1485847ce2ea8012060c8a7823e.jpg@1280w_1l_2o_100sh.jpg",
+            title: "什么什么专区福利",
+            desc: "参与送周边",
+            router: "game",
+          },
+          {
+            image:
+              "https://img.zcool.cn/community/01f1485847ce2ea8012060c8a7823e.jpg@1280w_1l_2o_100sh.jpg",
+            title: "什么什么专区福利",
+            desc: "参与送周边",
+            router: "game",
+          },
+          {
+            image:
+              "https://img.zcool.cn/community/01f1485847ce2ea8012060c8a7823e.jpg@1280w_1l_2o_100sh.jpg",
+            title: "什么什么专区福利",
+            desc: "参与送周边",
+            router: "game",
+          },
+          {
+            image:
+              "https://img.zcool.cn/community/01f1485847ce2ea8012060c8a7823e.jpg@1280w_1l_2o_100sh.jpg",
+            title: "什么什么专区福利",
+            desc: "参与送周边",
+            router: "game",
+          },
+          {
+            image:
+              "https://img.zcool.cn/community/01f1485847ce2ea8012060c8a7823e.jpg@1280w_1l_2o_100sh.jpg",
+            title: "什么什么专区福利",
+            desc: "参与送周边",
+            router: "game",
+          },
+          {
+            image:
+              "https://img.zcool.cn/community/01f1485847ce2ea8012060c8a7823e.jpg@1280w_1l_2o_100sh.jpg",
+            title: "什么什么专区福利",
+            desc: "参与送周边",
+            router: "game",
+          },
+        ],
+      },
+      tabbarData: {
+        isHeaderFixed: true,
+        data: [
+          {
+            title: "手机",
+            api: "telephone",
+            listRowsCount: 3,
+          },
+          {
+            title: "食品",
+            api: "xxx",
+            listRowsCount: 3,
+          },
+          {
+            title: "饮料",
+            api: "aaa",
+            listRowsCount: 3,
+          },
+          {
+            title: "电脑",
+            api: "bbbb",
+            listRowsCount: 3,
+          },
+          {
+            title: "汽车",
+            api: "auto",
+            listRowsCount: 3,
+          },
+          {
+            title: "手饰",
+            api: "cccc",
+            listRowsCount: 3,
+          },
+          {
+            title: "房产",
+            api: "house",
+            listRowsCount: 3,
+          },
+        ],
+      },
+      iconsListData: {
+        rowCount: 1,
+        offset: 2,
+        data: [
+          {
+            url: "",
+            image:
+              "https://img.zcool.cn/community/01f1485847ce2ea8012060c8a7823e.jpg@1280w_1l_2o_100sh.jpg",
+            title: "test",
+          },
+          {
+            url: "",
+            image:
+              "https://img.zcool.cn/community/01f1485847ce2ea8012060c8a7823e.jpg@1280w_1l_2o_100sh.jpg",
+            title: "test",
+          },
+          {
+            url: "",
+            image:
+              "https://img.zcool.cn/community/01f1485847ce2ea8012060c8a7823e.jpg@1280w_1l_2o_100sh.jpg",
+            title: "test",
+          },
+          {
+            url: "",
+            image:
+              "https://img.zcool.cn/community/01f1485847ce2ea8012060c8a7823e.jpg@1280w_1l_2o_100sh.jpg",
+            title: "test",
+          },
+          {
+            url: "",
+            image:
+              "https://img.zcool.cn/community/01f1485847ce2ea8012060c8a7823e.jpg@1280w_1l_2o_100sh.jpg",
+            title: "test",
+          },
+          {
+            url: "",
+            image:
+              "https://img.zcool.cn/community/01f1485847ce2ea8012060c8a7823e.jpg@1280w_1l_2o_100sh.jpg",
+            title: "test",
+          },
+          {
+            url: "",
+            image:
+              "https://img.zcool.cn/community/01f1485847ce2ea8012060c8a7823e.jpg@1280w_1l_2o_100sh.jpg",
+            title: "test",
+          },
+          {
+            url: "",
+            image:
+              "https://img.zcool.cn/community/01f1485847ce2ea8012060c8a7823e.jpg@1280w_1l_2o_100sh.jpg",
+            title: "test",
+          },
+        ],
+      },
       stepsData: {
         current: 2,
         data: [

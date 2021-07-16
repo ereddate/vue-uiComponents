@@ -2,6 +2,7 @@ import { components } from "./components/index";
 import locale from "./locale/index";
 import { common } from "./utils/common";
 import { done } from "./utils/addModel";
+import jquery from "jquery";
 
 const uiComponents = {
     ...components,
@@ -126,6 +127,7 @@ class UiComponents {
                     return text || v.split(".")[1];
                 },
                 ...common,
+                query: jquery,
                 fontSize(v) {
                     common.setFontSize(v);
                     window.addEventListener("resize", function() {

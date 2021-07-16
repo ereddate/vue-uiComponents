@@ -250,10 +250,13 @@ export default {
       float: left;
       width: 50%;
       text-align: left;
+      display: flex;
       a {
         display: block;
         width: 100%;
-        height: (182 / @base);
+        height: (160 / @base);
+        text-decoration: none;
+        color: #333;
         img {
           width: 100%;
           height: 100%;
@@ -262,6 +265,7 @@ export default {
           font-size: (14 / @base);
           font-weight: 400;
           padding: (10 / @base);
+          margin: 0;
           span {
             font-size: (12 / @base);
             color: #ccc;
@@ -272,6 +276,7 @@ export default {
           color: #ce1212;
           font-size: (12 / @base);
           padding: 0 (10 / @base);
+          margin: 0;
           i {
             font-style: normal;
             font-size: (12 / @base);

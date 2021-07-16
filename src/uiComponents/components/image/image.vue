@@ -32,6 +32,9 @@ export default {
       loaded: false,
     };
   },
+  created() {
+    //console.log(this.$props.item);
+  },
   methods: {
     imgLoadHandle() {
       this.loaded = true;
