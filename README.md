@@ -126,6 +126,11 @@ export const components = {
 35. ui-stepper
 36. ui-action-sheet
 37. ui-steps
+38. ui-icons-list
+39. ui-tab-bar
+40. ui-navbar-list
+41. ui-multip-navbar
+42. ui-price-notice
 
 
 ```
