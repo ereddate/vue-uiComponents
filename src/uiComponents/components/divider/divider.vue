@@ -34,7 +34,8 @@ export default {
   &.vertical {
     margin: 0 (8 / @base);
     display: inline-block;
-    height: (10 / @base);
+    height: auto;
+    min-height: (10 / @base);
     width: (1 / @base);
     vertical-align: middle;
     position: relative;

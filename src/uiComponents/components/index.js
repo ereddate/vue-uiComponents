@@ -40,6 +40,9 @@ import uiTabBar from "./tabbar/index";
 import uiNavbarList from "./navbarList/index";
 import uiMultipNavbar from "./multipNavbar/index";
 import uiPriceNotice from "./priceNotice/index";
+import uiDropdownItem from "./dropdown-item/index";
+import uiToolsBar from "./toolsbar/index";
+
 Vue.component("ui-remote-script", {
     render: function(createElement) {
         var self = this;
@@ -113,4 +116,6 @@ export const components = {
     uiNavbarList,
     uiMultipNavbar,
     uiPriceNotice,
+    uiDropdownItem,
+    uiToolsBar
 };

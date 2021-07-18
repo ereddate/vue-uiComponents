@@ -17,6 +17,31 @@
       <template #content>
         <ui-panel :item="{ style: { marginTop: 56 / 23.44 + 'rem' } }">
           <template #content>
+            <ui-tools-bar>
+              <template #content>
+                <ui-dropdown-item
+                  :item="{
+                    ...dropDownData,
+                    changeHandle: dropDownChangeHandle,
+                  }"
+                ></ui-dropdown-item>
+                <ui-dropdown-item
+                  :item="{
+                    ...dropDownData,
+                    changeHandle: dropDownChangeHandle,
+                  }"
+                ></ui-dropdown-item
+                ><ui-dropdown-item
+                  :item="{
+                    ...dropDownData,
+                    changeHandle: dropDownChangeHandle,
+                  }"
+                ></ui-dropdown-item>
+              </template>
+            </ui-tools-bar>
+            <ui-card>
+              <template #content> </template>
+            </ui-card>
             <ui-card>
               <template #content>
                 <ui-banner :item="crossBannerData"></ui-banner>
@@ -403,6 +428,14 @@ export default {
   },
   data() {
     return {
+      dropDownData: {
+        data: [
+          { text: "1111", value: 1 },
+          { text: "2222", value: 2 },
+          { text: "3333", value: 3 },
+          { text: "4444", value: 4 },
+        ],
+      },
       crossBannerData: {
         title: "Cross Banner",
         slogan: "test",
@@ -1332,6 +1365,9 @@ export default {
     });
   },
   methods: {
+    dropDownChangeHandle() {
+      console.log(arguments);
+    },
     stepsButtonHandle() {
       if (this.stepsData.current >= this.stepsData.data.length - 1) {
         this.stepsData.current = 0;
