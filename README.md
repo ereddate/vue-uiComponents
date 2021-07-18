@@ -131,6 +131,8 @@ export const components = {
 40. ui-navbar-list
 41. ui-multip-navbar
 42. ui-price-notice
+43. ui-tools-bar
+44. ui-dropdown-item
 
 
 ```
