@@ -22,7 +22,6 @@
           v-for="(cell, index) in item.data"
           :key="index"
           :class="getIndex() && getIndex().index === index && 'selected'"
-          @click="pickerItemClickHandle(index)"
         >
           <div class="ellipsis">{{ cell.title }}</div>
         </li>
@@ -129,9 +128,10 @@ export default {
       if (v) {
         this.scrollValue = v.y;
         this.selected = {
-          ...this.selected,
+          ...v,
           pickerid: this.$props.item.index || 0,
         };
+        console.log(this.selected);
         this.$props.item.changeHandle &&
           this.$props.item.changeHandle(this.selected);
       }

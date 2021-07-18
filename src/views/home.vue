@@ -69,6 +69,13 @@
             </ui-card>
             <ui-card>
               <template #content>
+                <ui-picker
+                  :item="{ ...pickerDataA, enterHandle: pickChangeHandle }"
+                ></ui-picker>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
                 <ui-swiper :item="swiperData">
                   <template #content="{ item }">
                     <ui-image :item="{ ...item }"></ui-image>
@@ -800,61 +807,55 @@ export default {
           },
         ],
       },
+      pickerDataA: {
+        data: [
+          {
+            data: [
+              {
+                title: "辽宁1",
+                children: {
+                  data: [
+                    {
+                      title: "辽宁1-1",
+                    },
+                    {
+                      title: "辽宁1-2",
+                    },
+                    {
+                      title: "辽宁1-3",
+                    },
+                  ],
+                },
+              },
+              {
+                title: "辽宁2",
+                children: {
+                  data: [
+                    {
+                      title: "辽宁2-1",
+                    },
+                    {
+                      title: "辽宁2-2",
+                    },
+                    {
+                      title: "辽宁2-3",
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        ],
+      },
       pickerData: {
         data: [
           {
             data: [
               {
                 title: "辽宁1",
-                children: [
-                  {
-                    title: "辽宁1",
-                  },
-                  {
-                    title: "辽宁2",
-                  },
-                  {
-                    title: "辽宁3",
-                  },
-                  {
-                    title: "辽宁4",
-                  },
-                  {
-                    title: "辽宁5",
-                  },
-                  {
-                    title: "辽宁6",
-                  },
-                  {
-                    title: "辽宁7",
-                  },
-                ],
               },
               {
                 title: "辽宁2",
-                children: [
-                  {
-                    title: "辽宁1",
-                  },
-                  {
-                    title: "辽宁2",
-                  },
-                  {
-                    title: "辽宁3",
-                  },
-                  {
-                    title: "辽宁4",
-                  },
-                  {
-                    title: "辽宁5",
-                  },
-                  {
-                    title: "辽宁6",
-                  },
-                  {
-                    title: "辽宁7",
-                  },
-                ],
               },
             ],
           },
@@ -862,55 +863,9 @@ export default {
             data: [
               {
                 title: "辽宁1",
-                children: [
-                  {
-                    title: "辽宁1",
-                  },
-                  {
-                    title: "辽宁2",
-                  },
-                  {
-                    title: "辽宁3",
-                  },
-                  {
-                    title: "辽宁4",
-                  },
-                  {
-                    title: "辽宁5",
-                  },
-                  {
-                    title: "辽宁6",
-                  },
-                  {
-                    title: "辽宁7",
-                  },
-                ],
               },
               {
                 title: "辽宁2",
-                children: [
-                  {
-                    title: "辽宁1",
-                  },
-                  {
-                    title: "辽宁2",
-                  },
-                  {
-                    title: "辽宁3",
-                  },
-                  {
-                    title: "辽宁4",
-                  },
-                  {
-                    title: "辽宁5",
-                  },
-                  {
-                    title: "辽宁6",
-                  },
-                  {
-                    title: "辽宁7",
-                  },
-                ],
               },
             ],
           },
@@ -918,55 +873,9 @@ export default {
             data: [
               {
                 title: "辽宁1",
-                children: [
-                  {
-                    title: "辽宁1",
-                  },
-                  {
-                    title: "辽宁2",
-                  },
-                  {
-                    title: "辽宁3",
-                  },
-                  {
-                    title: "辽宁4",
-                  },
-                  {
-                    title: "辽宁5",
-                  },
-                  {
-                    title: "辽宁6",
-                  },
-                  {
-                    title: "辽宁7",
-                  },
-                ],
               },
               {
                 title: "辽宁2",
-                children: [
-                  {
-                    title: "辽宁1",
-                  },
-                  {
-                    title: "辽宁2",
-                  },
-                  {
-                    title: "辽宁3",
-                  },
-                  {
-                    title: "辽宁4",
-                  },
-                  {
-                    title: "辽宁5",
-                  },
-                  {
-                    title: "辽宁6",
-                  },
-                  {
-                    title: "辽宁7",
-                  },
-                ],
               },
             ],
           },
