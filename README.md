@@ -127,12 +127,15 @@ export const components = {
 36. ui-action-sheet
 37. ui-steps
 38. ui-icons-list
-39. ui-tab-bar
+39. ui-tabbar
 40. ui-navbar-list
 41. ui-multip-navbar
 42. ui-price-notice
 43. ui-tools-bar
 44. ui-dropdown-item
+45. ui-overlay
+46. ui-tab
+47. ui-badge
 
 
 ```
