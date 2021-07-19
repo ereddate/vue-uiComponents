@@ -61,5 +61,6 @@ export default {
   font-size: (26 / @base);
   box-shadow: 0 (2 / @base) (12 / @base) rgba(100, 101, 102, 0.12);
   text-align: center;
+  z-index: 99;
 }
 </style>

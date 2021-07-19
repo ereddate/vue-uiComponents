@@ -15,7 +15,13 @@
     </ui-navbar>
     <ui-animate :item="{ type: 'fadeInLeft', speed: 2 }">
       <template #content>
-        <ui-panel :item="{ style: { marginTop: 56 / 23.44 + 'rem' } }">
+        <ui-panel
+          :item="{
+            title: 'Demo',
+            style: { marginTop: 56 / 23.44 + 'rem' },
+            loading: panelLoading,
+          }"
+        >
           <template #content>
             <ui-tools-bar>
               <template #content>
@@ -245,8 +251,12 @@
                     <template #content>test</template>
                   </ui-link>
                   <div class="loading_back">
-                    <ui-loading></ui-loading>
-                    <ui-loading :item="{ type: 'circle' }"></ui-loading>
+                    <ui-loading
+                      :item="{ type: 'default', text: 'loading' }"
+                    ></ui-loading>
+                    <ui-loading
+                      :item="{ type: 'circle', text: 'loading' }"
+                    ></ui-loading>
                   </div>
                   <ui-input
                     :item="{
@@ -397,7 +407,7 @@
                 </ui-list>
               </template>
             </ui-card>
-            <ui-tab-bar :item="tabbarData">
+            <ui-tab :item="tabData">
               <template #content>
                 <ui-image-list :item="{ data: imageList }">
                   <template #content="{ item }">
@@ -405,12 +415,11 @@
                   </template>
                 </ui-image-list>
               </template>
-            </ui-tab-bar>
+            </ui-tab>
           </template>
         </ui-panel>
       </template>
     </ui-animate>
-    <ui-gotop></ui-gotop>
     <ui-dialog :item="{ ...dialog, cancelDialogHandle, enterDialogHandle }">
       <template #content="{ item }">
         <ui-dialog-item :item="{ ...item }"></ui-dialog-item>
@@ -418,6 +427,8 @@
     </ui-dialog>
     <uiForm></uiForm>
     <ui-action-sheet :item="actionSheet"></ui-action-sheet>
+    <ui-gotop></ui-gotop>
+    <ui-tabbar :item="tabbarData"></ui-tabbar>
   </div>
 </template>
 <script>
@@ -428,6 +439,43 @@ export default {
   },
   data() {
     return {
+      tabbarData: {
+        data: [
+          {
+            icon: "search",
+            selectIcon: "search",
+            color: "#333",
+            selectColor: "red",
+            text: "tab1",
+            url: "/home",
+          },
+          {
+            icon: "search",
+            selectIcon: "search",
+            color: "#333",
+            selectColor: "red",
+            text: "tab2",
+            url: "/search",
+          },
+          {
+            icon: "search",
+            selectIcon: "search",
+            color: "#333",
+            selectColor: "red",
+            text: "tab3",
+            url: "/search",
+            badge: 2,
+          },
+          {
+            icon: "search",
+            selectIcon: "search",
+            color: "#333",
+            selectColor: "red",
+            text: "tab4",
+            url: "/search",
+          },
+        ],
+      },
       dropDownData: {
         data: [
           { text: "1111", value: 1 },
@@ -700,7 +748,7 @@ export default {
           },
         ],
       },
-      tabbarData: {
+      tabData: {
         isHeaderFixed: true,
         data: [
           {
@@ -1344,6 +1392,7 @@ export default {
           fit: "cover",
         },
       },
+      panelLoading: true,
     };
   },
   created() {
@@ -1363,6 +1412,9 @@ export default {
         }
       );
     });
+    setTimeout(() => {
+      that.panelLoading = false;
+    }, 1000);
   },
   methods: {
     dropDownChangeHandle() {

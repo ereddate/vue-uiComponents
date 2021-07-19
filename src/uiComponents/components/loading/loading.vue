@@ -11,6 +11,7 @@
       ><svg viewBox="25 25 50 50" class="ui_loading_circular">
         <circle cx="50" cy="50" r="20" fill="none"></circle></svg
     ></span>
+    <span class="text" v-if="item.text">{{ item.text }}</span>
   </div>
 </template>
 <script>
@@ -32,18 +33,20 @@ export default {
   color: #c8c9cc;
   font-size: 0;
   vertical-align: middle;
-  display: inline-block;
+  display: flex;
   .ui_loading_spinner {
     position: relative;
     display: inline-block;
     width: (30 / @base);
     max-width: 100%;
     height: (30 / @base);
+    overflow: hidden;
     max-height: 100%;
     vertical-align: middle;
     -webkit-animation: ui-rotate 0.8s linear infinite;
     animation: ui-rotate 0.8s linear infinite;
     animation-timing-function: steps(12);
+    flex: 1;
     i {
       position: absolute;
       top: 0;
@@ -76,6 +79,14 @@ export default {
     width: 100%;
     height: 100%;
   }
+}
+.text {
+  flex: 1;
+  font-size: (12 / @base);
+  color: #333;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 .generate-spinner(@n, @i: 1) when (@i =< @n) {
   .ui_loading_spinner i:nth-of-type(@{i}) {

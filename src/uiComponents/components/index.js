@@ -36,12 +36,15 @@ import uiStepper from "./stepper/index";
 import uiActionSheet from "./actionSheet/index";
 import uiSteps from "./steps/index";
 import uiIconsList from "./iconsList/index";
-import uiTabBar from "./tabbar/index";
+import uiTab from "./tab/index";
 import uiNavbarList from "./navbarList/index";
 import uiMultipNavbar from "./multipNavbar/index";
 import uiPriceNotice from "./priceNotice/index";
 import uiDropdownItem from "./dropdown-item/index";
 import uiToolsBar from "./toolsbar/index";
+import uiOverlay from "./overlay/index";
+import uiTabbar from "./tabbar/index";
+import uiBadge from "./badge/index";
 
 Vue.component("ui-remote-script", {
     render: function(createElement) {
@@ -112,10 +115,13 @@ export const components = {
     uiActionSheet,
     uiSteps,
     uiIconsList,
-    uiTabBar,
+    uiTab,
     uiNavbarList,
     uiMultipNavbar,
     uiPriceNotice,
     uiDropdownItem,
-    uiToolsBar
+    uiToolsBar,
+    uiOverlay,
+    uiTabbar,
+    uiBadge,
 };

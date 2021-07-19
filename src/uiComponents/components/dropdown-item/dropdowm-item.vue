@@ -1,17 +1,26 @@
 <template>
   <div class="ui_dropdown_item">
     <div class="title" @click="showMenuHandle">
-      <span class="text">{{ selected.text }}</span
+      <span class="text" :class="isShow && 'select'">{{ selected.text }}</span
       ><ui-icon
-        :item="{ icon: isShow ? 'arrow-up-bold' : 'arrow-down-bold' }"
+        :item="{
+          icon: 'arrow-up-bold',
+          style: {
+            transform: isShow ? 'rotate(0deg)' : 'rotate(180deg)',
+            color: isShow ? 'red' : '#ccc',
+          },
+        }"
       ></ui-icon>
     </div>
-    <!-- <div class="back" v-if="isShow" :style="{ top: top / 23.44 + 'rem' }"></div> -->
-
+    <div class="back" v-if="isShow" :style="{ top: top / 23.44 + 'rem' }"></div>
     <div
       class="list animate__animated animate__fadeInDown"
       v-if="isShow"
-      :style="{ 'transition-duration': '0.2s', transition: 'transform 0.3s' }"
+      :style="{
+        'transition-duration': '0.2s',
+        transition: 'transform 0.3s',
+        top: top / 23.44 + 'rem',
+      }"
     >
       <div
         class="list_item"
@@ -51,14 +60,31 @@ export default {
   created() {
     this.selected = { ...this.$props.item.data[0], index: 0 };
   },
+  watch: {
+    isShow(v) {
+      if (v) {
+        window.addEventListener("scroll", this.scrollHandle);
+      } else {
+        window.removeEventListener("scroll", this.scrollHandle);
+      }
+    },
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.scrollHandle);
+  },
   methods: {
+    scrollHandle() {
+      let top =
+        this.$uic.query(this.$el).offset().top -
+        this.$uic.query(document).scrollTop();
+      this.top = top + 40;
+    },
     showMenuHandle() {
       this.isShow = this.isShow ? false : true;
-      /* if (this.isShow) {
+      if (this.isShow) {
         let top = this.$uic.query(this.$el).offset().top;
-        console.log(top);
         this.top = top + 40;
-      } */
+      }
     },
     selectItemHandle(v) {
       this.selected = { ...this.$props.item.data[v], index: v };
@@ -84,26 +110,35 @@ export default {
     display: inline-block;
     background-color: #fff;
     display: flex;
-    z-index: 2;
+    z-index: 98;
     .text {
       flex: 1;
+      text-align: center;
+      &.select {
+        color: red;
+      }
+    }
+    .ui_icon {
+      font-size: (12 / @base);
+      line-height: (18 / @base);
     }
   }
   .back {
     position: fixed;
+    top: (44 / @base);
     left: 0;
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 99;
+    z-index: 97;
   }
   .list {
     box-shadow: 0 2px 12px rgb(100 101 102 / 12%);
-    position: absolute;
+    position: fixed;
     top: (44 / @base);
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 97;
     background-color: #fff;
     padding: (10 / @base) (10 / @base);
     .list_item {
@@ -128,9 +163,9 @@ export default {
 }
 @-webkit-keyframes fadeInDown {
   from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -20%, 0);
-    transform: translate3d(0, -20%, 0);
+    opacity: 0.5;
+    -webkit-transform: translate3d(0, -10%, 0);
+    transform: translate3d(0, -10%, 0);
   }
 
   to {
@@ -141,9 +176,9 @@ export default {
 }
 @keyframes fadeInDown {
   from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -20%, 0);
-    transform: translate3d(0, -20%, 0);
+    opacity: 0.5;
+    -webkit-transform: translate3d(0, -10%, 0);
+    transform: translate3d(0, -10%, 0);
   }
 
   to {

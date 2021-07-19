@@ -23,7 +23,7 @@ export default {
 .ui_tools_bar {
   background-color: #fff;
   box-shadow: 0 2px 12px rgb(100 101 102 / 12%);
-  padding: 0 (10 / @base);
+  padding: 0;
   .ui_tools_bar_content {
     display: flex;
   }
