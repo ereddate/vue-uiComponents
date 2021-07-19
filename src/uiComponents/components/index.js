@@ -45,6 +45,7 @@ import uiToolsBar from "./toolsbar/index";
 import uiOverlay from "./overlay/index";
 import uiTabbar from "./tabbar/index";
 import uiBadge from "./badge/index";
+import uiCountdown from "./countDown/index";
 
 Vue.component("ui-remote-script", {
     render: function(createElement) {
@@ -124,4 +125,5 @@ export const components = {
     uiOverlay,
     uiTabbar,
     uiBadge,
+    uiCountdown,
 };

@@ -46,7 +46,24 @@
               </template>
             </ui-tools-bar>
             <ui-card>
-              <template #content> </template>
+              <template #content>
+                <ui-countdown
+                  :item="{ time: new Date('2021-7-21 14:34:00').getTime() }"
+                ></ui-countdown>
+                <ui-countdown
+                  :item="{
+                    type: 'custom',
+                    time: new Date('2021-7-19 16:09:30').getTime(),
+                    endHandle: countDownEndHandle,
+                  }"
+                >
+                  <template #content="{ item }">
+                    {{ item.day }}天{{ item.hours }}小时{{ item.minutes }}分钟{{
+                      item.seconds
+                    }}秒
+                  </template>
+                </ui-countdown>
+              </template>
             </ui-card>
             <ui-card>
               <template #content>
@@ -1417,6 +1434,9 @@ export default {
     }, 1000);
   },
   methods: {
+    countDownEndHandle() {
+      console.log("end");
+    },
     dropDownChangeHandle() {
       console.log(arguments);
     },
