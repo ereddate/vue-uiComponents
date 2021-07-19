@@ -136,6 +136,7 @@ export const components = {
 45. ui-overlay
 46. ui-tab
 47. ui-badge
+48. ui-countdown
 
 
 ```
