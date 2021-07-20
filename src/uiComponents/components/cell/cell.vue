@@ -98,6 +98,8 @@ export default {
           display: flex;
           .text {
             font-size: (14 / @base);
+            color: #333;
+            margin: 0 0 0 (5 / @base);
           } /* 
           .ui_icon {
             color: #999;

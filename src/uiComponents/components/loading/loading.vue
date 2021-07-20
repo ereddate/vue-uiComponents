@@ -79,15 +79,18 @@ export default {
     width: 100%;
     height: 100%;
   }
+  .text {
+    flex: 1;
+    font-size: (12 / @base);
+    color: #333;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: (100 / @base);
+    margin: 0 0 0 (5 / @base);
+  }
 }
-.text {
-  flex: 1;
-  font-size: (12 / @base);
-  color: #333;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
+
 .generate-spinner(@n, @i: 1) when (@i =< @n) {
   .ui_loading_spinner i:nth-of-type(@{i}) {
     transform: rotate(@i * 30deg);

@@ -85,7 +85,10 @@ export default {
           align-items: center;
           align-content: center;
           .ui_icon {
-            font-size: (18 / @base);
+            font-size: (16 / @base);
+          }
+          .text {
+            font-size: (12 / @base);
           }
         }
       }

@@ -114,6 +114,7 @@ export default {
     .text {
       flex: 1;
       text-align: center;
+      font-size: (14 / @base);
       &.select {
         color: red;
       }

@@ -47,6 +47,47 @@
             </ui-tools-bar>
             <ui-card>
               <template #content>
+                <ui-more :item="more"></ui-more>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
+                <ui-textarea
+                  :item="{ total: 200, value: '文本框测试' }"
+                ></ui-textarea>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
+                <div style="display: flex">
+                  <ui-avatar
+                    :item="{ ...avatarData, type: 'small' }"
+                  ></ui-avatar>
+                  <ui-avatar
+                    :item="{ ...avatarData, type: 'normal' }"
+                  ></ui-avatar>
+                  <ui-avatar
+                    :item="{ ...avatarData, type: 'large' }"
+                  ></ui-avatar>
+                </div>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
+                <ui-treeselect
+                  :item="{
+                    ...treeSelectData,
+                    changeHandle: treeSelectChangeHandle,
+                  }"
+                >
+                  <template #content="{ item }">
+                    {{ item }}
+                  </template>
+                </ui-treeselect>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
                 <div
                   class="cell_item"
                   v-for="(cell, index) in cellData"
@@ -499,6 +540,32 @@ export default {
   },
   data() {
     return {
+      more: {
+        loading: false,
+        loaded: false,
+        loadingHandle: this.loadingHandle,
+      },
+      avatarData: {
+        image:
+          "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+      },
+      treeSelectData: {
+        data: [
+          {
+            title: "tab",
+          },
+          {
+            title: "tab",
+          },
+          {
+            title: "tab",
+            badge: 2,
+          },
+          {
+            title: "tab",
+          },
+        ],
+      },
       cellData: [
         {
           icon: "add-circle",
@@ -1509,6 +1576,17 @@ export default {
     }, 1000);
   },
   methods: {
+    loadingHandle() {
+      let that = this;
+      that.more.loading = true;
+      this.loadTimeout && clearTimeout(this.loadTimeout);
+      this.loadTimeout = setTimeout(() => {
+        that.more.loading = false;
+      }, 3000);
+    },
+    treeSelectChangeHandle(v) {
+      console.log(v);
+    },
     vertiyClickHandle() {
       this.isVertiy = true;
       let that = this;

@@ -48,6 +48,11 @@ import uiBadge from "./badge/index";
 import uiCountdown from "./countDown/index";
 import uiCell from "./cell/index";
 import uiTag from "./tag/index";
+import uiTreeselect from "./treeSelect/index";
+import uiSidebar from "./sidebar/index";
+import uiAvatar from "./avatar/index";
+import uiTextarea from "./textarea/index";
+import uiMore from "./more/index";
 
 Vue.component("ui-remote-script", {
     render: function(createElement) {
@@ -130,4 +135,9 @@ export const components = {
     uiCountdown,
     uiCell,
     uiTag,
+    uiTreeselect,
+    uiSidebar,
+    uiAvatar,
+    uiTextarea,
+    uiMore,
 };

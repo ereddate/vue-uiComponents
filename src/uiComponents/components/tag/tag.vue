@@ -39,6 +39,7 @@ export default {
   margin: 0 (5 / @base);
   padding: 0 (5 / @base);
   font-size: (12 / @base);
+  line-height: (17 / @base);
   &.primary {
     color: #fff;
     background-color: #07c160;
