@@ -3,7 +3,8 @@
     :type="item.type || 'button'"
     class="ui_button"
     @click="buttonClickHandle"
-    :class="item.class || 'mini'"
+    :class="(item.class || 'mini') + (item.disabled ? ' disabled' : '')"
+    :disabled="item.disabled"
   >
     <ui-icon :item="{ icon: item.icon }" v-if="item.icon"></ui-icon>
     <span v-if="item.text">{{ i18n("lang." + item.text) }}</span>
@@ -40,6 +41,7 @@ export default {
   padding: (5 / @base) (10 / @base);
   border-radius: (5 / @base);
   margin: (5 / @base) 0;
+
   span {
     margin: 0 (2.5 / @base);
   }
@@ -74,6 +76,9 @@ export default {
     border: 1px solid #fff;
     margin: (2.5 / @base);
     padding: (2.5 / @base) (5 / @base);
+  }
+  &.disabled {
+    color: #999;
   }
 }
 </style>

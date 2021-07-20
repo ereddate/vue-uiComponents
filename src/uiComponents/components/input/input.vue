@@ -11,25 +11,31 @@
         :item="{ icon: item.icon || 'search' }"
         v-if="item.start && item.icon"
       ></ui-icon>
-      <slot name="start" v-if="item.start && !item.icon"></slot>
-      <input
-        :type="item.type || 'text'"
-        v-model="value"
-        :placeholder="item.placholder || i18n('lang.请输入内容')"
-        :disabled="item.disabled || false"
-        :maxlength="item.maxLength || 120"
-        :readonly="item.readonly || false"
-        :id="(item.name && item.name + '_id') || 'ui-input'"
-        :name="item.name || 'ui-input'"
-        :value="value"
-        @keypress="keypressHandle"
-        @blur="blurHandle"
-      />
+      <span class="slot" v-if="item.start && !item.icon"
+        ><slot name="start"></slot
+      ></span>
+      <span class="input">
+        <input
+          :type="item.type || 'text'"
+          v-model="value"
+          :placeholder="item.placholder || i18n('lang.请输入内容')"
+          :disabled="item.disabled || false"
+          :maxlength="item.maxLength || 120"
+          :readonly="item.readonly || false"
+          :id="(item.name && item.name + '_id') || 'ui-input'"
+          :name="item.name || 'ui-input'"
+          :value="value"
+          @keypress="keypressHandle"
+          @blur="blurHandle"
+        />
+      </span>
       <ui-icon
         :item="{ icon: item.icon || 'search' }"
-        v-if="item.end"
+        v-if="item.end && item.icon"
       ></ui-icon>
-      <slot name="end" v-if="item.end && !item.icon"></slot>
+      <span class="slot" v-if="item.end && !item.icon"
+        ><slot name="end"></slot
+      ></span>
     </div>
     <div class="error" v-if="error.is">{{ error.message }}</div>
   </div>
@@ -132,20 +138,29 @@ export default {
       margin: 0;
       font-size: (14 / @base);
     }
-
+    .slot {
+      //flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     .ui_icon {
       line-height: (24 / @base);
       padding: 0 (5 / @base);
       color: #cccccc;
     }
-    input {
-      border: 0;
+    .input {
       flex: 1;
-      padding: 0 (10 / @base);
-      height: (24 / @base);
-      font-size: (14 / @base);
-      &:focus {
-        outline: none;
+      display: flex;
+      input {
+        border: 0;
+        // padding: 0 (10 / @base);
+        //height: (24 / @base);
+        font-size: (14 / @base);
+        width: 100%;
+        &:focus {
+          outline: none;
+        }
       }
     }
   }

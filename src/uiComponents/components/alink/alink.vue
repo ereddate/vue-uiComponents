@@ -8,7 +8,7 @@
     >
       <slot name="content"></slot>
     </a>
-    <a @click="clickHandle" v-else>
+    <a @click.prevent="clickHandle" v-else>
       <slot name="content"></slot>
     </a>
   </span>
@@ -39,6 +39,7 @@ export default {
     display: block;
     width: 100%;
     height: 100%;
+    text-decoration: none;
   }
 }
 </style>

@@ -47,6 +47,17 @@
             </ui-tools-bar>
             <ui-card>
               <template #content>
+                <div
+                  class="cell_item"
+                  v-for="(cell, index) in cellData"
+                  :key="index"
+                >
+                  <ui-cell :item="cell"></ui-cell>
+                </div>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
                 <ui-countdown
                   :item="{ time: new Date('2021-7-21 14:34:00').getTime() }"
                 ></ui-countdown>
@@ -322,6 +333,7 @@
                             name: item.name,
                             placholder: '请输入帐号',
                             end: true,
+                            icon: 'search',
                             enterHandle: enterHandle,
                             rules: {
                               required: true,
@@ -339,6 +351,7 @@
                             name: item.name,
                             placholder: '请输入密码',
                             end: true,
+                            icon: 'search',
                             enterHandle: enterHandle,
                             rules: {
                               required: true,
@@ -346,6 +359,36 @@
                             },
                           }"
                         ></ui-input>
+                      </template>
+                    </ui-form-item>
+                    <ui-form-item>
+                      <template #content="{ item }">
+                        <ui-input
+                          :item="{
+                            type: 'number',
+                            name: item.name,
+                            placholder: '请输入验证码',
+                            end: true,
+                            enterHandle: enterHandle,
+                            disabled: !isVertiy,
+                            rules: { required: true, message: '验证码不正确' },
+                          }"
+                        >
+                          <template #end>
+                            <ui-divider
+                              :item="{ type: 'vertical' }"
+                            ></ui-divider>
+                            <ui-button
+                              :item="{
+                                text: isVertiy
+                                  ? downCountTime + '秒后重发'
+                                  : '发送验证码',
+                                clickHandle: vertiyClickHandle,
+                                disabled: isVertiy,
+                              }"
+                            ></ui-button>
+                          </template>
+                        </ui-input>
                       </template>
                     </ui-form-item>
                     <ui-form-item>
@@ -456,6 +499,38 @@ export default {
   },
   data() {
     return {
+      cellData: [
+        {
+          icon: "add-circle",
+          title: "单元格",
+          desc: "简述",
+          content: "内容",
+          url: "/home",
+        },
+        {
+          title: "单元格",
+          tag: "标签",
+          tagType: "primary",
+          desc: "简述",
+          content: "内容",
+        },
+        {
+          icon: "add-circle",
+          title: "单元格",
+          content: "内容",
+          tag: "标签",
+          tagType: "danger",
+          close: true,
+        },
+        {
+          title: "单元格1",
+          content: "内容",
+          url: "/home",
+        },
+      ],
+      isVertiy: false,
+      second: 0,
+      downCountTime: 60,
       tabbarData: {
         data: [
           {
@@ -1434,6 +1509,21 @@ export default {
     }, 1000);
   },
   methods: {
+    vertiyClickHandle() {
+      this.isVertiy = true;
+      let that = this;
+      this.interval && clearInterval(this.interval);
+      this.interval = setInterval(function () {
+        /*  that.downCountTimeContent =
+          "（" + that.downCountTime + "秒）后重新发送"; */
+        --that.downCountTime;
+        if (that.downCountTime <= 0) {
+          // that.downCountTimeContent = "重新发送";
+          that.downCountTime = 60;
+          that.isVertiy = false;
+        }
+      }, 1000);
+    },
     countDownEndHandle() {
       console.log("end");
     },
@@ -1495,4 +1585,13 @@ export default {
   },
 };
 </script>
-<style lang="less"></style>
+<style lang="less">
+@base: 23.44rem;
+.cell_item {
+  padding: 0;
+  border-bottom: (1 / @base) solid #efefef;
+  &:last-child {
+    border: 0;
+  }
+}
+</style>
