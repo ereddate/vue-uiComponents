@@ -139,6 +139,11 @@ export const components = {
 48. ui-countdown
 49. ui-cell
 50. ui-tag
+51. ui-treeselect
+52. ui-sidebar
+53. ui-avatar
+54. ui-textarea
+55. ui-more
 
 
 ```
