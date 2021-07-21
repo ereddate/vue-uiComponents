@@ -144,6 +144,8 @@ export const components = {
 53. ui-avatar
 54. ui-textarea
 55. ui-more
+56. ui-video-item
+57. ui-video
 
 
 ```
