@@ -45,6 +45,16 @@ export default {
   },
   ...
 ```
+3.全局样式
+
+```
+扩展组件时，每个组件的公共样式如下：
+\uiComponents\style\common.less
+
+引用：
+@import "../../style/common.less";
+color:@red;
+```
 
 
 注：DEMO在/src/views/home.vue中
