@@ -60,35 +60,32 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_tabbar {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   top: auto;
-  background-color: #fff;
-  padding: (5 / @base) (10 / @base);
+  background-color: @white;
+  padding: (5 / @base) @paddingRight (5 / @base) @paddingLeft;
   z-index: 98;
   .ui_tabbar_content {
     display: flex;
     .item {
       width: 24%;
-      margin: 0 (10 / @base);
+      margin: 0 @marginRight 0 @marginLeft;
       a {
         text-decoration: none;
-        color: #333;
+        color: @lightBlack;
         .item_content {
-          display: flex;
+          .flexCenter;
           flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          align-content: center;
           .ui_icon {
-            font-size: (16 / @base);
+            font-size: @largeFont;
           }
           .text {
-            font-size: (12 / @base);
+            font-size: @miniFont;
           }
         }
       }

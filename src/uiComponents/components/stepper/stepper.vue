@@ -65,11 +65,11 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_stepper {
   .ui_stepper_content {
     display: flex;
-    padding: (10 / @base) 0;
+    padding: @paddingTop 0 @paddingBottom 0;
     .ui_stepper_item {
       flex: 1;
       display: flex;

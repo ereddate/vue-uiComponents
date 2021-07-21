@@ -119,7 +119,7 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_countdown {
   display: flex;
   justify-content: center;
@@ -129,9 +129,9 @@ export default {
   .item {
     min-width: (30 / @base);
     text-align: center;
-    font-size: (14 / @base);
-    background-color: #efefef;
-    border-radius: (5 / @base);
+    font-size: @baseFont;
+    background-color: @lightGrey;
+    border-radius: @baseRadius;
     margin: 0 (5 / @base);
     padding: (5 / @base);
   }

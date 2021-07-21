@@ -47,25 +47,22 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_navbar {
   &.fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    .fixedTop;
     z-index: 99;
-    box-shadow: 0 (2 / @base) (12 / @base) rgba(100, 101, 102, 0.12);
+    box-shadow: 0 (2 / @base) @miniFont rgba(100, 101, 102, 0.12);
   }
-  padding: 0 (10 / @base);
-  background-color: #ffffff;
+  padding: 0 @paddingRight 0 @paddingLeft;
+  background-color: @white;
   height: (46 / @base);
   display: flex;
   justify-content: center;
   flex-direction: column;
   .ui_navbar_content {
     display: flex;
-    font-size: (14 / @base);
+    font-size: @baseFont;
     .item {
       width: 60%;
       text-align: center;

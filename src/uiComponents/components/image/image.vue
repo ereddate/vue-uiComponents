@@ -43,13 +43,11 @@ export default {
 };
 </script>
 <style lang="less">
+@import "../../style/common.less";
 .ui_image {
-  display: block;
-  width: 100%;
-  height: 100%;
+  .auto;
   img {
-    width: 100%;
-    height: 100%;
+    .auto;
     &.ui_image_back {
       width: 0;
       height: 0;
@@ -59,13 +57,11 @@ export default {
   }
   span {
     &.ui_image_success {
-      background-color: #cccccc;
+      background-color: @moreGrey;
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center center;
-      width: 100%;
-      height: 100%;
-      display: block;
+      .auto;
     }
   }
 }

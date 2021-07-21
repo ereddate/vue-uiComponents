@@ -66,13 +66,13 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_collapse {
   .ui_collapse_content {
     .title {
       display: flex;
-      padding: (5 / @base) (10 / @base);
-      border-bottom: (1 / @base) #efefef solid;
+      padding: (5 / @base) @paddingRight (5 / @base) @paddingLeft;
+      border-bottom: (1 / @base) @lightGrey solid;
       margin: (5 / @base) 0;
       .item {
         flex: 19;

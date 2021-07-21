@@ -135,15 +135,12 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_tab {
   position: relative;
   .ui_tab_header {
-    background-color: #fff;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    background-color: @white;
+    .absoluteTop;
     z-index: 99;
     box-shadow: 0 2px 12px rgba(100, 101, 102, 0.12);
     &.fixed {
@@ -152,11 +149,8 @@ export default {
     .ui_tab_header_bear {
       z-index: 2;
       display: flex;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      background-color: #fff;
+      .absoluteTop;
+      background-color: @white;
       .ui_tab_header_panel {
         overflow: scroll;
         overflow-y: hidden;
@@ -166,7 +160,7 @@ export default {
           .ui_tab_header_item {
             line-height: (46 / @base);
             float: left;
-            font-size: (14 / @base);
+            font-size: @baseFont;
             width: (60 / @base);
             text-align: center;
             &.on {
@@ -178,15 +172,15 @@ export default {
       .ui_tab_header_content_more {
         width: 10%;
         line-height: (46 / @base);
-        font-size: (14 / @base);
+        font-size: @baseFont;
         .ui_tab_header_content_more_button {
-          border-left: (1 / @base) solid #efefef;
+          border-left: (1 / @base) solid @lightGrey;
           line-height: (23 / @base);
-          margin: (12 / @base) 0;
+          margin: @miniFont 0;
           display: flex;
           justify-content: center;
           &.on {
-            color: red;
+            color: @red;
           }
         }
       }
@@ -200,22 +194,22 @@ export default {
     right: 0;
     overflow: scroll;
     overflow-x: hidden;
-    background-color: #fff;
+    background-color: @white;
     text-align: left;
-    padding: (5 / @base) (10 / @base);
+    padding: (5 / @base) @paddingRight (5 / @base) @paddingLeft;
     box-shadow: 0 2px 12px rgba(100, 101, 102, 0.12);
     .ui_tab_header_content_more_menu_item {
-      font-size: (14 / @base);
+      font-size: @baseFont;
       padding: (10 / @base) 0;
       display: inline-block;
       padding: (5 / @base) (15 / @base);
       text-align: center;
       margin: (5 / @base) 0;
-      border-radius: (5 / @base);
+      border-radius: @baseRadius;
       &.on {
         border: (1 / @base) solid red;
-        background-color: red;
-        color: #fff;
+        background-color: @red;
+        color: @white;
       }
     }
   }

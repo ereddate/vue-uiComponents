@@ -88,7 +88,7 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_picker {
   .ui_picker_tools {
     display: flex;
@@ -106,7 +106,7 @@ export default {
   }
   .ui_picker_content {
     display: flex;
-    padding: (10 / @base);
+    padding: @paddingAll;
     .ui_picker_column {
       flex: 1;
     }

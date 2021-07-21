@@ -61,16 +61,16 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_card {
   clear: both;
   overflow: hidden;
-  background-color: #ffffff;
-  border-radius: (5 / @base);
-  font-size: (14 / @base);
+  background-color: @white;
+  border-radius: @baseRadius;
+  font-size: @baseFont;
   .ui_card_header {
-    padding: (5 / @base) (10 / @base);
-    border-bottom: (1 / @base) solid #efefef;
+    padding: (5 / @base) @paddingLeft;
+    border-bottom: (1 / @base) solid @lightGrey;
     display: flex;
     &.img {
       display: block;
@@ -80,7 +80,7 @@ export default {
       a {
         width: 100%;
         min-height: (80 / @base);
-        background-color: #cccccc;
+        background-color: @grey;
       }
     }
     .ui_card_header_item {
@@ -96,7 +96,7 @@ export default {
   }
   .ui_card_content {
     overflow: hidden;
-    padding: (10 / @base);
+    padding: @paddingLeft;
   }
 }
 </style>

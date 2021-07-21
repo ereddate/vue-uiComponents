@@ -19,9 +19,9 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_tools_bar {
-  background-color: #fff;
+  background-color: @white;
   box-shadow: 0 2px 12px rgb(100 101 102 / 12%);
   padding: 0;
   .ui_tools_bar_content {

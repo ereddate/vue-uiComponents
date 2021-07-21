@@ -46,19 +46,19 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_toast {
   position: fixed;
   top: 20%;
-  padding: (8 / @base) (12 / @base);
+  padding: (8 / @base) @miniFont;
   max-width: 70%;
   min-width: (96 / @base);
   left: 50%;
   text-align: center;
-  border-radius: (5 / @base);
+  border-radius: @baseRadius;
   background-color: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  font-size: (14 / @base);
+  color: @white;
+  font-size: @baseFont;
   transform: translate3d(-50%, -50%, 0);
   &.bottom {
     top: auto;

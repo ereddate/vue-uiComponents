@@ -21,15 +21,15 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_list_item {
   .ui_list_item_content {
-    padding: (8 / @base) (16 / @base);
+    padding: (8 / @base) @largeFont;
     &.small {
       padding: (4 / @base) (8 / @base);
     }
     &.large {
-      padding: (16 / @base) (32 / @base);
+      padding: @largeFont (32 / @base);
     }
   }
 }

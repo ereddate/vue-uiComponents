@@ -20,37 +20,23 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+  .absolute;
+  .flexCenter;
   z-index: 99;
   .back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    .absolute;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.5);
   }
   .ui_overlay_content {
     position: absolute;
     z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+    .flexCenter;
     padding: (10 / @base);
-    border-radius: (5 / @base);
-    background-color: #fff;
+    border-radius: @baseRadius;
+    background-color: @white;
   }
 }
 </style>

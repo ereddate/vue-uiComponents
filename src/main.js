@@ -6,6 +6,7 @@ import store from "./store/store";
 
 Vue.use(UIComponents, {
     i18n: "en",
+    key: "ui",
 });
 
 const i18n = UIComponents.i18n;

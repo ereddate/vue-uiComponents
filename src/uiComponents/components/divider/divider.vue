@@ -18,9 +18,9 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_divider {
-  font-size: (14 / @base);
+  font-size: @baseFont;
   line-height: 1.5;
   color: #515a6e;
   box-sizing: border-box;
@@ -49,8 +49,8 @@ export default {
     clear: both;
   }
   .ui_divider_content {
-    background-color: #ffffff;
-    padding: (10 / @base);
+    background-color: @white;
+    padding: @paddingTop @paddingRight @paddingBottom @paddingLeft;
   }
 }
 </style>

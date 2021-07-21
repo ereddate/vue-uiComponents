@@ -3,18 +3,14 @@
     <div class="ui_list_content">
       <div class="ui_list_content_header" v-if="item.header">
         <span v-if="item.header.title">
-          {{
-          item.header.title
-          }}
+          {{ item.header.title }}
         </span>
         <slot v-if="!item.header.title" :item="item.header"></slot>
       </div>
       <slot name="content" :item="item"></slot>
       <div class="ui_list_content_footer" v-if="item.footer">
         <span v-if="item.footer.title">
-          {{
-          item.footer.title
-          }}
+          {{ item.footer.title }}
         </span>
         <slot v-if="!item.footer.title" :item="item.footer"></slot>
       </div>
@@ -37,17 +33,17 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_list {
   .ui_list_content {
-    font-size: (14 / @base);
+    font-size: @baseFont;
     .ui_list_content_header {
-      padding: (10 / @base) 0;
-      border-bottom: (1 / @base) #efefef solid;
+      padding: @paddingTop 0 @paddingBottom 0;
+      border-bottom: (1 / @base) @lightGrey solid;
     }
     .ui_list_content_footer {
-      padding: (10 / @base) 0;
-      border-top: (1 / @base) #efefef solid;
+      padding: @paddingTop 0 @paddingBottom 0;
+      border-top: (1 / @base) @lightGrey solid;
     }
   }
 }

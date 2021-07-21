@@ -7,7 +7,7 @@
           icon: 'arrow-up-bold',
           style: {
             transform: isShow ? 'rotate(0deg)' : 'rotate(180deg)',
-            color: isShow ? 'red' : '#ccc',
+            color: isShow ? 'red' : '@moreGrey',
           },
         }"
       ></ui-icon>
@@ -94,10 +94,10 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_dropdown_item {
   position: relative;
-  font-size: (14 / @base);
+  font-size: @baseFont;
   display: block;
   flex: 1;
   min-height: (43 / @base);
@@ -106,22 +106,22 @@ export default {
     top: 0;
     left: 0;
     right: 0;
-    padding: (12 / @base) (20 / @base);
+    padding: @miniFont (20 / @base);
     display: inline-block;
-    background-color: #fff;
+    background-color: @white;
     display: flex;
     z-index: 98;
     .text {
       flex: 1;
       text-align: center;
-      font-size: (14 / @base);
+      font-size: @baseFont;
       &.select {
-        color: red;
+        color: @red;
       }
     }
     .ui_icon {
-      font-size: (12 / @base);
-      line-height: (18 / @base);
+      font-size: @miniFont;
+      line-height: @moreFont;
     }
   }
   .back {
@@ -140,12 +140,12 @@ export default {
     left: 0;
     right: 0;
     z-index: 97;
-    background-color: #fff;
-    padding: (10 / @base) (10 / @base);
+    background-color: @white;
+    padding: @paddingTop @paddingRight @paddingBottom @paddingLeft;
     .list_item {
-      padding: (10 / @base);
+      padding: @paddingTop @paddingRight @paddingBottom @paddingLeft;
       display: flex;
-      border-bottom: (1 / @base) #efefef solid;
+      border-bottom: (1 / @base) @lightGrey solid;
       &:last-child {
         border: 0;
       }
@@ -153,7 +153,7 @@ export default {
         flex: 1;
       }
       &.select {
-        color: red;
+        color: @red;
       }
     }
   }

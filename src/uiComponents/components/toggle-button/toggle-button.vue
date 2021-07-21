@@ -38,7 +38,7 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_toggle_button {
   display: flex;
   justify-content: center;
@@ -50,19 +50,19 @@ export default {
   .ui_toggle_botton_content {
     display: flex;
     overflow: hidden;
-    border-radius: (5 / @base);
-    border: (1 / @base) #efefef solid;
+    border-radius: @baseRadius;
+    border: (1 / @base) @lightGrey solid;
     .item {
       min-width: (50 / @base);
       text-align: center;
-      padding: (5 / @base) (10 / @base);
-      font-size: (14 / @base);
-      background-color: #ffffff;
-      color: #333;
-      border-right: (1 / @base) #efefef solid;
+      padding: (5 / @base) @paddingRight (5 / @base) @paddingLeft;
+      font-size: @baseFont;
+      background-color: @white;
+      color: @lightBlack;
+      border-right: (1 / @base) @lightGrey solid;
       &.on {
-        background-color: #efefef;
-        color: #333;
+        background-color: @lightGrey;
+        color: @lightBlack;
       }
       &:first-child {
         border-top-left-radius: (5 / @base);

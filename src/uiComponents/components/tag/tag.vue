@@ -33,71 +33,68 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_tag {
   display: flex;
   margin: 0 (5 / @base);
   padding: 0 (5 / @base);
-  font-size: (12 / @base);
+  font-size: @miniFont;
   line-height: (17 / @base);
   &.primary {
-    color: #fff;
-    background-color: #07c160;
-    border: 1px solid #07c160;
+    color: @white;
+    background-color: @green;
+    border: 1px solid @green;
     .ui_icon {
-      color: #fff;
+      color: @white;
     }
   }
   &.info {
-    color: #fff;
-    background-color: #1989fa;
-    border: 1px solid #1989fa;
+    color: @white;
+    background-color: @blue;
+    border: 1px solid @blue;
     .ui_icon {
-      color: #fff;
+      color: @white;
     }
   }
   &.default {
     color: #323233;
-    background-color: #fff;
-    border: 1px solid #ebedf0;
+    background-color: @white;
+    border: 1px solid @lightGrey;
     .ui_icon {
       color: #323233;
     }
   }
   &.warning {
-    color: #fff;
-    background-color: #ee0a24;
-    border: 1px solid #ee0a24;
+    color: @white;
+    background-color: @red;
+    border: 1px solid @red;
     .ui_icon {
-      color: #fff;
+      color: @white;
     }
   }
   &.danger {
-    color: #fff;
-    background-color: #ff976a;
-    border: 1px solid #ff976a;
+    color: @white;
+    background-color: @yellow;
+    border: 1px solid @yellow;
     .ui_icon {
-      color: #fff;
+      color: @white;
     }
   }
   &.default {
-    color: #fff;
-    background-color: #1989fa;
-    border: 1px solid #1989fa;
+    color: @white;
+    background-color: @blue;
+    border: 1px solid @blue;
     .ui_icon {
-      color: #fff;
+      color: @white;
     }
   }
   .ui_tag_text {
     flex: 1;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-items: center;
+    .flexCenter;
   }
   .ui_icon {
-    font-size: (12 / @base);
+    font-size: @miniFont;
     padding: 0 (5 / @base);
     line-height: (20 / @base);
   }

@@ -1,0 +1,89 @@
+@base: 23.44rem;
+
+@red: #ff0033;
+@green: #07c160;
+@yellow: #ff976a;
+@blue: #1989fa;
+@grey: #999999;
+@lightGrey: #efefef;
+@moreGrey: #cccccc;
+@black: #000000;
+@lightBlack: #333333;
+@white: #ffffff;
+@baseColor: @white;
+
+@paddingLeft: (10 / @base);
+@paddingRight: (10 / @base);
+@paddingTop: (10 / @base);
+@paddingBottom: (10 / @base);
+@paddingAll: (10 / @base);
+@marginLeft: (10 / @base);
+@marginRight: (10 / @base);
+@marginTop: (10 / @base);
+@marginBottom: (10 / @base);
+@marginAll: (10 / @base);
+
+@spotFont: (10 / @base);
+@baseFont: (14 / @base);
+@miniFont: (12 / @base);
+@largeFont: (16 / @base);
+@moreFont: (18 / @base);
+
+@baseRadius: (5 / @base);
+@largeRadius: (10 / @base);
+@moreRadius: 50%;
+
+.auto {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.fixedAll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.fixedTop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.fixedBottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.absoluteTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.absoluteBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.textEllipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

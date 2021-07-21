@@ -140,19 +140,15 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_picker_column {
   height: (264 / @base);
-  font-size: (14 / @base);
+  font-size: @baseFont;
   position: relative;
   cursor: grab;
   overflow: hidden;
   .back {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    .absolute;
     z-index: 3;
     .back_content {
       position: absolute;
@@ -161,8 +157,8 @@ export default {
       right: 0;
       z-index: 3;
       height: (44 / @base);
-      border-top: (1 / @base) #efefef solid;
-      border-bottom: (1 / @base) #efefef solid;
+      border-top: (1 / @base) @lightGrey solid;
+      border-bottom: (1 / @base) @lightGrey solid;
     }
   }
   .ui_picker_column_content {
@@ -187,15 +183,13 @@ export default {
           justify-content: center;
           align-items: center;
           height: (44 / @base);
-          color: #ccc;
+          color: @moreGrey;
           &.selected {
-            color: #333;
-            font-size: (18 / @base);
+            color: @lightBlack;
+            font-size: @moreFont;
           }
           .ellipsis {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
+            .textEllipsis;
           }
         }
       }

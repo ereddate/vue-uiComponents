@@ -115,28 +115,28 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_input {
   label {
     line-height: (36 / @base);
-    color: #ccc;
-    padding: 0 (10 / @base) 0 (5 / @base);
+    color: @moreGrey;
+    padding: 0 @paddingRight 0 (5 / @base);
     min-width: (50 / @base);
   }
   .ui_input_content {
     flex: 1;
     display: flex;
-    border: (1 / @base) solid #efefef;
-    border-radius: (5 / @base);
+    border: (1 / @base) solid @lightGrey;
+    border-radius: @baseRadius;
     overflow: hidden;
     padding: (5 / @base);
-    font-size: (14 / @base);
+    font-size: @baseFont;
     &.error {
-      color: #333;
-      border: (1 / @base) solid red;
+      color: @lightBlack;
+      border: (1 / @base) solid @red;
       padding: (5 / @base);
       margin: 0;
-      font-size: (14 / @base);
+      font-size: @baseFont;
     }
     .slot {
       //flex: 1;
@@ -147,7 +147,7 @@ export default {
     .ui_icon {
       line-height: (24 / @base);
       padding: 0 (5 / @base);
-      color: #cccccc;
+      color: @moreGrey;
     }
     .input {
       flex: 1;
@@ -156,22 +156,22 @@ export default {
         border: 0;
         // padding: 0 (10 / @base);
         //height: (24 / @base);
-        font-size: (14 / @base);
+        font-size: @baseFont;
         width: 100%;
         &:focus {
           outline: none;
         }
         &:disabled {
-          background-color: #fff;
-          color: #ccc;
+          background-color: @white;
+          color: @moreGrey;
         }
       }
     }
   }
   .error {
-    color: red;
+    color: @red;
     padding: 0;
-    font-size: (12 / @base);
+    font-size: @miniFont;
     margin: (5 / @base) 0;
   }
 }

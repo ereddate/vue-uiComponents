@@ -33,22 +33,22 @@ export default {
 </script>
 
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_timeline_item {
   .ui_timeline_item_content {
     padding: (13 / @base) 0 0;
     .ui_timeline_item_content_item {
       display: flex;
       .time {
-        font-size: (10 / @base);
+        font-size: @miniFont;
         width: (40 / @base);
         margin: -(8 / @base) 0 0;
         text-align: center;
       }
       .task {
-        font-size: (12 / @base);
+        font-size: @miniFont;
         flex: 1;
-        border-top: (1 / @base) #efefef dashed;
+        border-top: (1 / @base) @lightGrey dashed;
         min-height: (60 / @base);
         padding: (5 / @base);
         margin: 0 0 0 (5 / @base);

@@ -59,34 +59,34 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_action_sheet {
   .ui_action_sheet_content {
-    background-color: #efefef;
+    background-color: @lightGrey;
     .item {
       display: flex;
       flex-direction: column;
-      background-color: #fff;
+      background-color: @white;
       &.header {
-        color: #999;
-        font-size: (12 / @base);
+        color: @grey;
+        font-size: @miniFont;
         text-align: center;
         padding: (15 / @base) 0;
-        border-bottom: (1 / @base) #efefef solid;
+        border-bottom: (1 / @base) @lightGrey solid;
       }
       span {
         flex: 1;
-        font-size: (14 / @base);
-        padding: (10 / @base) 0;
+        font-size: @baseFont;
+        padding: @paddingTop 0 @paddingBottom 0;
         text-align: center;
 
         &.title {
-          padding: (10 / @base) 0 (2 / @base) 0;
+          padding: @paddingTop 0 (2 / @base) 0;
         }
         &.desc {
-          font-size: (12 / @base);
-          color: #ccc;
-          padding: 0 0 (10 / @base) 0;
+          font-size: @miniFont;
+          color: @moreGrey;
+          padding: 0 0 @paddingBottom 0;
         }
       }
       &.cancel {

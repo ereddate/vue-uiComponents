@@ -23,20 +23,20 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_text_item {
   display: flex;
   flex-direction: column;
   .title {
     h1 {
-      font-size: (14 / @base);
+      font-size: @baseFont;
       font-weight: 500;
       padding: 0 0 (10 / @base) 0;
       margin: 0;
     }
   }
   .desc {
-    font-size: (12 / @base);
+    font-size: @miniFont;
   }
 }
 </style>

@@ -47,7 +47,7 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_gotop {
   position: fixed;
   bottom: (140 / @base);
@@ -59,7 +59,7 @@ export default {
   line-height: (20 / @base);
   padding: (5 / @base);
   font-size: (26 / @base);
-  box-shadow: 0 (2 / @base) (12 / @base) rgba(100, 101, 102, 0.12);
+  box-shadow: 0 (2 / @base) @miniFont rgba(100, 101, 102, 0.12);
   text-align: center;
   z-index: 99;
 }

@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_timeline {
   .ui_timeline_content {
     .ui_timeline_content_item {
@@ -65,7 +65,7 @@ export default {
             justify-content: center;
             align-items: center;
             height: 100%;
-            width: (16 / @base);
+            width: @largeFont;
             content: "";
             display: block;
             width: (1 / @base);
@@ -74,7 +74,7 @@ export default {
             position: absolute;
             top: (23 / @base);
             left: (10 / @base);
-            border-radius: (5 / @base);
+            border-radius: @baseRadius;
             .dot {
               display: block;
               height: (8 / @base);
@@ -88,7 +88,7 @@ export default {
         }
         &:first-child {
           width: (80 / @base);
-          font-size: (12 / @base);
+          font-size: @miniFont;
           line-height: (27 / @base);
           text-align: center;
         }

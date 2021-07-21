@@ -47,9 +47,9 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_price_notice {
-  margin: (10 / @base) 0;
+  margin: @marginTop 0 @marginBottom 0;
   clear: both;
   &.black {
     .ui_price_notice_content {
@@ -59,13 +59,13 @@ export default {
           article {
             header {
               h1 {
-                background-color: #333;
-                color: #fff;
+                background-color: @lightBlack;
+                color: @white;
                 padding: (5 / @base);
                 margin: 0;
               }
               p {
-                color: #333;
+                color: @lightBlack;
                 padding: 0;
                 margin: 0;
               }
@@ -78,30 +78,30 @@ export default {
   h1 {
     &.ui_price_notice_header {
       height: (15 / @base);
-      font-size: (14 / @base);
-      line-height: (14 / @base);
+      font-size: @baseFont;
+      line-height: @baseFont;
       text-align: left;
-      padding: (10 / @base) (10 / @base);
-      border-bottom: (1 / @base) solid #efefef;
+      padding: @paddingAll;
+      border-bottom: (1 / @base) solid @lightGrey;
       display: flex;
       overflow: hidden;
-      color: #333;
+      color: @lightBlack;
       font-weight: 400;
       margin: 0;
       div {
         width: 10%;
         &.ui_price_notice_header_title {
           width: 25%;
-          line-height: (14 / @base);
+          line-height: @baseFont;
           overflow: hidden;
           height: (15 / @base);
         }
         &.ui_price_notice_header_slogan {
           width: 65%;
-          font-size: (12 / @base);
-          line-height: (14 / @base);
-          color: #ccc;
-          margin: 0 0 0 (10 / @base);
+          font-size: @miniFont;
+          line-height: @baseFont;
+          color: @moreGrey;
+          margin: 0 0 0 @marginLeft;
           font-weight: 400;
         }
       }
@@ -118,26 +118,26 @@ export default {
         article {
           header {
             h1 {
-              font-size: (12 / @base);
+              font-size: @miniFont;
               padding: (5 / @base);
-              background-color: #efefef;
-              color: #333;
-              border-radius: (5 / @base);
+              background-color: @lightGrey;
+              color: @lightBlack;
+              border-radius: @baseRadius;
               font-weight: 400;
               margin: 0;
             }
             p {
               margin: (5 / @base) 0 0;
-              font-size: (12 / @base);
-              color: #ccc;
+              font-size: @miniFont;
+              color: @moreGrey;
               padding: 0;
               span {
                 margin: 0 0 0 (5 / @base);
                 &.red {
-                  color: #ce1212;
+                  color: @red;
                 }
                 &.green {
-                  color: #07c160;
+                  color: @green;
                 }
               }
             }

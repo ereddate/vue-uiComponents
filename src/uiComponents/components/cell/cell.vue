@@ -67,7 +67,7 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_cell {
   padding: (10 / @base) 0;
   .ui_cell_content {
@@ -93,27 +93,27 @@ export default {
           margin: 0;
         }
         h1 {
-          font-size: (12 / @base);
+          font-size: @miniFont;
           font-weight: 400;
           display: flex;
           .text {
-            font-size: (14 / @base);
-            color: #333;
+            font-size: @baseFont;
+            color: @lightBlack;
             margin: 0 0 0 (5 / @base);
           } /* 
           .ui_icon {
-            color: #999;
+            color: @grey;
             line-height: (22 / @base);
             margin: 0 (5 / @base) 0 0;
           } */
         }
         p {
-          font-size: (14 / @base);
-          color: #999;
+          font-size: @baseFont;
+          color: @grey;
         }
       }
       .item_content {
-        color: #999;
+        color: @grey;
         margin: 0 (5 / @base) 0 0;
       }
       .ui_icon {

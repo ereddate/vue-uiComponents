@@ -58,66 +58,57 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_steps {
   .ui_steps_content {
-    padding: (10 / @base) (10 / @base) (30 / @base) (10 / @base);
+    padding: @paddingTop @paddingRight (30 / @base) @paddingLeft;
     display: flex;
     height: (10 / @base);
     position: relative;
-    font-size: (12 / @base);
+    font-size: @miniFont;
     .ui_steps_content_items {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      .absoluteTop;
       display: flex;
       .item {
         position: relative;
         .item_content {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          display: flex;
+          .absoluteTop;
+          .flexCenter;
           flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          align-content: center;
           .title {
-            color: #ccc;
+            color: @moreGrey;
             &.on {
-              color: #07c160;
+              color: @green;
             }
             &.success {
-              color: #333;
+              color: @lightBlack;
             }
           }
           .ui_icon {
-            font-size: (12 / @base);
+            font-size: @miniFont;
             margin: (5 / @base) 0;
-            padding: (2 / @base) (10 / @base);
-            color: #07c160;
+            padding: (2 / @base) @paddingRight (2 / @base) @paddingLeft;
+            color: @green;
             font-weight: 700;
-            background-color: #fff;
-            border-radius: (5 / @base);
+            background-color: @white;
+            border-radius: @baseRadius;
           }
           .no {
-            background-color: #fff;
-            padding: 0 (10 / @base);
+            background-color: @white;
+            padding: 0 @paddingRight 0 @paddingLeft;
             transform: translateY(-50%);
-            margin: (14 / @base) 0 0;
+            margin: @baseFont 0 0;
             &.on {
               span {
-                background-color: #07c160;
+                background-color: @green;
               }
             }
             span {
               display: block;
               width: (5 / @base);
               height: (5 / @base);
-              background-color: #ccc;
-              border-radius: (5 / @base);
+              background-color: @moreGrey;
+              border-radius: @baseRadius;
             }
           }
         }
@@ -148,11 +139,11 @@ export default {
         .item_line {
           flex: 1;
           height: (1 / @base);
-          background-color: #efefef;
+          background-color: @lightGrey;
           width: 100%;
           z-index: 0;
           &.on {
-            background-color: #07c160;
+            background-color: @green;
           }
         }
       }

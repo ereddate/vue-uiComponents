@@ -34,51 +34,51 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_button {
   cursor: pointer;
   display: inline-block;
-  padding: (5 / @base) (10 / @base);
-  border-radius: (5 / @base);
+  padding: (5 / @base) @paddingRight (5 / @base) @paddingLeft;
+  border-radius: @baseRadius;
   margin: (5 / @base) 0;
 
   span {
     margin: 0 (2.5 / @base);
   }
   &.primary {
-    color: #fff;
-    background-color: #07c160;
-    border: 1px solid #07c160;
+    color: @white;
+    background-color: @green;
+    border: 1px solid @green;
   }
   &.info {
-    color: #fff;
-    background-color: #1989fa;
-    border: 1px solid #1989fa;
+    color: @white;
+    background-color: @blue;
+    border: 1px solid @blue;
   }
   &.default {
     color: #323233;
-    background-color: #fff;
-    border: 1px solid #ebedf0;
+    background-color: @white;
+    border: 1px solid @lightGrey;
   }
   &.warning {
-    color: #fff;
-    background-color: #ee0a24;
-    border: 1px solid #ee0a24;
+    color: @white;
+    background-color: @red;
+    border: 1px solid @red;
   }
   &.danger {
-    color: #fff;
-    background-color: #ff976a;
-    border: 1px solid #ff976a;
+    color: @white;
+    background-color: @yellow;
+    border: 1px solid @yellow;
   }
   &.mini {
-    color: #333;
-    background-color: #fff;
-    border: 1px solid #fff;
+    color: @lightBlack;
+    background-color: @white;
+    border: 1px solid @white;
     margin: (2.5 / @base);
     padding: (2.5 / @base) (5 / @base);
   }
   &.disabled {
-    color: #999;
+    color: @grey;
   }
 }
 </style>

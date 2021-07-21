@@ -40,39 +40,26 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_dialog {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  .fixedAll;
   z-index: 99;
   background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+  .flexCenter;
   .ui_dialog_content {
-    background-color: #fff;
+    background-color: @white;
     width: (260 / @base);
     min-height: (100 / @base);
-    border-radius: (5 / @base);
+    border-radius: @baseRadius;
     &.default {
     }
     &.top {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      .absoluteTop;
       border-radius: 0;
       width: auto;
     }
     &.down {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      .absoluteBottom;
       border-radius: 0;
       width: auto;
     }

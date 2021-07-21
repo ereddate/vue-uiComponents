@@ -27,10 +27,10 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_loading {
   position: relative;
-  color: #c8c9cc;
+  color: @moreGrey;
   font-size: 0;
   vertical-align: middle;
   display: flex;
@@ -51,8 +51,7 @@ export default {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      .auto;
 
       &::before {
         display: block;
@@ -75,14 +74,12 @@ export default {
     }
   }
   .ui_loading_circular {
-    display: block;
-    width: 100%;
-    height: 100%;
+    .auto;
   }
   .text {
     flex: 1;
-    font-size: (12 / @base);
-    color: #333;
+    font-size: @miniFont;
+    color: @lightBlack;
     display: flex;
     justify-content: flex-start;
     align-items: center;

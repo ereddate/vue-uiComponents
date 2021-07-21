@@ -51,11 +51,11 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_video_item {
-  background-color: #000;
+  background-color: @black;
   video {
-    background-color: #000;
+    background-color: @black;
   }
 }
 </style>

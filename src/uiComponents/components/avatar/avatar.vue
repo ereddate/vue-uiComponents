@@ -21,24 +21,24 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_avatar {
   .ui_avatar_content {
     overflow: hidden;
     &.small {
       width: (32 / @base);
       height: (32 / @base);
-      border-radius: 50%;
+      border-radius: @moreRadius;
     }
     &.normal {
       width: (40 / @base);
       height: (40 / @base);
-      border-radius: 50%;
+      border-radius: @moreRadius;
     }
     &.large {
       width: (60 / @base);
       height: (60 / @base);
-      border-radius: 50%;
+      border-radius: @moreRadius;
     }
   }
 }

@@ -43,24 +43,24 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_dialog_item {
   .ui_dialog_item_content {
     article {
-      padding: (10 / @base);
+      padding: @paddingTop @paddingRight @paddingBottom @paddingLeft;
       header {
         min-height: (60 / @base);
         display: block;
         h1 {
-          font-size: (12 / @base);
+          font-size: @miniFont;
           font-weight: 500;
           padding: 0;
           margin: 0 0 (5 / @base) 0;
         }
         p {
-          padding: (10 / @base) 0 (30 / @base) 0;
+          padding: @paddingTop 0 (30 / @base) 0;
           margin: 0;
-          font-size: (14 / @base);
+          font-size: @baseFont;
           text-align: center;
         }
       }

@@ -41,7 +41,7 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_treeselect {
   .ui_treeselect_content {
     display: flex;
@@ -51,7 +51,7 @@ export default {
       &:last-child {
         flex: 1;
         .item_content {
-          background-color: #fff;
+          background-color: @white;
         }
       }
     }

@@ -89,13 +89,13 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_icons_list {
   position: relative;
   padding: 0 0 (20 / @base) 0;
-  background-color: #fff;
+  background-color: @white;
   .ui_icons_list_top {
-    padding: (10 / @base) 0;
+    padding: @paddingTop 0 @paddingBottom 0;
     overflow: scroll;
     overflow-y: hidden;
     .ui_icons_list_content {
@@ -103,7 +103,7 @@ export default {
         float: left;
         margin: (5 / @base);
         box-shadow: 0 2px 12px rgba(100, 101, 102, 0.12);
-        border-radius: (5 / @base);
+        border-radius: @baseRadius;
         padding: 0;
         overflow: hidden;
         &:first-child {
@@ -116,11 +116,11 @@ export default {
           display: block;
           text-align: center;
           text-decoration: none;
-          color: #333;
+          color: @lightBlack;
           .ui_image {
             width: (80 / @base);
             height: (80 / @base);
-            background-color: #999;
+            background-color: @grey;
           }
           .ui_icon {
             width: (80 / @base);
@@ -128,7 +128,7 @@ export default {
             line-height: (40 / @base);
           }
           p {
-            font-size: (14 / @base);
+            font-size: @baseFont;
             padding: (5 / @base) 0;
             margin: 0;
           }
@@ -137,7 +137,7 @@ export default {
     }
   }
   .ui_icons_list_indicators {
-    background-color: #efefef;
+    background-color: @lightGrey;
     border-radius: (20 / @base);
     height: (5 / @base);
     position: absolute;
@@ -153,7 +153,7 @@ export default {
       position: absolute;
       top: 0;
       &.disabled {
-        background-color: #ccc;
+        background-color: @moreGrey;
       }
     }
   }

@@ -39,17 +39,17 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_imagelist_item {
   .ui_imagelist_item_content {
-    background-color: #fff;
-    border-radius: (5 / @base);
+    background-color: @white;
+    border-radius: @baseRadius;
     overflow: hidden;
     article {
       header {
-        padding: (5 / @base) (10 / @base);
+        padding: (5 / @base) @paddingRight (5 / @base) @paddingLeft;
         h1 {
-          font-size: (14 / @base);
+          font-size: @baseFont;
           font-weight: 500;
           padding: 0;
           margin: 0;
@@ -63,9 +63,9 @@ export default {
         }
         p {
           span {
-            color: red;
+            color: @red;
             &:first-child {
-              font-size: (12 / @base);
+              font-size: @miniFont;
               margin: 0 (5 / @base) 0 0;
             }
             &:last-child {

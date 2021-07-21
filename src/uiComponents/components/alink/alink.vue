@@ -31,14 +31,11 @@ export default {
 };
 </script>
 <style lang="less">
+@import "../../style/common.less";
 .ui_alink {
-  display: block;
-  width: 100%;
-  height: 100%;
+  .auto;
   a {
-    display: block;
-    width: 100%;
-    height: 100%;
+    .auto;
     text-decoration: none;
   }
 }

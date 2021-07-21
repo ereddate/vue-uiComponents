@@ -37,13 +37,13 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_imagelist {
-  font-size: (14 / @base);
+  font-size: @baseFont;
   clear: both;
   .ui_imagelist_content {
     overflow: hidden;
-    padding: (5 / @base) (10 / @base);
+    padding: (5 / @base) @paddingRight (5 / @base) @paddingLeft;
     .item {
       .item_cell {
         float: left;

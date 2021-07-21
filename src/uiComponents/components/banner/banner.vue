@@ -206,40 +206,40 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_banner {
-  background-color: #fff;
+  background-color: @white;
   padding: (5 / @base);
   display: block;
   overflow: hidden;
   clear: both;
   h1 {
     &.ui_banner_header {
-      font-size: (14 / @base);
-      line-height: (14 / @base);
+      font-size: @baseFont;
+      line-height: @baseFont;
       text-align: left;
-      padding: (10 / @base) (5 / @base);
-      border-bottom: (1 / @base) solid #efefef;
-      background-color: #fff;
+      padding: @paddingTop (5 / @base);
+      border-bottom: (1 / @base) solid @lightGrey;
+      background-color: @white;
       display: flex;
       height: (15 / @base);
       overflow: hidden;
       margin: (5 / @base) 0;
-      color: #333;
+      color: @lightBlack;
       font-weight: 400;
       div {
         width: 10%;
         &.ui_banner_header_title {
           width: 25%;
-          line-height: (14 / @base);
+          line-height: @baseFont;
           overflow: hidden;
         }
         &.ui_banner_header_slogan {
           width: 65%;
-          font-size: (12 / @base);
-          line-height: (14 / @base);
-          color: #ccc;
-          margin: 0 0 0 (10 / @base);
+          font-size: @miniFont;
+          line-height: @baseFont;
+          color: @moreGrey;
+          margin: 0 0 0 @marginLeft;
           font-weight: 400;
         }
       }
@@ -256,37 +256,36 @@ export default {
         width: 100%;
         height: (160 / @base);
         text-decoration: none;
-        color: #333;
+        color: @lightBlack;
         img {
-          width: 100%;
-          height: 100%;
+          .auto;
         }
         h1 {
-          font-size: (14 / @base);
+          font-size: @baseFont;
           font-weight: 400;
-          padding: (10 / @base);
+          padding: @paddingTop @paddingRight @paddingBottom @paddingLeft;
           margin: 0;
           span {
-            font-size: (12 / @base);
-            color: #ccc;
+            font-size: @miniFont;
+            color: @moreGrey;
             display: block;
           }
         }
         p {
-          color: #ce1212;
-          font-size: (12 / @base);
-          padding: 0 (10 / @base);
+          color: @red;
+          font-size: @miniFont;
+          padding: 0 @paddingRight 0 @paddingLeft;
           margin: 0;
           i {
             font-style: normal;
-            font-size: (12 / @base);
-            color: #ccc;
+            font-size: @miniFont;
+            color: @moreGrey;
             text-decoration: line-through;
             margin: 0 0 (5 / @base) 0;
             display: block;
           }
           span {
-            font-size: (16 / @base);
+            font-size: @largeFont;
           }
         }
       }
@@ -300,12 +299,12 @@ export default {
       &.left {
         width: 50%;
         height: (165 / @base);
-        border-radius: (5 / @base);
+        border-radius: @baseRadius;
         img {
           width: 100%;
           height: (165 / @base);
           overflow: hidden;
-          background-color: #999;
+          background-color: @grey;
         }
       }
     }
@@ -316,7 +315,7 @@ export default {
         display: block;
         overflow: hidden;
         height: (80 / @base);
-        border-radius: (5 / @base);
+        border-radius: @baseRadius;
         &:first-child {
           margin: 0 0 (5 / @base) 0;
         }
@@ -324,7 +323,7 @@ export default {
           width: 100%;
           height: (80 / @base);
           overflow: hidden;
-          background-color: #999;
+          background-color: @grey;
         }
       }
     }
@@ -337,7 +336,7 @@ export default {
         display: block;
         overflow: hidden;
         height: (80 / @base);
-        border-radius: (5 / @base);
+        border-radius: @baseRadius;
         &:first-child {
           margin: 0 0 (5 / @base) 0;
         }
@@ -345,7 +344,7 @@ export default {
           width: 100%;
           height: (80 / @base);
           overflow: hidden;
-          background-color: #999;
+          background-color: @grey;
         }
       }
     }
@@ -356,19 +355,19 @@ export default {
         width: 50%;
         height: (165 / @base);
         margin: 0 0 0 (5 / @base);
-        border-radius: (5 / @base);
+        border-radius: @baseRadius;
         img {
           width: 100%;
           height: (165 / @base);
           overflow: hidden;
-          background-color: #999;
+          background-color: @grey;
         }
       }
     }
   }
   .ui_banner_single {
     overflow: hidden;
-    border-radius: (5 / @base);
+    border-radius: @baseRadius;
     a {
       display: block;
       width: 100%;
@@ -376,13 +375,13 @@ export default {
       img {
         width: 100%;
         height: 100%;
-        background-color: #999;
+        background-color: @grey;
       }
     }
   }
   .ui_banner_single_notask {
     overflow: hidden;
-    border-radius: (5 / @base);
+    border-radius: @baseRadius;
     a {
       display: flex;
       width: 100%;
@@ -390,35 +389,35 @@ export default {
       img {
         width: (60 / @base);
         height: (60 / @base);
-        background-color: #999;
+        background-color: @grey;
         overflow: hidden;
-        border-radius: (5 / @base);
+        border-radius: @baseRadius;
       }
       span {
         display: block;
         width: 80%;
         text-align: left;
-        margin: auto 0 auto (10 / @base);
+        margin: auto 0 auto @marginLeft;
       }
     }
   }
   .ui_banner_singletask {
     display: flex;
-    font-size: (14 / @base);
-    padding: (10 / @base) (15 / @base);
-    border-radius: (5 / @base);
+    font-size: @baseFont;
+    padding: @paddingTop (15 / @base) @paddingBottom (15 / @base);
+    border-radius: @baseRadius;
     .ui_banner_singletask_left {
       width: 65%;
       text-align: left;
       article {
         header {
           h1 {
-            font-size: (14 / @base);
+            font-size: @baseFont;
             font-weight: 400;
             padding: (2.5 / @base) 0;
           }
           p {
-            font-size: (12 / @base);
+            font-size: @miniFont;
             color: #666;
           }
         }
@@ -428,9 +427,9 @@ export default {
       width: 35%;
       button {
         vertical-align: middle;
-        border-radius: (10 / @base);
+        border-radius: @largeRadius;
         border: 0;
-        font-size: (12 / @base);
+        font-size: @miniFont;
         margin: (5 / @base) 0 0;
         padding: (5 / @base);
       }
@@ -441,7 +440,7 @@ export default {
     }
   }
   .ui_banner_multip {
-    border-radius: (5 / @base);
+    border-radius: @baseRadius;
     overflow: hidden;
     a {
       display: block;
@@ -451,37 +450,35 @@ export default {
       img {
         width: 100%;
         height: 100%;
-        background-color: #999;
+        background-color: @grey;
       }
     }
   }
   .ui_banner_line {
     display: flex;
     overflow: hidden;
-    border-radius: (5 / @base);
+    border-radius: @baseRadius;
     a {
       display: block;
       width: 25%;
       height: (80 / @base);
       img {
-        width: 100%;
-        height: 100%;
-        background-color: #999;
+        .auto;
+        background-color: @grey;
       }
     }
   }
   .ui_banner_noun {
     display: flex;
     overflow: hidden;
-    border-radius: (5 / @base);
+    border-radius: @baseRadius;
     a {
       display: block;
       width: 50%;
       height: (80 / @base);
       img {
-        width: 100%;
-        height: 100%;
-        background-color: #999;
+        .auto;
+        background-color: @grey;
       }
     }
   }
@@ -490,22 +487,22 @@ export default {
     .ui_banner_symmetry_task_item {
       width: 50%;
       text-align: center;
-      border-right: (1 / @base) solid #efefef;
-      padding: (10 / @base) 0;
+      border-right: (1 / @base) solid @lightGrey;
+      padding: @paddingTop 0 @paddingBottom 0;
       &:last-child {
         border: 0;
       }
       .ui_banner_symmetry_task_item_desc {
-        font-size: (12 / @base);
-        color: #999;
+        font-size: @miniFont;
+        color: @grey;
       }
       .ui_banner_symmetry_task_item_title {
-        font-size: (14 / @base);
-        color: #333;
+        font-size: @baseFont;
+        color: @lightBlack;
       }
       .ui_banner_symmetry_task_item_aside {
-        font-size: (12 / @base);
-        color: #999;
+        font-size: @miniFont;
+        color: @grey;
         .ui_banner_symmetry_task_item_aside_data {
           margin: 0 0 0 (5 / @base);
         }
@@ -515,20 +512,20 @@ export default {
   .ui_banner_float {
     .ui_banner_float_item {
       position: fixed;
-      border-radius: (5 / @base);
+      border-radius: @baseRadius;
       box-shadow: 0 2px 12px rgba(100, 101, 102, 0.12);
       width: (120 / @base);
-      background-color: #fff;
+      background-color: @white;
       .van-icon {
         position: absolute;
-        background-color: #fff;
-        color: #333;
+        background-color: @white;
+        color: @lightBlack;
         width: (20 / @base);
         height: (20 / @base);
         border-radius: (20 / @base);
         display: block;
         overflow: hidden;
-        font-size: (14 / @base);
+        font-size: @baseFont;
         line-height: (20 / @base);
         box-shadow: 0 2px 12px rgba(100, 101, 102, 0.12);
         top: -(5 / @base);

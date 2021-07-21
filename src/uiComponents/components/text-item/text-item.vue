@@ -27,7 +27,7 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_text_item {
   display: flex;
   flex-direction: column;
@@ -37,20 +37,20 @@ export default {
     text-overflow: ellipsis;
     margin: (5 / @base) 0 (5 / @base) 0;
     h1 {
-      font-size: (14 / @base);
+      font-size: @baseFont;
       font-weight: 500;
       padding: 0;
       margin: 0;
     }
   }
   .desc {
-    font-size: (12 / @base);
+    font-size: @miniFont;
     height: (46 / @base);
     overflow: hidden;
     text-overflow: ellipsis;
-    color: #999;
-    margin: 0 0 (10 / @base) 0;
-    line-height: (16 / @base);
+    color: @grey;
+    margin: 0 0 @marginBottom 0;
+    line-height: @largeFont;
   }
 }
 </style>

@@ -41,24 +41,24 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_sidebar {
   .ui_sidebar_content {
     width: (120 / @base);
-    background-color: #efefef;
+    background-color: @lightGrey;
     .item_tab {
-      padding: (14 / @base) (12 / @base);
+      padding: @baseFont @miniFont;
       position: relative;
       cursor: pointer;
       &.select {
-        background-color: #fff;
+        background-color: @white;
         &::before {
           position: absolute;
           top: 50%;
           left: 0;
           width: 4px;
           height: 16px;
-          background-color: #ee0a24;
+          background-color: @red;
           -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
           content: "";

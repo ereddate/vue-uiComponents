@@ -126,12 +126,12 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_swiper {
   position: relative;
   .ui_swiper_content {
     overflow: hidden;
-    border-radius: (5 / @base);
+    border-radius: @baseRadius;
     .content {
       float: left;
       &.no {
@@ -158,12 +158,12 @@ export default {
         width: (10 / @base);
         height: (3.5 / @base);
         overflow: hidden;
-        background-color: #cccccc;
+        background-color: @moreGrey;
         float: left;
         margin: 0 (2.5 / @base);
         display: block;
         &.on {
-          background-color: #efefef;
+          background-color: @lightGrey;
         }
       }
     }

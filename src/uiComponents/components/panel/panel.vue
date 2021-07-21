@@ -28,13 +28,13 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_panel {
   position: relative;
   h1 {
-    padding: 0 (10 / @base);
-    margin: (10 / @base) 0;
-    font-size: (14 / @base);
+    padding: 0 @paddingRight 0 @paddingLeft;
+    margin: @marginTop 0;
+    font-size: @baseFont;
     font-weight: 400;
   }
   .ui_panel_content {

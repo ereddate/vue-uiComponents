@@ -44,7 +44,7 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_textarea {
   .ui_textarea_content {
     position: relative;
@@ -70,9 +70,9 @@ export default {
       bottom: (5 / @base);
       right: (10 / @base);
       text-align: right;
-      color: #999;
-      font-size: (12 / @base);
-      background-color: #fff;
+      color: @grey;
+      font-size: @miniFont;
+      background-color: @white;
     }
   }
 }

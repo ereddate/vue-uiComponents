@@ -62,41 +62,29 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_more {
   .ui_more_content {
     .item {
-      display: flex;
+      .flexCenter;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      align-content: center;
       .normal {
         height: (30 / @base);
-        display: flex;
+        .flexCenter;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
       }
       .loading {
         height: (30 / @base);
-        display: flex;
+        .flexCenter;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
       }
       .loaded {
         height: (30 / @base);
         text-align: center;
-        color: #999;
+        color: @grey;
         padding: (10 / @base);
-        display: flex;
+        .flexCenter;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
       }
     }
   }

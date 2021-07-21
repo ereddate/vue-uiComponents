@@ -102,7 +102,7 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_video {
   .ui_video_content {
     position: relative;
@@ -113,8 +113,8 @@ export default {
       position: absolute;
       top: (10 / @base);
       left: (10 / @base);
-      color: #fff;
-      font-size: (12 / @base);
+      color: @white;
+      font-size: @miniFont;
     }
     &.reload {
       .up_video_reload {
@@ -128,16 +128,16 @@ export default {
         align-items: center;
         align-content: center;
         .ui_icon {
-          color: #fff;
-          font-size: (16 / @base);
-          padding: (10 / @base);
+          color: @white;
+          font-size: @largeFont;
+          padding: @paddingAll;
           background-color: rgba(0, 0, 0, 0.6);
-          border-radius: (10 / @base);
+          border-radius: @largeRadius;
         }
       }
     }
     .ui_video_timeupdate {
-      background-color: #999;
+      background-color: @grey;
       height: (3 / @base);
       .timeupdate {
         background-color: #1bb0bf;
@@ -151,7 +151,7 @@ export default {
           height: (6 / @base);
           border-radius: 50%;
           background-color: #1bb0bf;
-          border: (2 / @base) #fff solid;
+          border: (2 / @base) @white solid;
           margin: 0 -5px 0 0;
         }
       }

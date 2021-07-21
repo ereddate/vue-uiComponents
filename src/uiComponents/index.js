@@ -26,7 +26,10 @@ class UiComponents {
         locale.set(this.options.i18n);
 
         Object.keys(uiComponents).forEach((key) => {
-            Vue.component(common.formateKey(key), uiComponents[key]);
+            let newKey = common.formateKey(key);
+            newKey = newKey.replace(newKey.split("-")[0], options.key || "ui");
+            console.log(newKey);
+            Vue.component(newKey, uiComponents[key]);
         });
 
         done(Vue, common);

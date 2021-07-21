@@ -22,7 +22,7 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_badge {
   .ui_badge_content {
     position: relative;
@@ -30,13 +30,13 @@ export default {
       position: absolute;
       top: (-10 / @base);
       right: (5 / @base);
-      font-size: (12 / @base);
-      background-color: red;
-      border-radius: (10 / @base);
-      min-width: (16 / @base);
-      height: (16 / @base);
+      font-size: @miniFont;
+      background-color: @red;
+      border-radius: @largeRadius;
+      min-width: @largeFont;
+      height: @largeFont;
       text-align: center;
-      color: #fff;
+      color: @white;
     }
   }
 }
