@@ -19,6 +19,7 @@ import UIComponents from "./uiComponents/index";
 
 Vue.use(UIComponents, {
     i18n: "zh", //语言
+    key: "ui",  //标签自定义前缀，如果是‘sk’,引入组件时就是‘<sk-video></sk-video>’
 });
 
 const i18n = UIComponents.i18n; //语言
