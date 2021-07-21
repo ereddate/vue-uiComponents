@@ -47,6 +47,13 @@
             </ui-tools-bar>
             <ui-card>
               <template #content>
+                <ui-video :item="videoData">
+                  <template #content> video slot </template>
+                </ui-video>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
                 <ui-more :item="more"></ui-more>
               </template>
             </ui-card>
@@ -540,6 +547,26 @@ export default {
   },
   data() {
     return {
+      videoData: {
+        width: 335,
+        height: 160,
+        autoplay: true,
+        controls: true,
+        title: "内容标题",
+        fit: "fill",
+        poster:
+          "https://easyhtml5video.com/assets/video/Penguins_of_Madagascar.jpg",
+        src: [
+          {
+            src: "https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.m4v",
+            type: "video/mp4",
+          },
+          {
+            src: "https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.webm",
+            type: "video/webm",
+          },
+        ],
+      },
       more: {
         loading: false,
         loaded: false,

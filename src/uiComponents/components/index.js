@@ -53,6 +53,8 @@ import uiSidebar from "./sidebar/index";
 import uiAvatar from "./avatar/index";
 import uiTextarea from "./textarea/index";
 import uiMore from "./more/index";
+import uiVideo from "./video/index";
+import uiVideoItem from "./video-item/index";
 
 Vue.component("ui-remote-script", {
     render: function(createElement) {
@@ -140,4 +142,6 @@ export const components = {
     uiAvatar,
     uiTextarea,
     uiMore,
+    uiVideo,
+    uiVideoItem,
 };
