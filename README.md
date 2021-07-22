@@ -157,7 +157,7 @@ export const components = {
 55. ui-more
 56. ui-video-item
 57. ui-video
-
+58. ui-topic-group
 
 ```
 this.$confirm('message', function(){console.log('enter!')}, function(){console.log('cancel!')});
