@@ -2,9 +2,10 @@
   <button
     :type="item.type || 'button'"
     class="ui_button"
-    @click="buttonClickHandle"
+    @click.prevent="buttonClickHandle"
     :class="(item.class || 'mini') + (item.disabled ? ' disabled' : '')"
     :disabled="item.disabled"
+    :data-value="item.data"
   >
     <ui-icon :item="{ icon: item.icon }" v-if="item.icon"></ui-icon>
     <span v-if="item.text">{{ i18n("lang." + item.text) }}</span>
@@ -28,7 +29,11 @@ export default {
       return this.$uic.i18n(v);
     },
     buttonClickHandle(e) {
-      this.$props.item.clickHandle && this.$props.item.clickHandle(e);
+      this.$props.item.clickHandle &&
+        this.$props.item.clickHandle(
+          { data: this.$props.item.data, index: this.$props.item.index },
+          e
+        );
     },
   },
 };

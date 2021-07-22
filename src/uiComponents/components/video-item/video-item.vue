@@ -9,6 +9,13 @@
       :preload="item.preload || false"
       :autoplay="item.autoplay || false"
       :style="{ 'object-fit': item.fit || 'fill' }"
+      x-webkit-airplay="allow"
+      :x5-video-player-type="true"
+      x5-video-orientation="portraint"
+      :x5­-video­-player­-fullscreen="false"
+      :playsinline="true"
+      :webkit-playsinline="true"
+      :controls="false"
       ref="video"
     >
       <source

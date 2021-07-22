@@ -28,7 +28,6 @@ class UiComponents {
         Object.keys(uiComponents).forEach((key) => {
             let newKey = common.formateKey(key);
             newKey = newKey.replace(newKey.split("-")[0], options.key || "ui");
-            console.log(newKey);
             Vue.component(newKey, uiComponents[key]);
         });
 

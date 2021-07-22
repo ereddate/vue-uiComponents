@@ -55,6 +55,7 @@ import uiTextarea from "./textarea/index";
 import uiMore from "./more/index";
 import uiVideo from "./video/index";
 import uiVideoItem from "./video-item/index";
+import uiTopicGroup from "./topicGroup/index";
 
 Vue.component("ui-remote-script", {
     render: function(createElement) {
@@ -144,4 +145,5 @@ export const components = {
     uiMore,
     uiVideo,
     uiVideoItem,
+    uiTopicGroup,
 };

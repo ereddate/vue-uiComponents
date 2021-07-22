@@ -47,6 +47,11 @@
             </ui-tools-bar>
             <ui-card>
               <template #content>
+                <ui-topic-group :item="topicGroup"></ui-topic-group>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
                 <ui-video :item="videoData">
                   <template #content> video slot </template>
                 </ui-video>
@@ -547,6 +552,53 @@ export default {
   },
   data() {
     return {
+      topicGroup: {
+        type: "video",
+        title: "问题：xxx",
+        topic: {
+          width: 335,
+          height: 160,
+          controls: true,
+          title: "问题：xxx",
+          fit: "fill",
+          poster:
+            "https://easyhtml5video.com/assets/video/Penguins_of_Madagascar.jpg",
+          src: [
+            {
+              src: "https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.m4v",
+              type: "video/mp4",
+            },
+            {
+              src: "https://easyhtml5video.com/assets/video/new/Penguins_of_Madagascar.webm",
+              type: "video/webm",
+            },
+          ],
+        },
+        options: {
+          data: [
+            {
+              title: "答案1",
+              timeUpdate: { start: 1, end: 10, next: 1 },
+              showButtons: [2, 3],
+            },
+            {
+              title: "答案2",
+              timeUpdate: { start: 10, end: 30, next: 2 },
+              showButtons: [1, 3],
+            },
+            {
+              title: "答案3",
+              timeUpdate: { start: 30, end: 40, next: 3 },
+              showButtons: [3, 1],
+            },
+            {
+              title: "答案4",
+              timeUpdate: { start: 40, end: 50, next: 0 },
+              showButtons: [0, 1],
+            },
+          ],
+        },
+      },
       videoData: {
         width: 335,
         height: 160,

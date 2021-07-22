@@ -15,13 +15,13 @@
       ></ui-video-item>
       <div
         class="up_video_reload"
-        v-if="reload"
+        v-if="reload && item.showTip"
         @click="playButtonClickHandle"
         :style="{ height: item.height / 23.44 + 'rem' }"
       >
         <ui-icon :item="{ icon: 'refresh' }"></ui-icon>
       </div>
-      <div class="ui_video_info">
+      <div class="ui_video_info" v-if="item.showTip">
         <div class="ui_video_title" v-if="item.title">{{ item.title }}</div>
         <div class="ui_video_tip">{{ current }}/{{ total }}</div>
       </div>
@@ -59,29 +59,46 @@ export default {
       play: false,
     };
   },
+  mounted() {
+    this.video = this.$children[0].video;
+    this.$props.item.currentTimeUpdate &&
+      (this.video.currentTime = this.$props.item.currentTimeUpdate);
+  },
+  watch: {
+    "$props.item.currentTimeUpdate"(v) {
+      let that = this;
+      this.$nextTick(() => {
+        that.video.pause();
+        that.video.currentTime = v;
+        that.video.play();
+      });
+    },
+  },
   methods: {
     playButtonClickHandle() {
-      this.$children[0].video.play();
+      this.video.play();
+    },
+    playHandle() {
+      // console.log(e);
       this.reload = false;
     },
-    playHandle(e) {
-      console.log(e);
-    },
-    pauseHandle(e) {
-      console.log(e);
+    pauseHandle() {
+      //console.log(e);
       this.reload = true;
     },
-    errorHandle(e) {
-      console.log(e);
+    errorHandle() {
+      // console.log(e);
     },
-    progressHandle(e) {
-      console.log(e);
+    progressHandle() {
+      // console.log(e);
     },
     timeupdateHandle(e) {
       // console.log(e, this.getTime(e.target.currentTime, e.target.duration));
       this.current = this.getTime(e.target.currentTime, e.target.duration);
       this.total = this.getTime(e.target.duration);
       this.timeupdate = (e.target.currentTime / e.target.duration) * 100;
+      this.$props.item.timeUpdateHandle &&
+        this.$props.item.timeUpdateHandle(e, this.$props.item);
     },
     getTime(a, c) {
       c = c || a;
