@@ -1,6 +1,9 @@
 <template>
   <div class="ui_form_item">
-    <label :for="(item.name && item.name + '_id') || 'ui-input'">
+    <label
+      :for="(item.name && item.name + '_id') || 'ui-input'"
+      v-if="item.title"
+    >
       {{ item.title }}
     </label>
     <div class="ui_form_item_content">

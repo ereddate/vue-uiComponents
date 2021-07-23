@@ -5,14 +5,22 @@
         <span v-if="item.header.title">
           {{ item.header.title }}
         </span>
-        <slot v-if="!item.header.title" :item="item.header"></slot>
+        <slot
+          v-if="!item.header.title"
+          name="header"
+          :item="item.header"
+        ></slot>
       </div>
       <slot name="content" :item="item"></slot>
       <div class="ui_list_content_footer" v-if="item.footer">
         <span v-if="item.footer.title">
           {{ item.footer.title }}
         </span>
-        <slot v-if="!item.footer.title" :item="item.footer"></slot>
+        <slot
+          v-if="!item.footer.title"
+          name="footer"
+          :item="item.footer"
+        ></slot>
       </div>
     </div>
   </div>
@@ -42,7 +50,7 @@ export default {
       border-bottom: (1 / @base) @lightGrey solid;
     }
     .ui_list_content_footer {
-      padding: @paddingTop 0 @paddingBottom 0;
+      //padding: @paddingTop 0 @paddingBottom 0;
       border-top: (1 / @base) @lightGrey solid;
     }
   }

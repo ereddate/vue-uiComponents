@@ -113,11 +113,10 @@ let loadFile = function(ops, index) {
 };
 
 const swipe = function(target, options) {
-    console.log(target);
     var browser = {
         addEventListener: !!window.addEventListener,
         /* touch: "ontouchstart" in window ||
-                                            (window.DocumentTouch && document instanceof DocumentTouch), */
+                                                (window.DocumentTouch && document instanceof DocumentTouch), */
     };
     if (typeof options == "function") {
         options = window.extend({}, {

@@ -56,6 +56,8 @@ import uiMore from "./more/index";
 import uiVideo from "./video/index";
 import uiVideoItem from "./video-item/index";
 import uiTopicGroup from "./topicGroup/index";
+import uiCrumbs from "./crumbs/index";
+import uiComment from "./comment/index";
 
 Vue.component("ui-remote-script", {
     render: function(createElement) {
@@ -146,4 +148,6 @@ export const components = {
     uiVideo,
     uiVideoItem,
     uiTopicGroup,
+    uiCrumbs,
+    uiComment,
 };

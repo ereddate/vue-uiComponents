@@ -19,6 +19,15 @@
       </div>
     </div>
     <div class="ui_imagelist_content" v-else>暂无数据</div>
+    <div class="loading" v-if="loading">
+      <ui-loading
+        :item="{
+          type: 'default',
+          text: '加载数据中...',
+        }"
+      ></ui-loading>
+    </div>
+    <div class="loaded" v-if="loaded">已经到底</div>
   </div>
 </template>
 <script>
@@ -32,7 +41,45 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      loading: false,
+      loaded: false,
+    };
+  },
+  mounted() {
+    this.$uic.query(window).on("scroll", this.scrollHandle);
+  },
+  beforeDestroy() {
+    this.$uic.query(window).off("scroll");
+    this.timeout && clearTimeout(this.timeout);
+  },
+  methods: {
+    scrollHandle() {
+      let that = this;
+      if (this.loaded === true) return;
+      this.timeout && clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        let doc = that.$uic.query(document),
+          scrollTop = doc.scrollTop() + screen.height,
+          docHeight = doc.height();
+        if (scrollTop + 100 >= docHeight) {
+          if (that.$props.item.moreHandle) {
+            that.loading = true;
+            that.$props.item
+              .moreHandle()
+              .then((v) => {
+                v
+                  ? (that.loading = false)
+                  : ((that.loading = false), (that.loaded = true));
+              })
+              .catch((e) => {
+                that.loading = false;
+                console.log(e);
+              });
+          }
+        }
+      }, 500);
+    },
   },
 };
 </script>
@@ -52,6 +99,14 @@ export default {
         margin-bottom: (5 / @base);
       }
     }
+  }
+  .loaded {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: @paddingTop @paddingRight @paddingBottom @paddingLeft;
+    color: @grey;
   }
 }
 </style>

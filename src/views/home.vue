@@ -18,11 +18,15 @@
         <ui-panel
           :item="{
             title: 'Demo',
-            style: { marginTop: 56 / 23.44 + 'rem' },
+            style: {
+              marginTop: 56 / 23.44 + 'rem',
+              paddingBottom: 120 / 23.44 + 'rem',
+            },
             loading: panelLoading,
           }"
         >
           <template #content>
+            <ui-crumbs :item="crumbsData"></ui-crumbs>
             <ui-tools-bar>
               <template #content>
                 <ui-dropdown-item
@@ -47,6 +51,13 @@
             </ui-tools-bar>
             <ui-card>
               <template #content>
+                <ui-comment
+                  :item="{ ...commentData, submitHandle: commentSubmitHandle }"
+                ></ui-comment>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
                 <ui-topic-group :item="topicGroup"></ui-topic-group>
               </template>
             </ui-card>
@@ -65,8 +76,15 @@
             <ui-card>
               <template #content>
                 <ui-textarea
-                  :item="{ total: 200, value: '文本框测试' }"
-                ></ui-textarea>
+                  :item="{ total: 200, value: '文本框测试', clear: true }"
+                >
+                  <template #content>
+                    <div class="tools">
+                      <ui-icon :item="{ icon: 'fav' }"></ui-icon>
+                      <ui-icon :item="{ icon: 'fabulous' }"></ui-icon>
+                    </div>
+                  </template>
+                </ui-textarea>
               </template>
             </ui-card>
             <ui-card>
@@ -522,7 +540,7 @@
             </ui-card>
             <ui-tab :item="tabData">
               <template #content>
-                <ui-image-list :item="{ data: imageList }">
+                <ui-image-list :item="{ ...imageList, moreHandle: moreHandle }">
                   <template #content="{ item }">
                     <ui-image-list-item :item="item"></ui-image-list-item>
                   </template>
@@ -552,6 +570,70 @@ export default {
   },
   data() {
     return {
+      commentData: {
+        total: 5,
+        data: [
+          {
+            user: {
+              nickName: "用户昵称",
+              image:
+                "https://easyhtml5video.com/assets/video/Penguins_of_Madagascar.jpg",
+              url: "/user/123456",
+            },
+            content: "评论内容，评论内容测试。",
+          },
+          {
+            user: {
+              nickName: "用户昵称",
+              image:
+                "https://easyhtml5video.com/assets/video/Penguins_of_Madagascar.jpg",
+              url: "/user/123456",
+            },
+            content: "评论内容，评论内容测试。",
+          },
+          {
+            user: {
+              nickName: "用户昵称",
+              image:
+                "https://easyhtml5video.com/assets/video/Penguins_of_Madagascar.jpg",
+              url: "/user/123456",
+            },
+            content: "评论内容，评论内容测试。",
+          },
+          {
+            user: {
+              nickName: "用户昵称",
+              image:
+                "https://easyhtml5video.com/assets/video/Penguins_of_Madagascar.jpg",
+              url: "/user/123456",
+            },
+            content: "评论内容，评论内容测试。",
+          },
+          {
+            user: {
+              nickName: "用户昵称",
+              image:
+                "https://easyhtml5video.com/assets/video/Penguins_of_Madagascar.jpg",
+              url: "/user/123456",
+            },
+            content: "评论内容，评论内容测试。",
+          },
+        ],
+      },
+      crumbsData: {
+        data: [
+          {
+            icon: "map-filling",
+            text: "万宁",
+            url: "/home",
+          },
+          {
+            icon: "map-filling",
+            text: "石梅湾",
+          },
+          { text: "你的位置" },
+        ],
+      },
       topicGroup: {
         type: "video",
         title: "问题：xxx",
@@ -559,7 +641,6 @@ export default {
           width: 335,
           height: 160,
           controls: true,
-          title: "问题：xxx",
           fit: "fill",
           poster:
             "https://easyhtml5video.com/assets/video/Penguins_of_Madagascar.jpg",
@@ -580,21 +661,25 @@ export default {
               title: "答案1",
               timeUpdate: { start: 1, end: 10, next: 1 },
               showButtons: [2, 3],
+              captions: "字幕1",
             },
             {
               title: "答案2",
               timeUpdate: { start: 10, end: 30, next: 2 },
               showButtons: [1, 3],
+              captions: "字幕2",
             },
             {
               title: "答案3",
               timeUpdate: { start: 30, end: 40, next: 3 },
               showButtons: [3, 1],
+              captions: "字幕3",
             },
             {
               title: "答案4",
               timeUpdate: { start: 40, end: 50, next: 0 },
               showButtons: [0, 1],
+              captions: "字幕4",
             },
           ],
         },
@@ -602,7 +687,7 @@ export default {
       videoData: {
         width: 335,
         height: 160,
-        autoplay: true,
+        autoplay: false,
         controls: true,
         title: "内容标题",
         fit: "fill",
@@ -1201,68 +1286,71 @@ export default {
         ],
         title: "省份",
       },
-      imageList: [
-        {
-          type: "goods",
-          data: {
-            image: [
-              "//img12.360buyimg.com/mobilecms/s372x372_jfs/t1/175554/34/17766/223577/60deb22bE3c2d674c/98fd91bb8925e6b7.jpg!q70.dpg.webp",
-            ],
-            title:
-              "艾森雅 意式科技布沙发三人位小户型客厅组合沙发 三人位（2.1米） 高回弹海绵款",
-            price: 1490,
-            unit: "¥",
+      imageList: {
+        data: [
+          {
+            type: "goods",
+            data: {
+              image: [
+                "//img12.360buyimg.com/mobilecms/s372x372_jfs/t1/175554/34/17766/223577/60deb22bE3c2d674c/98fd91bb8925e6b7.jpg!q70.dpg.webp",
+              ],
+              title:
+                "艾森雅 意式科技布沙发三人位小户型客厅组合沙发 三人位（2.1米） 高回弹海绵款",
+              price: 1490,
+              unit: "¥",
+            },
           },
-        },
-        {
-          type: "goods",
-          data: {
-            image: [
-              "//img12.360buyimg.com/mobilecms/s372x372_jfs/t1/175554/34/17766/223577/60deb22bE3c2d674c/98fd91bb8925e6b7.jpg!q70.dpg.webp",
-            ],
-            title:
-              "艾森雅 意式科技布沙发三人位小户型客厅组合沙发 三人位（2.1米） 高回弹海绵款",
-            price: 1490,
-            unit: "¥",
+          {
+            type: "goods",
+            data: {
+              image: [
+                "//img12.360buyimg.com/mobilecms/s372x372_jfs/t1/175554/34/17766/223577/60deb22bE3c2d674c/98fd91bb8925e6b7.jpg!q70.dpg.webp",
+              ],
+              title:
+                "艾森雅 意式科技布沙发三人位小户型客厅组合沙发 三人位（2.1米） 高回弹海绵款",
+              price: 1490,
+              unit: "¥",
+            },
           },
-        },
-        {
-          type: "goods",
-          data: {
-            image: [
-              "//img12.360buyimg.com/mobilecms/s372x372_jfs/t1/175554/34/17766/223577/60deb22bE3c2d674c/98fd91bb8925e6b7.jpg!q70.dpg.webp",
-            ],
-            title:
-              "艾森雅 意式科技布沙发三人位小户型客厅组合沙发 三人位（2.1米） 高回弹海绵款",
-            price: 1490,
-            unit: "¥",
+          {
+            type: "goods",
+            data: {
+              image: [
+                "//img12.360buyimg.com/mobilecms/s372x372_jfs/t1/175554/34/17766/223577/60deb22bE3c2d674c/98fd91bb8925e6b7.jpg!q70.dpg.webp",
+              ],
+              title:
+                "艾森雅 意式科技布沙发三人位小户型客厅组合沙发 三人位（2.1米） 高回弹海绵款",
+              price: 1490,
+              unit: "¥",
+            },
           },
-        },
-        {
-          type: "goods",
-          data: {
-            image: [
-              "//img12.360buyimg.com/mobilecms/s372x372_jfs/t1/175554/34/17766/223577/60deb22bE3c2d674c/98fd91bb8925e6b7.jpg!q70.dpg.webp",
-            ],
-            title:
-              "艾森雅 意式科技布沙发三人位小户型客厅组合沙发 三人位（2.1米） 高回弹海绵款",
-            price: 1490,
-            unit: "¥",
+          {
+            type: "goods",
+            data: {
+              image: [
+                "//img12.360buyimg.com/mobilecms/s372x372_jfs/t1/175554/34/17766/223577/60deb22bE3c2d674c/98fd91bb8925e6b7.jpg!q70.dpg.webp",
+              ],
+              title:
+                "艾森雅 意式科技布沙发三人位小户型客厅组合沙发 三人位（2.1米） 高回弹海绵款",
+              price: 1490,
+              unit: "¥",
+            },
           },
-        },
-        {
-          type: "goods",
-          data: {
-            image: [
-              "//img12.360buyimg.com/mobilecms/s372x372_jfs/t1/175554/34/17766/223577/60deb22bE3c2d674c/98fd91bb8925e6b7.jpg!q70.dpg.webp",
-            ],
-            title:
-              "艾森雅 意式科技布沙发三人位小户型客厅组合沙发 三人位（2.1米） 高回弹海绵款",
-            price: 1490,
-            unit: "¥",
+          {
+            type: "goods",
+            data: {
+              image: [
+                "//img12.360buyimg.com/mobilecms/s372x372_jfs/t1/175554/34/17766/223577/60deb22bE3c2d674c/98fd91bb8925e6b7.jpg!q70.dpg.webp",
+              ],
+              title:
+                "艾森雅 意式科技布沙发三人位小户型客厅组合沙发 三人位（2.1米） 高回弹海绵款",
+              price: 1490,
+              unit: "¥",
+            },
           },
-        },
-      ],
+        ],
+      },
+      pn: -1,
       dialog: {
         width: 200,
         isShow: false,
@@ -1655,6 +1743,27 @@ export default {
     }, 1000);
   },
   methods: {
+    commentSubmitHandle(v) {
+      this.$toast(v);
+    },
+    moreHandle() {
+      let that = this;
+      return new Promise((resolve, reject) => {
+        try {
+          if (that.pn + 1 >= 3) {
+            resolve(false);
+          } else {
+            that.imageList.data = that.imageList.data.concat(
+              that.imageList.data
+            );
+            that.pn += 1;
+            resolve(that.pn + 1 >= 3 ? false : true);
+          }
+        } catch (e) {
+          reject(e);
+        }
+      });
+    },
     loadingHandle() {
       let that = this;
       that.more.loading = true;

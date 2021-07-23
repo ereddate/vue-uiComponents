@@ -1,7 +1,9 @@
 <template>
   <div class="ui_avatar">
     <div class="ui_avatar_content" :class="item.type || 'normal'">
-      <ui-image :item="{ image: item.image, fit: 'contain' }"></ui-image>
+      <ui-image
+        :item="{ image: item.image, fit: item.fit || 'contain' }"
+      ></ui-image>
     </div>
   </div>
 </template>

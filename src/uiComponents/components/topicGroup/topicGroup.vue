@@ -7,16 +7,24 @@
             :item="{
               ...item.topic,
               autoplay: true,
-              controls: false,
+              controls: true,
               showTip: false,
               currentTimeUpdate: current.start,
               timeUpdateHandle: timeUpdateHandle,
             }"
           ></ui-video>
         </div>
-        <div class="title" v-if="item.title">{{ item.title }}</div>
       </div>
       <div class="content">
+        <div
+          class="title"
+          v-if="
+            item.options.data[buttonIndex] &&
+            item.options.data[buttonIndex].captions
+          "
+        >
+          {{ item.options.data[buttonIndex].captions }}
+        </div>
         <div
           class="topic_item"
           v-for="(option, index) in item.options.data"
@@ -83,9 +91,24 @@ export default {
 };
 </script>
 <style lang="less">
-@base: 23.44rem;
+@import "../../style/common.less";
 .ui_topic_group {
   .ui_topic_group_content {
+    .header {
+      .item {
+      }
+    }
+    .content {
+      .title {
+        padding: @paddingTop 0;
+      }
+      .topic_item {
+        display: flex;
+        flex-direction: column;
+        .ui_button {
+        }
+      }
+    }
   }
 }
 </style>

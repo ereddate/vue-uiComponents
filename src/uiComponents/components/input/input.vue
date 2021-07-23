@@ -27,6 +27,7 @@
           :value="value"
           @keypress="keypressHandle"
           @blur="blurHandle"
+          @input="inputHandle"
         />
       </span>
       <ui-icon
@@ -100,6 +101,11 @@ export default {
     },
     blurHandle() {
       this.rulesValidate(this.value);
+    },
+    inputHandle(e) {
+      //console.log(e);
+      this.$props.item.inputHandle &&
+        this.$props.item.inputHandle(e.target.value);
     },
     keypressHandle(e) {
       if (e.keyCode === 13 || e.key === "Enter") {
