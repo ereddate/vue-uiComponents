@@ -160,6 +160,8 @@ export const components = {
 58. ui-topic-group
 59. ui-crumbs
 60. ui-comment
+61. ui-row
+62. ui-col
 
 ```
 this.$confirm('message', function(){console.log('enter!')}, function(){console.log('cancel!')});
