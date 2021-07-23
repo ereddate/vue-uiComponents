@@ -51,6 +51,100 @@
             </ui-tools-bar>
             <ui-card>
               <template #content>
+                row
+                <ui-row :item="{ type: 'flex', align: 'center' }">
+                  <template #content>
+                    <ui-col>
+                      <template #content>
+                        col
+                        <ui-row>
+                          <template #content> 1row </template>
+                        </ui-row>
+                        <ui-row>
+                          <template #content> 2row </template>
+                        </ui-row>
+                        <ui-row>
+                          <template #content> 3row </template>
+                        </ui-row>
+                        <ui-row>
+                          <template #content> 4row </template>
+                        </ui-row>
+                      </template>
+                    </ui-col>
+                    <ui-col>
+                      <template #content>
+                        col
+                        <ui-row>
+                          <template #content> 1row </template>
+                        </ui-row>
+                        <ui-row>
+                          <template #content> 2row </template>
+                        </ui-row>
+                        <ui-row>
+                          <template #content> 3row </template>
+                        </ui-row>
+                        <ui-row>
+                          <template #content> 4row </template>
+                        </ui-row>
+                      </template>
+                    </ui-col>
+                    <ui-col>
+                      <template #content>
+                        col
+                        <ui-row>
+                          <template #content> 1row </template>
+                        </ui-row>
+                        <ui-row>
+                          <template #content> 2row </template>
+                        </ui-row>
+                        <ui-row>
+                          <template #content> 3row </template>
+                        </ui-row>
+                        <ui-row>
+                          <template #content> 4row </template>
+                        </ui-row>
+                      </template>
+                    </ui-col>
+                    <ui-col>
+                      <template #content>
+                        col
+                        <ui-row>
+                          <template #content> 1row </template>
+                        </ui-row>
+                        <ui-row>
+                          <template #content> 2row </template>
+                        </ui-row>
+                        <ui-row>
+                          <template #content> 3row </template>
+                        </ui-row>
+                        <ui-row>
+                          <template #content> 4row </template>
+                        </ui-row>
+                      </template>
+                    </ui-col>
+                  </template>
+                </ui-row>
+                col
+                <ui-col>
+                  <template #content>
+                    <ui-row>
+                      <template #content> 1row </template>
+                    </ui-row>
+                    <ui-row>
+                      <template #content> 2row </template>
+                    </ui-row>
+                    <ui-row>
+                      <template #content> 3row </template>
+                    </ui-row>
+                    <ui-row>
+                      <template #content> 4row </template>
+                    </ui-row>
+                  </template>
+                </ui-col>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
                 <ui-comment
                   :item="{ ...commentData, submitHandle: commentSubmitHandle }"
                 ></ui-comment>
