@@ -8,6 +8,7 @@
     >
       <slot name="content"></slot>
     </a>
+    <router-link :to="item.to" v-else-if="item.to"></router-link>
     <a @click.prevent="clickHandle" v-else>
       <slot name="content"></slot>
     </a>

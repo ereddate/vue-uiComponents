@@ -82,10 +82,14 @@ class UiComponents {
                                             cancelDialogHandle: function() {
                                                 cancelHandle && cancelHandle();
                                                 document.body.removeChild(alert.$el);
+                                                let html = document.getElementsByTagName("html")[0];
+                                                html.className = html.className.replace("dialog", "");
                                             },
                                             enterDialogHandle: function() {
                                                 enterHandle && enterHandle();
                                                 document.body.removeChild(alert.$el);
+                                                let html = document.getElementsByTagName("html")[0];
+                                                html.className = html.className.replace("dialog", "");
                                             },
                                         },
                                     },
@@ -112,6 +116,8 @@ class UiComponents {
                                             enterDialogHandle: function() {
                                                 enterHandle && enterHandle();
                                                 document.body.removeChild(alert.$el);
+                                                let html = document.getElementsByTagName("html")[0];
+                                                html.className = html.className.replace("dialog", "");
                                             },
                                         },
                                     },

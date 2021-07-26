@@ -62,6 +62,8 @@ import uiRow from "./row/index";
 import uiCol from "./col/index";
 import uiStartapp from "./startApp/index";
 import uiImageView from "./imageView/index";
+import uiAnchor from "./anchor/index";
+import uiAnchorLink from "./anchor-link/index";
 
 Vue.component("ui-remote-script", {
     render: function(createElement) {
@@ -158,4 +160,6 @@ export const components = {
     uiCol,
     uiStartapp,
     uiImageView,
+    uiAnchor,
+    uiAnchorLink,
 };

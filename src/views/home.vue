@@ -164,6 +164,7 @@
             </ui-card>
             <ui-card>
               <template #content>
+                <div id="test1"></div>
                 <ui-comment
                   :item="{ ...commentData, submitHandle: commentSubmitHandle }"
                 ></ui-comment>
@@ -188,6 +189,7 @@
             </ui-card>
             <ui-card>
               <template #content>
+                <div id="test1-1"></div>
                 <ui-textarea
                   :item="{ total: 200, value: '文本框测试', clear: true }"
                 >
@@ -273,6 +275,7 @@
             </ui-card>
             <ui-card>
               <template #content>
+                <div id="test2"></div>
                 <ui-navbar-list :item="navbarListData"></ui-navbar-list>
                 <ui-multip-navbar :item="multipNavbarData"></ui-multip-navbar>
               </template>
@@ -676,6 +679,17 @@
     <ui-startapp :item="startAppData">
       <template #content> 123456 </template>
     </ui-startapp>
+    <div
+      style="
+        position: fixed;
+        top: 0;
+        left: 10px;
+        z-index: 100;
+        background-color: #fff;
+      "
+    >
+      <ui-anchor :item="anchorData"></ui-anchor>
+    </div>
   </div>
 </template>
 <script>
@@ -686,6 +700,26 @@ export default {
   },
   data() {
     return {
+      anchorData: {
+        data: [
+          {
+            title: "test1",
+            id: "test1",
+            children: {
+              data: [
+                {
+                  title: "test1-1",
+                  id: "test1-1",
+                },
+              ],
+            },
+          },
+          {
+            title: "test2",
+            id: "test2",
+          },
+        ],
+      },
       isImageViewShow: false,
       startAppData: {},
       commentData: {
