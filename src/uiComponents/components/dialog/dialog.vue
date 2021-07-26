@@ -37,6 +37,13 @@ export default {
   data() {
     return {};
   },
+  watch: {
+    "$props.item.isShow"(v) {
+      v
+        ? this.$uic.query("html").addClass("dialog")
+        : this.$uic.query("html").removeClass("dialog");
+    },
+  },
 };
 </script>
 <style lang="less">

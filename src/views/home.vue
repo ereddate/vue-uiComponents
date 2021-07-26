@@ -51,6 +51,25 @@
             </ui-tools-bar>
             <ui-card>
               <template #content>
+                <ui-image-view
+                  :item="{
+                    isShow: isImageViewShow,
+                    data: swiperData.data,
+                    closeHandle: closeImageViewHandle,
+                  }"
+                ></ui-image-view>
+                <div @click="showImageViewHandle">
+                  <ui-image
+                    :item="{
+                      image:
+                        'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic13.nipic.com%2F20110420%2F2531170_133355088479_2.jpg&refer=http%3A%2F%2Fpic13.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629857601&t=9860e6d1917a6064f02a7d0799f3e40c',
+                    }"
+                  ></ui-image>
+                </div>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
                 row
                 <ui-row :item="{ type: 'flex', align: 'center' }">
                   <template #content>
@@ -654,6 +673,9 @@
     <ui-action-sheet :item="actionSheet"></ui-action-sheet>
     <ui-gotop></ui-gotop>
     <ui-tabbar :item="tabbarData"></ui-tabbar>
+    <ui-startapp :item="startAppData">
+      <template #content> 123456 </template>
+    </ui-startapp>
   </div>
 </template>
 <script>
@@ -664,6 +686,8 @@ export default {
   },
   data() {
     return {
+      isImageViewShow: false,
+      startAppData: {},
       commentData: {
         total: 5,
         data: [
@@ -1463,7 +1487,7 @@ export default {
           },
           {
             image:
-              "https://imgcps.jd.com/ling4/41438815868/5LyR6Zey5pe25YWJ/5paH5Lu25pS257qz5aW95biu5omL/p-5d91a4f642dd5b7c7d52cbcf/7ec597ee/cr_1053x420_4_0/s1125x690/q70.jpg",
+              "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn20%2F699%2Fw2000h2699%2F20181029%2F56f8-hnaivxq4820200.jpg&refer=http%3A%2F%2Fn.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629860085&t=0ace19bd4ca7aa7d868fb2cbca65ac81",
           },
           {
             image:
@@ -1475,7 +1499,7 @@ export default {
           },
           {
             image:
-              "https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/179092/31/12467/102983/60e6af65E4b2fbef7/0691a58b9fb5177b.jpg!cr_1053x420_4_0!q70.jpg.dpg",
+              "https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fq_mini%2Cc_zoom%2Cw_640%2Fimages%2F20171112%2F5740889a9e9a428c9a6da8e539d2317f.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629860217&t=d33fbe46911413bed19669ddc840aaf6",
           },
           {
             image:
@@ -1941,6 +1965,12 @@ export default {
     },
     enterHandle(e, v) {
       console.log(e, v);
+    },
+    showImageViewHandle() {
+      this.isImageViewShow = true;
+    },
+    closeImageViewHandle() {
+      this.isImageViewShow = false;
     },
   },
 };

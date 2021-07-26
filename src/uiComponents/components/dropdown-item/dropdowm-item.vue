@@ -7,7 +7,7 @@
           icon: 'arrow-up-bold',
           style: {
             transform: isShow ? 'rotate(0deg)' : 'rotate(180deg)',
-            color: isShow ? 'red' : '@moreGrey',
+            color: isShow ? '#ff0033' : '#cccccc',
           },
         }"
       ></ui-icon>
@@ -84,6 +84,9 @@ export default {
       if (this.isShow) {
         let top = this.$uic.query(this.$el).offset().top;
         this.top = top + 40;
+        // this.$uic.query("html").addClass("dialog");
+      } else {
+        //this.$uic.query("html").removeClass("dialog");
       }
     },
     selectItemHandle(v) {

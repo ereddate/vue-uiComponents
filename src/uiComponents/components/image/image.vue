@@ -6,6 +6,7 @@
       @load="imgLoadHandle"
       v-if="!loaded"
     />
+    <ui-loading v-if="!loaded"></ui-loading>
     <img :src="item.image" :style="{ objectFit: item.fit || '' }" v-else />
     <!-- <span
       :style="{
@@ -46,6 +47,12 @@ export default {
 @import "../../style/common.less";
 .ui_image {
   .auto;
+  .flexCenter;
+  background-color: @moreGrey;
+  .ui_loading {
+    color: @white;
+    padding: @paddingAll;
+  }
   img {
     .auto;
     &.ui_image_back {

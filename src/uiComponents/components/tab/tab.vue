@@ -141,7 +141,7 @@ export default {
   .ui_tab_header {
     background-color: @white;
     .absoluteTop;
-    z-index: 99;
+    z-index: 98;
     box-shadow: 0 2px 12px rgba(100, 101, 102, 0.12);
     &.fixed {
       position: fixed;

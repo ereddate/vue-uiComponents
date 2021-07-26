@@ -60,6 +60,8 @@ import uiCrumbs from "./crumbs/index";
 import uiComment from "./comment/index";
 import uiRow from "./row/index";
 import uiCol from "./col/index";
+import uiStartapp from "./startApp/index";
+import uiImageView from "./imageView/index";
 
 Vue.component("ui-remote-script", {
     render: function(createElement) {
@@ -154,4 +156,6 @@ export const components = {
     uiComment,
     uiRow,
     uiCol,
+    uiStartapp,
+    uiImageView,
 };
