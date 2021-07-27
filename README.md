@@ -164,6 +164,8 @@ export const components = {
 62. ui-col
 63. ui-image-view
 64. ui-startapp
+65. ui-anchor
+66. ui-anchor-link
 
 ```
 this.$confirm('message', function(){console.log('enter!')}, function(){console.log('cancel!')});
