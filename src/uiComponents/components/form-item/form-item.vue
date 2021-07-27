@@ -37,6 +37,11 @@ export default {
     padding: 0 @paddingRight 0 (5 / @base);
     min-width: (50 / @base);
   }
+  .ui_radio {
+    label {
+      color: @black;
+    }
+  }
   .ui_form_item_content {
     flex: 1;
   }

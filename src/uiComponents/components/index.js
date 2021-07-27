@@ -66,6 +66,8 @@ import uiAnchor from "./anchor/index";
 import uiAnchorLink from "./anchor-link/index";
 import uiAvatarGroup from "./avatar-group/index";
 import uiNumberAnimate from "./animateNumber/index";
+import uiRadio from "./radio/index";
+import uiRadioGroup from "./radio-group/index";
 
 Vue.component("ui-remote-script", {
     render: function(createElement) {
@@ -166,4 +168,6 @@ export const components = {
     uiAnchorLink,
     uiAvatarGroup,
     uiNumberAnimate,
+    uiRadio,
+    uiRadioGroup,
 };

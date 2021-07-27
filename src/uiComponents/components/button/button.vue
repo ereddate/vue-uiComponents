@@ -2,7 +2,7 @@
   <button
     :type="item.type || 'button'"
     class="ui_button"
-    @click.prevent="buttonClickHandle"
+    @click="buttonClickHandle"
     :class="(item.class || 'mini') + (item.disabled ? ' disabled' : '')"
     :disabled="item.disabled"
     :data-value="item.data"

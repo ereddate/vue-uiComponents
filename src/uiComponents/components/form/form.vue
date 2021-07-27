@@ -33,11 +33,11 @@ export default {
         values = {};
       for (let i = 0; i < this.$children.length; i++) {
         let item = this.$children[i].$children[0];
-        item && item.name && item.value && (values[item.name] = item.value);
         error = item && item.rulesValidate ? item.rulesValidate() : error;
         if (error.is) {
           break;
         }
+        item && item.name && item.value && (values[item.name] = item.value);
       }
       if (error.is) {
         this.$props.item.faildHandle && this.$props.item.faildHandle(error);

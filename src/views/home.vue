@@ -51,6 +51,24 @@
             </ui-tools-bar>
             <ui-card>
               <template #content>
+                <ui-radio
+                  :item="{
+                    ...radio,
+                    changeHandle: radioChangeHandle,
+                  }"
+                  v-for="(radio, index) in radioData.data"
+                  :key="index"
+                ></ui-radio>
+                <ui-button
+                  :item="{
+                    text: 'getRadioValue',
+                    clickHandle: getRadioValueHandle,
+                  }"
+                ></ui-button>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
                 <ui-number-animate :item="numberAniData"></ui-number-animate>
                 <ui-number-animate
                   :item="{ ...numberAniData, type: 'column' }"
@@ -593,6 +611,18 @@
                     </ui-form-item>
                     <ui-form-item>
                       <template #content>
+                        <ui-radio-group
+                          :item="{
+                            ...radioData,
+                            name: 'a',
+                            changeHandle: radioGroupChangeHandle,
+                            rules: { required: true, message: '请选中项' },
+                          }"
+                        ></ui-radio-group>
+                      </template>
+                    </ui-form-item>
+                    <ui-form-item>
+                      <template #content>
                         <ui-button
                           :item="{
                             type: 'submit',
@@ -713,6 +743,14 @@ export default {
   },
   data() {
     return {
+      radioData: {
+        data: [
+          { text: "Radio 1", value: "1", checked: false },
+          { text: "Radio 2", value: "2", checked: false, disabled: true },
+          { text: "Radio 3", value: "3", checked: false },
+        ],
+      },
+      radioValue: "",
       numberAniData: {
         type: "row",
         data: [{ value: "100,109,99" }, { value: "88.635" }, { value: "1956" }],
@@ -1937,6 +1975,22 @@ export default {
     }, 1000);
   },
   methods: {
+    radioGroupChangeHandle(v) {
+      console.log(v);
+    },
+    radioChangeHandle(v) {
+      this.radioValue = v;
+      for (let i = 0; i < this.radioData.data.length; i++) {
+        if (v === this.radioData.data[i].value) {
+          this.radioData.data[i].checked = true;
+        } else {
+          this.radioData.data[i].checked = false;
+        }
+      }
+    },
+    getRadioValueHandle() {
+      console.log(this.radioValue);
+    },
     commentSubmitHandle(v) {
       this.$toast(v);
     },
