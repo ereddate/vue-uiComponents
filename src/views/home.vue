@@ -164,7 +164,7 @@
             </ui-card>
             <ui-card>
               <template #content>
-                <div id="test1"></div>
+                <div id="test1">test1</div>
                 <ui-comment
                   :item="{ ...commentData, submitHandle: commentSubmitHandle }"
                 ></ui-comment>
@@ -189,7 +189,7 @@
             </ui-card>
             <ui-card>
               <template #content>
-                <div id="test1-1"></div>
+                <div id="test1-1">test1-1</div>
                 <ui-textarea
                   :item="{ total: 200, value: '文本框测试', clear: true }"
                 >
@@ -275,7 +275,7 @@
             </ui-card>
             <ui-card>
               <template #content>
-                <div id="test2"></div>
+                <div id="test2">test2</div>
                 <ui-navbar-list :item="navbarListData"></ui-navbar-list>
                 <ui-multip-navbar :item="multipNavbarData"></ui-multip-navbar>
               </template>
@@ -682,9 +682,9 @@
     <div
       style="
         position: fixed;
-        top: 0;
+        top: 56px;
         left: 10px;
-        z-index: 100;
+        z-index: 98;
         background-color: #fff;
       "
     >
@@ -701,6 +701,7 @@ export default {
   data() {
     return {
       anchorData: {
+        offsetTop: 56,
         data: [
           {
             title: "test1",

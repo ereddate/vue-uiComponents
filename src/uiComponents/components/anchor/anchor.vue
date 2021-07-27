@@ -3,19 +3,25 @@
     <div class="ui_anchor_ink">
       <span
         class="ui_anchor_ink_ball"
-        :style="{ top: (current && current.inkTop) || 6 + 'px' }"
+        :style="{ top: current.inkTop + 'px' }"
       ></span>
     </div>
     <div class="ui_anchor_content">
       <div
         class="item"
-        v-for="(anchor, index) in listItems"
+        v-for="(anchor, index) in item.data"
         :key="index"
         :id="'ink_' + anchor.id"
       >
-        <span class="title">{{ anchor.title }}</span>
+        <span class="title" @click="goClickHandle" :index="index">{{
+          anchor.title
+        }}</span>
         <ui-anchor-link
-          :item="anchor.children"
+          :item="{
+            ...anchor.children,
+            clickHandle: linkClickHandle,
+            index: index,
+          }"
           v-if="anchor.children"
         ></ui-anchor-link>
       </div>
@@ -35,7 +41,9 @@ export default {
   data() {
     return {
       listItems: [],
-      current: false,
+      current: {
+        inkTop: 8,
+      },
       currentTop: 0,
     };
   },
@@ -52,52 +60,69 @@ export default {
     });
   },
   methods: {
+    goClickHandle(e) {
+      let index = this.$uic.query(e.target).attr("index");
+      this.linkClickHandle(this.$props.item.data[index]);
+    },
+    linkClickHandle(v) {
+      for (let i = 0; i < this.listItems.length; i++) {
+        if (
+          v.title === this.listItems[i].title &&
+          v.id === this.listItems[i].id
+        ) {
+          this.$uic
+            .query(this.$props.item.container || window)
+            .scrollTop(this.listItems[i].top);
+          break;
+        }
+      }
+    },
     scrollHandle() {
       let that = this;
       let top = that.$uic
         .query(that.$props.item.container || window)
         .scrollTop();
-      /* this.timeout && clearTimeout(this.timeout);
-      this.timeout = setTimeout(() => { */
       let arr = that.listItems,
         current = false;
       for (let i = 0; i < arr.length; i++) {
         let nextEle = arr[i + 1];
-        if (top >= arr[i].top && top < ((nextEle && nextEle.top) || Infinity)) {
+        if (top < arr[i].top && i === 0) {
+          current = arr[i];
+          break;
+        } else if (
+          top >= arr[i].top &&
+          top < ((nextEle && nextEle.top) || Infinity)
+        ) {
           current = arr[i];
           break;
         }
       }
 
-      console.log(top, current);
       current && (that.current = current);
-
-      /* that.$uic
-            .query(that.$props.item.container || window)
-            .offset(that.current.top) */
-      /* }, 500); */
     },
     getListItem(data, bool) {
-      let arr = data,
+      let arr = [...data],
         len = arr.length;
       for (let i = 0; i < len; i++) {
         if (!bool) {
           arr[i] = { ...arr[i], index: i };
           if (arr[i].children) {
-            this.getListItem(arr[i].children.data);
+            let a = this.getListItem(arr[i].children.data);
+            for (let n = 0; n < a.length; n++) arr.splice(i + 1, 0, a[n]);
           }
         } else {
           let top = this.$uic.query("#" + this.listItems[i].id).offset().top,
             inkTop = this.$uic
               .query("#ink_" + this.listItems[i].id)
               .offset().top;
-          arr[i] = { ...arr[i], top: top, inkTop: inkTop };
-          if (arr[i].children) {
-            this.getListItem(arr[i].children.data, true);
-          }
+          arr[i] = {
+            ...arr[i],
+            top: top,
+            inkTop: inkTop - this.$props.item.offsetTop,
+          };
         }
       }
-      console.log(arr);
+      // console.log(arr);
       return arr;
     },
   },

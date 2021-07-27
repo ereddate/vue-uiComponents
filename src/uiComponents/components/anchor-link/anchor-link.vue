@@ -6,7 +6,9 @@
       :key="index"
       :id="'ink_' + anchor.id"
     >
-      <span class="title">{{ anchor.title }}</span>
+      <span class="title" @click="goClickHandle" :index="index">{{
+        anchor.title
+      }}</span>
       <ui-anchor-link
         :item="anchor.children"
         v-if="anchor.children"
@@ -26,6 +28,13 @@ export default {
   },
   data() {
     return {};
+  },
+  methods: {
+    goClickHandle(e) {
+      let index = this.$uic.query(e.target).attr("index");
+      this.$props.item.clickHandle &&
+        this.$props.item.clickHandle(this.$props.item.data[index]);
+    },
   },
 };
 </script>
