@@ -167,6 +167,7 @@ export const components = {
 65. ui-anchor
 66. ui-anchor-link
 67. ui-avatar-group
+68. ui-number-animate
 
 ```
 this.$confirm('message', function(){console.log('enter!')}, function(){console.log('cancel!')});
