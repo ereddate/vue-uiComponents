@@ -51,6 +51,11 @@
             </ui-tools-bar>
             <ui-card>
               <template #content>
+                <ui-avatar-group :item="avatarGroupData"></ui-avatar-group>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
                 <ui-image-view
                   :item="{
                     isShow: isImageViewShow,
@@ -700,6 +705,30 @@ export default {
   },
   data() {
     return {
+      avatarGroupData: {
+        data: [
+          {
+            image:
+              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+          },
+          {
+            image:
+              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+          },
+          {
+            image:
+              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+          },
+          {
+            image:
+              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+          },
+          {
+            image:
+              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+          },
+        ],
+      },
       anchorData: {
         offsetTop: 56,
         data: [
