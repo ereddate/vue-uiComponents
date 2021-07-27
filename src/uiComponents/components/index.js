@@ -65,6 +65,7 @@ import uiImageView from "./imageView/index";
 import uiAnchor from "./anchor/index";
 import uiAnchorLink from "./anchor-link/index";
 import uiAvatarGroup from "./avatar-group/index";
+import uiNumberAnimate from "./animateNumber/index";
 
 Vue.component("ui-remote-script", {
     render: function(createElement) {
@@ -164,4 +165,5 @@ export const components = {
     uiAnchor,
     uiAnchorLink,
     uiAvatarGroup,
+    uiNumberAnimate,
 };

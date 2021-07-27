@@ -51,6 +51,14 @@
             </ui-tools-bar>
             <ui-card>
               <template #content>
+                <ui-number-animate :item="numberAniData"></ui-number-animate>
+                <ui-number-animate
+                  :item="{ ...numberAniData, type: 'column' }"
+                ></ui-number-animate>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
                 <ui-avatar-group :item="avatarGroupData"></ui-avatar-group>
               </template>
             </ui-card>
@@ -705,6 +713,10 @@ export default {
   },
   data() {
     return {
+      numberAniData: {
+        type: "row",
+        data: [{ value: "100,109,99" }, { value: "88.635" }, { value: "1956" }],
+      },
       avatarGroupData: {
         data: [
           {

@@ -6,6 +6,80 @@ let _instanceOf = (_constructor) => {
     };
 };
 
+var easing = {
+    quadratic: function(x) {
+        return Math.sqrt(x);
+    },
+};
+
+function range(start, stop, step) {
+    var array = [];
+    for (var i = start; i < stop; i += step) array.push(i);
+    return array;
+}
+
+function interpolation(fps, easing, finalValue) {
+    function scaleIt(value) {
+        return finalValue * value;
+    }
+
+    var x = range(0, 1, 1 / fps),
+        y = x.map(easing).map(scaleIt);
+
+    return y;
+}
+
+function animateEl(values, duration, onAnimate) {
+    var frameIndex = 0,
+        fps = values.length,
+        id = setInterval(anime, duration / fps);
+
+    function anime() {
+        var current = values[frameIndex],
+            isLastFrame = frameIndex === fps - 1;
+
+        onAnimate(current, frameIndex, values);
+
+        if (isLastFrame) {
+            clearInterval(id);
+        } else {
+            frameIndex++;
+        }
+    }
+}
+
+function round(value, decimals) {
+    return Number(Math.round(value + "e" + decimals) + "e-" + decimals);
+}
+
+function unformat(content) {
+    var unlocalized = content.replace(".", "").replace(",", "."),
+        value = parseFloat(unlocalized);
+    return value;
+}
+
+function format(value) {
+    return value.toString().replace(".", ",");
+}
+
+function animateText() {
+    var fps = 30,
+        els = [].slice.call(document.querySelectorAll(".number"));
+
+    els.forEach(function(el) {
+        var content = el.firstChild.textContent.trim(),
+            decimalPlaces = content.split(",")[1] || "",
+            value = unformat(content),
+            values = interpolation(fps, easing.quadratic, value);
+
+        animateEl(values, 1000, function(current, i, values) {
+            var isLast = i === values.length - 1,
+                value = round(current, decimalPlaces.length);
+            el.firstChild.textContent = isLast ? content : format(value);
+        });
+    });
+}
+
 Vue.prototype.$broadcast = function(event) {
     // 获取传入事件的类型，判断是否为字符串
     var isSource = typeof event === "string";
@@ -116,7 +190,7 @@ const swipe = function(target, options) {
     var browser = {
         addEventListener: !!window.addEventListener,
         /* touch: "ontouchstart" in window ||
-                                                (window.DocumentTouch && document instanceof DocumentTouch), */
+                                                            (window.DocumentTouch && document instanceof DocumentTouch), */
     };
     if (typeof options == "function") {
         options = window.extend({}, {
@@ -221,6 +295,7 @@ const swipe = function(target, options) {
     init(target);
 };
 export const common = {
+    animateText,
     swipe,
     setFontSize(num) {
         num = num || 16;
