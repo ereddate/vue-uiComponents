@@ -170,6 +170,8 @@ export const components = {
 68. ui-number-animate
 69. ui-radio
 70. ui-radio-group
+71. ui-checkbox
+72. ui-checkbox-group
 
 ```
 this.$confirm('message', function(){console.log('enter!')}, function(){console.log('cancel!')});
