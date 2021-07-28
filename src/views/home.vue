@@ -49,6 +49,13 @@
                 ></ui-dropdown-item>
               </template>
             </ui-tools-bar>
+            <ui-swipe-card :item="swipeCardData">
+              <template #item="{ item }">
+                <ui-image :item="{ image: item.imgUrl }"></ui-image>
+                {{ item }}
+              </template>
+              <template #content> 22 </template>
+            </ui-swipe-card>
             <ui-card>
               <template #content>
                 <ui-checkbox
@@ -773,6 +780,40 @@ export default {
   },
   data() {
     return {
+      swipeCardData: {
+        data: [
+          {
+            title: "title 1",
+            desc: "desc 1",
+            imgUrl:
+              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+          },
+          {
+            title: "title 2",
+            desc: "desc 1",
+            imgUrl:
+              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+          },
+          {
+            title: "title 3",
+            desc: "desc 1",
+            imgUrl:
+              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+          },
+          {
+            title: "title 4",
+            desc: "desc 1",
+            imgUrl:
+              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+          },
+          {
+            title: "title 5",
+            desc: "desc 1",
+            imgUrl:
+              "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+          },
+        ],
+      },
       checkboxData: {
         data: [
           { text: "Checkbox 1", value: "1", checked: false },

@@ -89,12 +89,12 @@ export default {
             &::before {
               content: "";
               display: table;
-              width: 4px;
-              height: 8px;
+              width: (4 / @base);
+              height: (8 / @base);
               position: absolute;
-              top: 2px;
-              left: 5px;
-              border: 2px solid #fff;
+              top: (2 / @base);
+              left: (5 / @base);
+              border: (2 / @base) solid #fff;
               border-top: 0;
               border-left: 0;
               transform: rotate(45deg) scale(1);
@@ -131,25 +131,25 @@ export default {
         }
         .ui_checkbox_main_inner {
           display: inline-block;
-          width: 16px;
-          height: 16px;
+          width: (16 / @base);
+          height: (16 / @base);
           position: relative;
           top: 0;
           left: 0;
-          border: 1px solid #dcdee2;
-          border-radius: 2px;
+          border: (1 / @base) solid #dcdee2;
+          border-radius: (2 / @base);
           background-color: #fff;
           transition: border-color 0.2s ease-in-out,
             background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
           &::before {
             content: "";
             display: table;
-            width: 4px;
-            height: 8px;
+            width: (4 / @base);
+            height: (8 / @base);
             position: absolute;
-            top: 1px;
-            left: 4px;
-            border: 2px solid #fff;
+            top: (1 / @base);
+            left: (4 / @base);
+            border: (2 / @base) solid #fff;
             border-top: 0;
             border-left: 0;
             transform: rotate(45deg) scale(0);

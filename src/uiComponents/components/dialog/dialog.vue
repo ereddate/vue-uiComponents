@@ -1,5 +1,5 @@
 <template>
-  <div class="ui_dialog" v-if="item.isShow">
+  <div class="ui_dialog" v-if="item.isShow" :id="item.id">
     <div
       class="ui_dialog_content animate__animated"
       :class="
@@ -36,6 +36,9 @@ export default {
   },
   data() {
     return {};
+  },
+  created() {
+    this.$uic.query("html").addClass("dialog");
   },
   watch: {
     "$props.item.isShow"(v) {

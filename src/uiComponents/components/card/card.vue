@@ -64,7 +64,7 @@ export default {
 @import "../../style/common.less";
 .ui_card {
   clear: both;
-  overflow: hidden;
+  //overflow: hidden;
   background-color: @white;
   border-radius: @baseRadius;
   font-size: @baseFont;
