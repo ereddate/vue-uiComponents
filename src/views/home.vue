@@ -51,6 +51,24 @@
             </ui-tools-bar>
             <ui-card>
               <template #content>
+                <ui-checkbox
+                  :item="{
+                    ...checkbox,
+                    changeHandle: checkboxChangeHandle,
+                  }"
+                  v-for="(checkbox, index) in checkboxData.data"
+                  :key="index"
+                ></ui-checkbox>
+                <ui-button
+                  :item="{
+                    text: 'getCheckboxValue',
+                    clickHandle: getCheckboxValueHandle,
+                  }"
+                ></ui-button>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
                 <ui-radio
                   :item="{
                     ...radio,
@@ -623,6 +641,18 @@
                     </ui-form-item>
                     <ui-form-item>
                       <template #content>
+                        <ui-checkbox-group
+                          :item="{
+                            ...checkboxData,
+                            name: 'b',
+                            changeHandle: checkboxGroupChangeHandle,
+                            rules: { required: true, message: '请选中项' },
+                          }"
+                        ></ui-checkbox-group>
+                      </template>
+                    </ui-form-item>
+                    <ui-form-item>
+                      <template #content>
                         <ui-button
                           :item="{
                             type: 'submit',
@@ -743,6 +773,13 @@ export default {
   },
   data() {
     return {
+      checkboxData: {
+        data: [
+          { text: "Checkbox 1", value: "1", checked: false },
+          { text: "Checkbox 2", value: "2", checked: false, disabled: true },
+          { text: "Checkbox 3", value: "3", checked: false },
+        ],
+      },
       radioData: {
         data: [
           { text: "Radio 1", value: "1", checked: false },
@@ -750,6 +787,7 @@ export default {
           { text: "Radio 3", value: "3", checked: false },
         ],
       },
+      checkboxValue: [],
       radioValue: "",
       numberAniData: {
         type: "row",
@@ -1975,6 +2013,18 @@ export default {
     }, 1000);
   },
   methods: {
+    checkboxGroupChangeHandle(v) {
+      console.log(v);
+    },
+    checkboxChangeHandle(checked, v) {
+      checked
+        ? this.checkboxValue.push(v)
+        : this.checkboxValue.indexOf(v) > -1 &&
+          this.checkboxValue.splice(this.checkboxValue.indexOf(v), 1);
+    },
+    getCheckboxValueHandle() {
+      console.log(this.checkboxValue);
+    },
     radioGroupChangeHandle(v) {
       console.log(v);
     },

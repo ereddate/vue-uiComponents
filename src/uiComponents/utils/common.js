@@ -347,7 +347,7 @@ export const common = {
         );
     },
     isEmpty(v) {
-        return typeof v === "string" && v.replace(/^\s+|\s+$/gim, "") === "";
+        return typeof v === "string" ? v.replace(/^\s+|\s+$/gim, "") === "" : this.isArray(v) && v.length === 0;
     },
     isTelphoneCode(v) {
         return /^1[3-9]\d{9}$/.test(v);

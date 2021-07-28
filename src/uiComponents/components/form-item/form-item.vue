@@ -37,7 +37,8 @@ export default {
     padding: 0 @paddingRight 0 (5 / @base);
     min-width: (50 / @base);
   }
-  .ui_radio {
+  .ui_radio,
+  .ui_checkbox {
     label {
       color: @black;
     }
