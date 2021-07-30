@@ -190,7 +190,7 @@ const swipe = function(target, options) {
     var browser = {
         addEventListener: !!window.addEventListener,
         /* touch: "ontouchstart" in window ||
-                                                            (window.DocumentTouch && document instanceof DocumentTouch), */
+                                                                        (window.DocumentTouch && document instanceof DocumentTouch), */
     };
     if (typeof options == "function") {
         options = window.extend({}, {
@@ -347,7 +347,13 @@ export const common = {
         );
     },
     isEmpty(v) {
-        return typeof v === "string" ? v.replace(/^\s+|\s+$/gim, "") === "" : this.isArray(v) && v.length === 0;
+        return typeof v === "string" ?
+            v.replace(/^\s+|\s+$/gim, "") === "" :
+            this.isArray(v) ?
+            v.length === 0 :
+            typeof v === "undefined" ||
+            v === null ||
+            this.isEmptyObject(v) === true;
     },
     isTelphoneCode(v) {
         return /^1[3-9]\d{9}$/.test(v);

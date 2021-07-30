@@ -38,7 +38,8 @@ export default {
     min-width: (50 / @base);
   }
   .ui_radio,
-  .ui_checkbox {
+  .ui_checkbox,
+  .ui_switch {
     label {
       color: @black;
     }

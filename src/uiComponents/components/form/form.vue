@@ -37,7 +37,10 @@ export default {
         if (error.is) {
           break;
         }
-        item && item.name && item.value && (values[item.name] = item.value);
+        item &&
+          typeof item.name !== "undefined" &&
+          typeof item.value !== "undefined" &&
+          (values[item.name] = item.value);
       }
       if (error.is) {
         this.$props.item.faildHandle && this.$props.item.faildHandle(error);

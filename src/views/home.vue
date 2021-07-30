@@ -52,7 +52,6 @@
             <ui-swipe-card :item="swipeCardData">
               <template #item="{ item }">
                 <ui-image :item="{ image: item.imgUrl }"></ui-image>
-                {{ item }}
               </template>
               <template #content> 22 </template>
             </ui-swipe-card>
@@ -660,6 +659,31 @@
                     </ui-form-item>
                     <ui-form-item>
                       <template #content>
+                        <ui-switch
+                          :item="{
+                            name: 'agree',
+                            trueValue: 1,
+                            falseValue: 0,
+                            text: 'switch 1',
+                            rules: { required: true, message: '请选中项' },
+                          }"
+                        ></ui-switch>
+                        </template>
+                    </ui-form-item>
+                    <ui-form-item>
+                      <template #content>
+                        <ui-switch
+                          :item="{
+                            name: 'man',
+                            trueValue: 1,
+                            falseValue: 0,
+                            text: 'switch 2',
+                          }"
+                        ></ui-switch>
+                      </template>
+                    </ui-form-item>
+                    <ui-form-item>
+                      <template #content>
                         <ui-button
                           :item="{
                             type: 'submit',
@@ -781,6 +805,10 @@ export default {
   data() {
     return {
       swipeCardData: {
+        avatar: {
+          image:
+            "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdeb112cc683ea56dead55806cb78a55.jpg?thumb=1&w=360&h=360",
+        },
         data: [
           {
             title: "title 1",

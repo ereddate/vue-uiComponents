@@ -42,6 +42,7 @@ export default {
     .item {
       margin: 0 0 0 (-16 / @base);
       .ui_avatar {
+        border-radius: 50%;
         border: (1 / @base) @white solid;
       }
       &.more {

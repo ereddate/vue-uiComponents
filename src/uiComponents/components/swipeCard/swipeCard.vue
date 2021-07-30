@@ -4,13 +4,13 @@
       <template #content>
         <div
           class="ui_swipe_card_content"
-          :style="{ height: 200 / 23.44 + 'rem' }"
+          :style="{ height: 160 / 23.44 + 'rem' }"
         >
           <div
             class="ui_swipe_card_items"
             :style="{
               width: 375 / 23.44 + 'rem',
-              height: 200 / 23.44 + 'rem',
+              height: 160 / 23.44 + 'rem',
             }"
             @touchstart="touchstartHandle"
             @touchmove="touchmoveHandle"
@@ -20,7 +20,7 @@
               class="items"
               :style="{
                 width: ((355 + 5) * item.data.length + 80) / 23.44 + 'rem',
-                height: 200 / 23.44 + 'rem',
+                height: 160 / 23.44 + 'rem',
                 transform: 'translateX(-' + scrollLeft / 23.44 + 'rem)',
                 transition: 'all 0.3s ease 0s',
               }"
@@ -29,7 +29,7 @@
                 class="item"
                 :style="{
                   width: 355 / 23.44 + 'rem',
-                  height: 200 / 23.44 + 'rem',
+                  height: 160 / 23.44 + 'rem',
                 }"
                 v-for="(card, index) in item.data"
                 :key="index"
@@ -38,8 +38,23 @@
               </div>
             </div>
           </div>
+          <div class="logo" v-if="item.avatar">
+            <ui-avatar :item="{ ...item.avatar, type: 'large' }"></ui-avatar>
+          </div>
+          <div class="handle" v-if="item.avatar">
+            <ui-button
+              :item="{
+                text: '关注',
+                class: 'primary',
+                clickHandle: buttonClickHandle,
+              }"
+            ></ui-button>
+          </div>
         </div>
-        <div class="ui_swipe_card_content">
+        <div
+          class="ui_swipe_card_content bottom"
+          :style="{ paddingTop: item.avatar ? 30 / 23.44 + 'rem' : '0rem' }"
+        >
           <div class="dots">
             <span
               class="dot"
@@ -79,6 +94,10 @@ export default {
     }
   },
   methods: {
+    buttonClickHandle() {
+      this.$props.item.buttonClichHandle &&
+        this.$props.item.buttonClichHandle(this.$props.item.avatar);
+    },
     touchstartHandle(e) {
       let touch = e.touches[0];
       this.startX = touch.pageX;
@@ -141,7 +160,15 @@ export default {
     }
   }
   .ui_swipe_card_content {
+    &.bottom {
+      padding: (30 / @base) 0 0;
+      position: relative;
+    }
     .dots {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
       display: flex;
       justify-content: center;
       align-content: center;
@@ -155,6 +182,19 @@ export default {
           background-color: @green;
         }
       }
+    }
+    .logo {
+      position: absolute;
+      top: (115 / @base);
+      left: (30 / @base);
+      padding: @paddingAll;
+      background-color: @white;
+      border-radius: 50%;
+    }
+    .handle {
+      position: absolute;
+      top: (165 / @base);
+      right: (30 / @base);
     }
   }
 }

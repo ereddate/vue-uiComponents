@@ -46,7 +46,6 @@ export default {
   padding: (5 / @base) @paddingRight (5 / @base) @paddingLeft;
   border-radius: @baseRadius;
   margin: (5 / @base) 0;
-
   span {
     margin: 0 (2.5 / @base);
   }

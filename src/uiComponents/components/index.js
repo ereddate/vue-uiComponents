@@ -71,6 +71,7 @@ import uiRadioGroup from "./radio-group/index";
 import uiCheckbox from "./checkbox/index";
 import uiCheckboxGroup from "./checkbox-group/index";
 import uiSwipeCard from "./swipeCard/index";
+import uiSwitch from "./switch/index";
 
 Vue.component("ui-remote-script", {
     render: function(createElement) {
@@ -175,5 +176,6 @@ export const components = {
     uiRadioGroup,
     uiCheckbox,
     uiCheckboxGroup,
-    uiSwipeCard
+    uiSwipeCard,
+    uiSwitch,
 };
