@@ -1,6 +1,7 @@
 <template>
   <div class="ui_more">
     <div class="ui_more_content">
+      <slot name="content"></slot>
       <div class="item">
         <div class="normal" v-if="!loading && !loaded">
           <ui-button
@@ -13,7 +14,7 @@
         <div class="loading" v-if="loading && !loaded">
           <ui-loading
             :item="{
-              type: 'default',
+              type: item.type || 'default',
               text: item.loadButtonText || '加载数据中...',
             }"
           ></ui-loading>

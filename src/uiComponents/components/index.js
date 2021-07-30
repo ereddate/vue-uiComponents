@@ -72,6 +72,7 @@ import uiCheckbox from "./checkbox/index";
 import uiCheckboxGroup from "./checkbox-group/index";
 import uiSwipeCard from "./swipeCard/index";
 import uiSwitch from "./switch/index";
+import uiTabsCard from "./tabsCard/index";
 
 Vue.component("ui-remote-script", {
     render: function(createElement) {
@@ -178,4 +179,5 @@ export const components = {
     uiCheckboxGroup,
     uiSwipeCard,
     uiSwitch,
+    uiTabsCard,
 };

@@ -49,6 +49,19 @@
                 ></ui-dropdown-item>
               </template>
             </ui-tools-bar>
+            <ui-tabs-card
+              :item="{
+                data: [
+                  { title: 'tab 1' },
+                  { title: 'tab 2' },
+                  { title: 'tab 3' },
+                ],
+              }"
+            >
+              <template #content="{ item }">
+                {{ item }}
+              </template>
+            </ui-tabs-card>
             <ui-swipe-card :item="swipeCardData">
               <template #item="{ item }">
                 <ui-image :item="{ image: item.imgUrl }"></ui-image>
@@ -239,7 +252,9 @@
             </ui-card>
             <ui-card>
               <template #content>
-                <ui-more :item="more"></ui-more>
+                <ui-more :item="more">
+                  <template #content> more list </template>
+                </ui-more>
               </template>
             </ui-card>
             <ui-card>
@@ -668,7 +683,7 @@
                             rules: { required: true, message: '请选中项' },
                           }"
                         ></ui-switch>
-                        </template>
+                      </template>
                     </ui-form-item>
                     <ui-form-item>
                       <template #content>
@@ -1754,6 +1769,7 @@ export default {
         url: "",
       },
       uiToggleButton: {
+        current: 0,
         buttons: [
           {
             title: "Default",
