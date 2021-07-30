@@ -174,6 +174,7 @@ export const components = {
 72. ui-checkbox-group
 73. ui-swipe-card
 74. ui-switch
+75. ui-tabs-card
 
 ```
 this.$confirm('message', function(){console.log('enter!')}, function(){console.log('cancel!')});
