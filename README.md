@@ -175,6 +175,7 @@ export const components = {
 73. ui-swipe-card
 74. ui-switch
 75. ui-tabs-card
+76. ui-pull-refresh
 
 ```
 this.$confirm('message', function(){console.log('enter!')}, function(){console.log('cancel!')});
