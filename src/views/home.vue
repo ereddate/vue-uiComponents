@@ -26,6 +26,18 @@
           }"
         >
           <template #content>
+            <ui-pull-refresh
+              :item="{
+                offset: 90,
+                refresh: refreshHandle,
+                success: successHandle,
+                error: errorHandle,
+              }"
+            >
+              <template #content>
+                <div style="height: 500px; text-align: center">pullRefresh</div>
+              </template>
+            </ui-pull-refresh>
             <ui-crumbs :item="crumbsData"></ui-crumbs>
             <ui-tools-bar>
               <template #content>
@@ -2098,6 +2110,23 @@ export default {
     }, 1000);
   },
   methods: {
+    refreshHandle() {
+      return new Promise((resolve, reject) => {
+        try {
+          setTimeout(() => {
+            resolve();
+          }, 2000);
+        } catch (e) {
+          reject();
+        }
+      });
+    },
+    successHandle() {
+      console.log("success");
+    },
+    errorHandle() {
+      console.log("error");
+    },
     checkboxGroupChangeHandle(v) {
       console.log(v);
     },
