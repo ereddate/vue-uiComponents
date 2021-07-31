@@ -35,7 +35,20 @@
               }"
             >
               <template #content>
-                <div style="height: 500px; text-align: center">pullRefresh</div>
+                <ui-panel
+                  :item="{ style: { height: '500px', 'text-align': 'center' } }"
+                >
+                  <template #content>
+                    pullRefresh
+                    <ui-empty :item="{}">
+                      <template #content>
+                        <ui-button
+                          :item="{ text: '按钮', class: 'warning' }"
+                        ></ui-button>
+                      </template>
+                    </ui-empty>
+                  </template>
+                </ui-panel>
               </template>
             </ui-pull-refresh>
             <ui-crumbs :item="crumbsData"></ui-crumbs>
@@ -80,6 +93,55 @@
               </template>
               <template #content> 22 </template>
             </ui-swipe-card>
+            <ui-card>
+              <template #content>
+                <ui-panel
+                  :item="{
+                    style: { height: '30px', padding: '60px 60px 0 60px' },
+                  }"
+                >
+                  <template #content>
+                    <ui-pop :item="{ text: 'pop title', type: 'top-start' }">
+                      <template #content>
+                        <ui-button
+                          :item="{ text: 'pop button', class: 'default' }"
+                        ></ui-button>
+                      </template>
+                    </ui-pop>
+                  </template>
+                </ui-panel>
+                <ui-panel
+                  :item="{
+                    style: { height: '30px', padding: '60px 60px 0 60px' },
+                  }"
+                >
+                  <template #content>
+                    <ui-pop :item="{ text: 'pop title', type: 'top' }">
+                      <template #content>
+                        <ui-button
+                          :item="{ text: 'pop button', class: 'default' }"
+                        ></ui-button>
+                      </template>
+                    </ui-pop>
+                  </template>
+                </ui-panel>
+                <ui-panel
+                  :item="{
+                    style: { height: '30px', padding: '60px 60px 0 60px' },
+                  }"
+                >
+                  <template #content>
+                    <ui-pop :item="{ text: 'pop title', type: 'top-end' }">
+                      <template #content>
+                        <ui-button
+                          :item="{ text: 'pop button', class: 'default' }"
+                        ></ui-button>
+                      </template>
+                    </ui-pop>
+                  </template>
+                </ui-panel>
+              </template>
+            </ui-card>
             <ui-card>
               <template #content>
                 <ui-checkbox

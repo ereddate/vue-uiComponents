@@ -74,6 +74,8 @@ import uiSwipeCard from "./swipeCard/index";
 import uiSwitch from "./switch/index";
 import uiTabsCard from "./tabsCard/index";
 import uiPullRefresh from "./pullRefresh/index";
+import uiEmpty from "./empty/index";
+import uiPop from "./pop/index";
 
 Vue.component("ui-remote-script", {
   render: function (createElement) {
@@ -182,4 +184,6 @@ export const components = {
   uiSwitch,
   uiTabsCard,
   uiPullRefresh,
+  uiEmpty,
+  uiPop,
 };
