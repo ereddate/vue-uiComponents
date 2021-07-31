@@ -176,6 +176,7 @@ export const components = {
 74. ui-switch
 75. ui-tabs-card
 76. ui-pull-refresh
+77. ui-empty
 
 ```
 this.$confirm('message', function(){console.log('enter!')}, function(){console.log('cancel!')});
