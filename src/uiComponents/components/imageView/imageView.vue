@@ -11,7 +11,9 @@
       }"
     >
       <template #content="{ item }">
-        <ui-image :item="{ ...item, fit: 'contain' }"></ui-image>
+        <ui-image
+          :item="{ ...item, fit: 'contain', lazyload: item.lazyload || true }"
+        ></ui-image>
       </template>
     </ui-swiper>
     <span class="close" @click="closeHandle">

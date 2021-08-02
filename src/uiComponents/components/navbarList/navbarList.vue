@@ -17,7 +17,13 @@
       >
         <ui-link :item="{ url: sitem.router }">
           <template #content>
-            <ui-image :item="{ image: sitem.image, fit: 'contain' }"></ui-image>
+            <ui-image
+              :item="{
+                image: sitem.image,
+                fit: 'contain',
+                lazyload: item.lazyload || true,
+              }"
+            ></ui-image>
             <article>
               <header>
                 <h1>{{ sitem.title }}</h1>

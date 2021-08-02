@@ -5,7 +5,11 @@
         <ui-link :item="{ url: item.data.url, target: item.data.target }">
           <template #content>
             <ui-image
-              :item="{ image: item.data.image, fit: 'contain' }"
+              :item="{
+                image: item.data.image,
+                fit: 'contain',
+                lazyload: item.lazyload || true,
+              }"
             ></ui-image>
             <article>
               <header>

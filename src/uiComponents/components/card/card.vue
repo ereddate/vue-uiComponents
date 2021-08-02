@@ -11,7 +11,9 @@
     <div class="ui_card_header img" v-if="item.headerImage">
       <ui-link :item="item.headerImage">
         <template #content>
-          <ui-image :item="item.headerImage"></ui-image>
+          <ui-image
+            :item="{ ...item.headerImage, lazyload: item.lazyload || true }"
+          ></ui-image>
         </template>
       </ui-link>
     </div>

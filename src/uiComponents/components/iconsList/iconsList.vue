@@ -23,7 +23,7 @@
         >
           <a :href="icon.url" target="_blank">
             <ui-image
-              :item="{ image: icon.image }"
+              :item="{ image: icon.image, lazyload: item.lazyload || true }"
               v-if="icon.image"
             ></ui-image>
             <ui-icon :item="{ icon: icon.icon }" v-else></ui-icon>

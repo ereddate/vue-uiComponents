@@ -87,500 +87,627 @@
                 {{ item }}
               </template>
             </ui-tabs-card>
-            <ui-swipe-card :item="swipeCardData">
-              <template #item="{ item }">
-                <ui-image :item="{ image: item.imgUrl }"></ui-image>
-              </template>
-              <template #content> 22 </template>
-            </ui-swipe-card>
-            <ui-card>
+            <ui-lazyload>
               <template #content>
-                <ui-panel
-                  :item="{
-                    style: { height: '30px', padding: '60px 60px 0 60px' },
-                  }"
-                >
-                  <template #content>
-                    <ui-pop :item="{ text: 'pop title', type: 'top-start' }">
-                      <template #content>
-                        <ui-button
-                          :item="{ text: 'pop button', class: 'default' }"
-                        ></ui-button>
-                      </template>
-                    </ui-pop>
+                <ui-swipe-card :item="swipeCardData">
+                  <template #item="{ item }">
+                    <ui-image :item="{ image: item.imgUrl }"></ui-image>
                   </template>
-                </ui-panel>
-                <ui-panel
-                  :item="{
-                    style: { height: '30px', padding: '60px 60px 0 60px' },
-                  }"
-                >
+                  <template #content> 22 </template>
+                </ui-swipe-card>
+              </template>
+            </ui-lazyload>
+            <ui-lazyload>
+              <template #content>
+                <ui-card>
                   <template #content>
-                    <ui-pop :item="{ text: 'pop title', type: 'top' }">
+                    <ui-panel
+                      :item="{
+                        style: { height: '30px', padding: '60px 60px 0 60px' },
+                      }"
+                    >
                       <template #content>
-                        <ui-button
-                          :item="{ text: 'pop button', class: 'default' }"
-                        ></ui-button>
+                        <ui-pop
+                          :item="{ text: 'pop title', type: 'top-start' }"
+                        >
+                          <template #content>
+                            <ui-button
+                              :item="{ text: 'pop button', class: 'default' }"
+                            ></ui-button>
+                          </template>
+                        </ui-pop>
                       </template>
-                    </ui-pop>
+                    </ui-panel>
+                    <ui-panel
+                      :item="{
+                        style: { height: '30px', padding: '60px 60px 0 60px' },
+                      }"
+                    >
+                      <template #content>
+                        <ui-pop :item="{ text: 'pop title', type: 'top' }">
+                          <template #content>
+                            <ui-button
+                              :item="{ text: 'pop button', class: 'default' }"
+                            ></ui-button>
+                          </template>
+                        </ui-pop>
+                      </template>
+                    </ui-panel>
+                    <ui-panel
+                      :item="{
+                        style: { height: '30px', padding: '60px 60px 0 60px' },
+                      }"
+                    >
+                      <template #content>
+                        <ui-pop :item="{ text: 'pop title', type: 'top-end' }">
+                          <template #content>
+                            <ui-button
+                              :item="{ text: 'pop button', class: 'default' }"
+                            ></ui-button>
+                          </template>
+                        </ui-pop>
+                      </template>
+                    </ui-panel>
                   </template>
-                </ui-panel>
-                <ui-panel
-                  :item="{
-                    style: { height: '30px', padding: '60px 60px 0 60px' },
-                  }"
-                >
+                </ui-card>
+              </template>
+            </ui-lazyload>
+            <ui-lazyload>
+              <template #content>
+                <ui-card>
                   <template #content>
-                    <ui-pop :item="{ text: 'pop title', type: 'top-end' }">
-                      <template #content>
-                        <ui-button
-                          :item="{ text: 'pop button', class: 'default' }"
-                        ></ui-button>
-                      </template>
-                    </ui-pop>
+                    <ui-checkbox
+                      :item="{
+                        ...checkbox,
+                        changeHandle: checkboxChangeHandle,
+                      }"
+                      v-for="(checkbox, index) in checkboxData.data"
+                      :key="index"
+                    ></ui-checkbox>
+                    <ui-button
+                      :item="{
+                        text: 'getCheckboxValue',
+                        clickHandle: getCheckboxValueHandle,
+                      }"
+                    ></ui-button>
                   </template>
-                </ui-panel>
+                </ui-card>
               </template>
-            </ui-card>
-            <ui-card>
+            </ui-lazyload>
+            <ui-lazyload>
               <template #content>
-                <ui-checkbox
-                  :item="{
-                    ...checkbox,
-                    changeHandle: checkboxChangeHandle,
-                  }"
-                  v-for="(checkbox, index) in checkboxData.data"
-                  :key="index"
-                ></ui-checkbox>
-                <ui-button
-                  :item="{
-                    text: 'getCheckboxValue',
-                    clickHandle: getCheckboxValueHandle,
-                  }"
-                ></ui-button>
-              </template>
-            </ui-card>
-            <ui-card>
-              <template #content>
-                <ui-radio
-                  :item="{
-                    ...radio,
-                    changeHandle: radioChangeHandle,
-                  }"
-                  v-for="(radio, index) in radioData.data"
-                  :key="index"
-                ></ui-radio>
-                <ui-button
-                  :item="{
-                    text: 'getRadioValue',
-                    clickHandle: getRadioValueHandle,
-                  }"
-                ></ui-button>
-              </template>
-            </ui-card>
-            <ui-card>
-              <template #content>
-                <ui-number-animate :item="numberAniData"></ui-number-animate>
-                <ui-number-animate
-                  :item="{ ...numberAniData, type: 'column' }"
-                ></ui-number-animate>
-              </template>
-            </ui-card>
-            <ui-card>
-              <template #content>
-                <ui-avatar-group :item="avatarGroupData"></ui-avatar-group>
-              </template>
-            </ui-card>
-            <ui-card>
-              <template #content>
-                <ui-image-view
-                  :item="{
-                    isShow: isImageViewShow,
-                    data: swiperData.data,
-                    closeHandle: closeImageViewHandle,
-                  }"
-                ></ui-image-view>
-                <div @click="showImageViewHandle">
-                  <ui-image
-                    :item="{
-                      image:
-                        'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic13.nipic.com%2F20110420%2F2531170_133355088479_2.jpg&refer=http%3A%2F%2Fpic13.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629857601&t=9860e6d1917a6064f02a7d0799f3e40c',
-                    }"
-                  ></ui-image>
-                </div>
-              </template>
-            </ui-card>
-            <ui-card>
-              <template #content>
-                row
-                <ui-row :item="{ type: 'flex', align: 'center' }">
+                <ui-card>
                   <template #content>
-                    <ui-col>
-                      <template #content>
-                        col
-                        <ui-row>
-                          <template #content> 1row </template>
-                        </ui-row>
-                        <ui-row>
-                          <template #content> 2row </template>
-                        </ui-row>
-                        <ui-row>
-                          <template #content> 3row </template>
-                        </ui-row>
-                        <ui-row>
-                          <template #content> 4row </template>
-                        </ui-row>
-                      </template>
-                    </ui-col>
-                    <ui-col>
-                      <template #content>
-                        col
-                        <ui-row>
-                          <template #content> 1row </template>
-                        </ui-row>
-                        <ui-row>
-                          <template #content> 2row </template>
-                        </ui-row>
-                        <ui-row>
-                          <template #content> 3row </template>
-                        </ui-row>
-                        <ui-row>
-                          <template #content> 4row </template>
-                        </ui-row>
-                      </template>
-                    </ui-col>
-                    <ui-col>
-                      <template #content>
-                        col
-                        <ui-row>
-                          <template #content> 1row </template>
-                        </ui-row>
-                        <ui-row>
-                          <template #content> 2row </template>
-                        </ui-row>
-                        <ui-row>
-                          <template #content> 3row </template>
-                        </ui-row>
-                        <ui-row>
-                          <template #content> 4row </template>
-                        </ui-row>
-                      </template>
-                    </ui-col>
-                    <ui-col>
-                      <template #content>
-                        col
-                        <ui-row>
-                          <template #content> 1row </template>
-                        </ui-row>
-                        <ui-row>
-                          <template #content> 2row </template>
-                        </ui-row>
-                        <ui-row>
-                          <template #content> 3row </template>
-                        </ui-row>
-                        <ui-row>
-                          <template #content> 4row </template>
-                        </ui-row>
-                      </template>
-                    </ui-col>
+                    <ui-radio
+                      :item="{
+                        ...radio,
+                        changeHandle: radioChangeHandle,
+                      }"
+                      v-for="(radio, index) in radioData.data"
+                      :key="index"
+                    ></ui-radio>
+                    <ui-button
+                      :item="{
+                        text: 'getRadioValue',
+                        clickHandle: getRadioValueHandle,
+                      }"
+                    ></ui-button>
                   </template>
-                </ui-row>
-                col
-                <ui-col>
+                </ui-card>
+              </template>
+            </ui-lazyload>
+            <ui-lazyload>
+              <template #content>
+                <ui-card>
                   <template #content>
-                    <ui-row>
-                      <template #content> 1row </template>
-                    </ui-row>
-                    <ui-row>
-                      <template #content> 2row </template>
-                    </ui-row>
-                    <ui-row>
-                      <template #content> 3row </template>
-                    </ui-row>
-                    <ui-row>
-                      <template #content> 4row </template>
-                    </ui-row>
+                    <ui-number-animate
+                      :item="numberAniData"
+                    ></ui-number-animate>
+                    <ui-number-animate
+                      :item="{ ...numberAniData, type: 'column' }"
+                    ></ui-number-animate>
                   </template>
-                </ui-col>
+                </ui-card>
               </template>
-            </ui-card>
-            <ui-card>
+            </ui-lazyload>
+            <ui-lazyload>
               <template #content>
-                <div id="test1">test1</div>
-                <ui-comment
-                  :item="{ ...commentData, submitHandle: commentSubmitHandle }"
-                ></ui-comment>
-              </template>
-            </ui-card>
-            <ui-card>
-              <template #content>
-                <ui-topic-group :item="topicGroup"></ui-topic-group>
-              </template>
-            </ui-card>
-            <ui-card>
-              <template #content>
-                <ui-video :item="videoData">
-                  <template #content> video slot </template>
-                </ui-video>
-              </template>
-            </ui-card>
-            <ui-card>
-              <template #content>
-                <ui-more :item="more">
-                  <template #content> more list </template>
-                </ui-more>
-              </template>
-            </ui-card>
-            <ui-card>
-              <template #content>
-                <div id="test1-1">test1-1</div>
-                <ui-textarea
-                  :item="{ total: 200, value: '文本框测试', clear: true }"
-                >
+                <ui-card>
                   <template #content>
-                    <div class="tools">
-                      <ui-icon :item="{ icon: 'fav' }"></ui-icon>
-                      <ui-icon :item="{ icon: 'fabulous' }"></ui-icon>
+                    <ui-avatar-group :item="avatarGroupData"></ui-avatar-group>
+                  </template>
+                </ui-card>
+              </template>
+            </ui-lazyload>
+            <ui-lazyload>
+              <template #content>
+                <ui-card>
+                  <template #content>
+                    <ui-image-view
+                      :item="{
+                        isShow: isImageViewShow,
+                        data: swiperData.data,
+                        closeHandle: closeImageViewHandle,
+                      }"
+                    ></ui-image-view>
+                    <div @click="showImageViewHandle">
+                      <ui-image
+                        :item="{
+                          image:
+                            'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic13.nipic.com%2F20110420%2F2531170_133355088479_2.jpg&refer=http%3A%2F%2Fpic13.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629857601&t=9860e6d1917a6064f02a7d0799f3e40c',
+                        }"
+                      ></ui-image>
                     </div>
                   </template>
-                </ui-textarea>
+                </ui-card>
               </template>
-            </ui-card>
-            <ui-card>
+            </ui-lazyload>
+            <ui-lazyload>
               <template #content>
-                <div style="display: flex">
-                  <ui-avatar
-                    :item="{ ...avatarData, type: 'small' }"
-                  ></ui-avatar>
-                  <ui-avatar
-                    :item="{ ...avatarData, type: 'normal' }"
-                  ></ui-avatar>
-                  <ui-avatar
-                    :item="{ ...avatarData, type: 'large' }"
-                  ></ui-avatar>
-                </div>
-              </template>
-            </ui-card>
-            <ui-card>
-              <template #content>
-                <ui-treeselect
-                  :item="{
-                    ...treeSelectData,
-                    changeHandle: treeSelectChangeHandle,
-                  }"
-                >
-                  <template #content="{ item }">
-                    {{ item }}
+                <ui-card>
+                  <template #content>
+                    row
+                    <ui-row :item="{ type: 'flex', align: 'center' }">
+                      <template #content>
+                        <ui-col>
+                          <template #content>
+                            col
+                            <ui-row>
+                              <template #content> 1row </template>
+                            </ui-row>
+                            <ui-row>
+                              <template #content> 2row </template>
+                            </ui-row>
+                            <ui-row>
+                              <template #content> 3row </template>
+                            </ui-row>
+                            <ui-row>
+                              <template #content> 4row </template>
+                            </ui-row>
+                          </template>
+                        </ui-col>
+                        <ui-col>
+                          <template #content>
+                            col
+                            <ui-row>
+                              <template #content> 1row </template>
+                            </ui-row>
+                            <ui-row>
+                              <template #content> 2row </template>
+                            </ui-row>
+                            <ui-row>
+                              <template #content> 3row </template>
+                            </ui-row>
+                            <ui-row>
+                              <template #content> 4row </template>
+                            </ui-row>
+                          </template>
+                        </ui-col>
+                        <ui-col>
+                          <template #content>
+                            col
+                            <ui-row>
+                              <template #content> 1row </template>
+                            </ui-row>
+                            <ui-row>
+                              <template #content> 2row </template>
+                            </ui-row>
+                            <ui-row>
+                              <template #content> 3row </template>
+                            </ui-row>
+                            <ui-row>
+                              <template #content> 4row </template>
+                            </ui-row>
+                          </template>
+                        </ui-col>
+                        <ui-col>
+                          <template #content>
+                            col
+                            <ui-row>
+                              <template #content> 1row </template>
+                            </ui-row>
+                            <ui-row>
+                              <template #content> 2row </template>
+                            </ui-row>
+                            <ui-row>
+                              <template #content> 3row </template>
+                            </ui-row>
+                            <ui-row>
+                              <template #content> 4row </template>
+                            </ui-row>
+                          </template>
+                        </ui-col>
+                      </template>
+                    </ui-row>
+                    col
+                    <ui-col>
+                      <template #content>
+                        <ui-row>
+                          <template #content> 1row </template>
+                        </ui-row>
+                        <ui-row>
+                          <template #content> 2row </template>
+                        </ui-row>
+                        <ui-row>
+                          <template #content> 3row </template>
+                        </ui-row>
+                        <ui-row>
+                          <template #content> 4row </template>
+                        </ui-row>
+                      </template>
+                    </ui-col>
                   </template>
-                </ui-treeselect>
+                </ui-card>
               </template>
-            </ui-card>
-            <ui-card>
+            </ui-lazyload>
+            <ui-lazyload>
               <template #content>
-                <div
-                  class="cell_item"
-                  v-for="(cell, index) in cellData"
-                  :key="index"
-                >
-                  <ui-cell :item="cell"></ui-cell>
-                </div>
-              </template>
-            </ui-card>
-            <ui-card>
-              <template #content>
-                <ui-countdown
-                  :item="{ time: new Date('2021-7-21 14:34:00').getTime() }"
-                ></ui-countdown>
-                <ui-countdown
-                  :item="{
-                    type: 'custom',
-                    time: new Date('2021-7-19 16:09:30').getTime(),
-                    endHandle: countDownEndHandle,
-                  }"
-                >
-                  <template #content="{ item }">
-                    {{ item.day }}天{{ item.hours }}小时{{ item.minutes }}分钟{{
-                      item.seconds
-                    }}秒
+                <ui-card>
+                  <template #content>
+                    <div id="test1">test1</div>
+                    <ui-comment
+                      :item="{
+                        ...commentData,
+                        submitHandle: commentSubmitHandle,
+                      }"
+                    ></ui-comment>
                   </template>
-                </ui-countdown>
+                </ui-card>
               </template>
-            </ui-card>
-            <ui-card>
+            </ui-lazyload>
+            <ui-lazyload>
               <template #content>
-                <ui-banner :item="crossBannerData"></ui-banner>
+                <ui-card>
+                  <template #content>
+                    <ui-topic-group :item="topicGroup"></ui-topic-group>
+                  </template>
+                </ui-card>
               </template>
-            </ui-card>
-            <ui-card>
+            </ui-lazyload>
+            <ui-lazyload>
               <template #content>
-                <ui-price-notice :item="priceNoticeData"></ui-price-notice>
-                <ui-price-notice :item="priceNoticeDataA"></ui-price-notice>
+                <ui-card>
+                  <template #content>
+                    <ui-video :item="videoData">
+                      <template #content> video slot </template>
+                    </ui-video>
+                  </template>
+                </ui-card>
               </template>
-            </ui-card>
-            <ui-card>
+            </ui-lazyload>
+            <ui-lazyload>
               <template #content>
-                <div id="test2">test2</div>
-                <ui-navbar-list :item="navbarListData"></ui-navbar-list>
-                <ui-multip-navbar :item="multipNavbarData"></ui-multip-navbar>
+                <ui-card>
+                  <template #content>
+                    <ui-more :item="more">
+                      <template #content> more list </template>
+                    </ui-more>
+                  </template>
+                </ui-card>
               </template>
-            </ui-card>
-            <ui-card>
+            </ui-lazyload>
+            <ui-lazyload>
               <template #content>
-                <ui-icons-list
-                  :item="{ ...iconsListData, index: 0 }"
-                ></ui-icons-list>
+                <ui-card>
+                  <template #content>
+                    <div id="test1-1">test1-1</div>
+                    <ui-textarea
+                      :item="{ total: 200, value: '文本框测试', clear: true }"
+                    >
+                      <template #content>
+                        <div class="tools">
+                          <ui-icon :item="{ icon: 'fav' }"></ui-icon>
+                          <ui-icon :item="{ icon: 'fabulous' }"></ui-icon>
+                        </div>
+                      </template>
+                    </ui-textarea>
+                  </template>
+                </ui-card>
               </template>
-            </ui-card>
-            <ui-card>
+            </ui-lazyload>
+            <ui-lazyload>
               <template #content>
-                <ui-steps :item="{ ...stepsData }"></ui-steps>
-                <ui-button
-                  :item="{
-                    text: '下一步',
-                    clickHandle: stepsButtonHandle,
-                    class: 'default',
-                  }"
-                ></ui-button>
+                <ui-card>
+                  <template #content>
+                    <div style="display: flex">
+                      <ui-avatar
+                        :item="{ ...avatarData, type: 'small' }"
+                      ></ui-avatar>
+                      <ui-avatar
+                        :item="{ ...avatarData, type: 'normal' }"
+                      ></ui-avatar>
+                      <ui-avatar
+                        :item="{ ...avatarData, type: 'large' }"
+                      ></ui-avatar>
+                    </div>
+                  </template>
+                </ui-card>
               </template>
-            </ui-card>
-            <ui-card>
+            </ui-lazyload>
+            <ui-lazyload>
               <template #content>
-                <ui-picker
-                  :item="{ ...pickerData, enterHandle: pickChangeHandle }"
-                ></ui-picker
-                ><!-- 
+                <ui-card>
+                  <template #content>
+                    <ui-treeselect
+                      :item="{
+                        ...treeSelectData,
+                        changeHandle: treeSelectChangeHandle,
+                      }"
+                    >
+                      <template #content="{ item }">
+                        {{ item }}
+                      </template>
+                    </ui-treeselect>
+                  </template>
+                </ui-card>
+              </template>
+            </ui-lazyload>
+            <ui-lazyload>
+              <template #content>
+                <ui-card>
+                  <template #content>
+                    <div
+                      class="cell_item"
+                      v-for="(cell, index) in cellData"
+                      :key="index"
+                    >
+                      <ui-cell :item="cell"></ui-cell>
+                    </div>
+                  </template>
+                </ui-card>
+              </template>
+            </ui-lazyload>
+            <ui-lazyload>
+              <template #content>
+                <ui-card>
+                  <template #content>
+                    <ui-countdown
+                      :item="{ time: new Date('2021-7-21 14:34:00').getTime() }"
+                    ></ui-countdown>
+                    <ui-countdown
+                      :item="{
+                        type: 'custom',
+                        time: new Date('2021-7-19 16:09:30').getTime(),
+                        endHandle: countDownEndHandle,
+                      }"
+                    >
+                      <template #content="{ item }">
+                        {{ item.day }}天{{ item.hours }}小时{{
+                          item.minutes
+                        }}分钟{{ item.seconds }}秒
+                      </template>
+                    </ui-countdown>
+                  </template>
+                </ui-card>
+              </template>
+            </ui-lazyload>
+            <ui-lazyload>
+              <template #content>
+                <ui-card>
+                  <template #content>
+                    <ui-banner :item="crossBannerData"></ui-banner>
+                  </template>
+                </ui-card>
+              </template>
+            </ui-lazyload>
+            <ui-lazyload>
+              <template #content>
+                <ui-card>
+                  <template #content>
+                    <ui-price-notice :item="priceNoticeData"></ui-price-notice>
+                    <ui-price-notice :item="priceNoticeDataA"></ui-price-notice>
+                  </template>
+                </ui-card> </template
+            ></ui-lazyload>
+            <ui-lazyload>
+              <template #content>
+                <ui-card>
+                  <template #content>
+                    <div id="test2">test2</div>
+                    <ui-navbar-list :item="navbarListData"></ui-navbar-list>
+                    <ui-multip-navbar
+                      :item="multipNavbarData"
+                    ></ui-multip-navbar>
+                  </template>
+                </ui-card>
+              </template>
+            </ui-lazyload>
+            <ui-lazyload>
+              <template #content>
+                <ui-card>
+                  <template #content>
+                    <ui-icons-list
+                      :item="{ ...iconsListData, index: 0 }"
+                    ></ui-icons-list>
+                  </template>
+                </ui-card>
+              </template>
+            </ui-lazyload>
+            <ui-lazyload>
+              <template #content>
+                <ui-card>
+                  <template #content>
+                    <ui-steps :item="{ ...stepsData }"></ui-steps>
+                    <ui-button
+                      :item="{
+                        text: '下一步',
+                        clickHandle: stepsButtonHandle,
+                        class: 'default',
+                      }"
+                    ></ui-button>
+                  </template>
+                </ui-card>
+              </template>
+            </ui-lazyload>
+            <ui-lazyload>
+              <template #content>
+                <ui-card>
+                  <template #content>
+                    <ui-picker
+                      :item="{ ...pickerData, enterHandle: pickChangeHandle }"
+                    ></ui-picker
+                    ><!-- 
                 <ui-picker-column
                   :item="{
                     data: pickerColumn,
                     changeHandle: pickerColumnChangeHandle,
                   }"
                 ></ui-picker-column> -->
-              </template>
-            </ui-card>
-            <ui-card>
-              <template #content>
-                <ui-picker
-                  :item="{ ...pickerDataA, enterHandle: pickChangeHandle }"
-                ></ui-picker>
-              </template>
-            </ui-card>
-            <ui-card>
-              <template #content>
-                <ui-swiper :item="swiperData">
-                  <template #content="{ item }">
-                    <ui-image :item="{ ...item }"></ui-image>
                   </template>
-                </ui-swiper>
+                </ui-card>
               </template>
-            </ui-card>
-            <ui-card>
+            </ui-lazyload>
+            <ui-lazyload>
               <template #content>
-                <ui-collapse-group :item="collapseData">
-                  <template #content="{ item }">
-                    <ui-collapse
-                      v-for="(collapse, index) in item.data"
-                      :key="index"
+                <ui-card>
+                  <template #content>
+                    <ui-picker
+                      :item="{ ...pickerDataA, enterHandle: pickChangeHandle }"
+                    ></ui-picker>
+                  </template>
+                </ui-card>
+              </template>
+            </ui-lazyload>
+            <ui-lazyload>
+              <template #content>
+                <ui-card>
+                  <template #content>
+                    <ui-swiper :item="swiperData">
+                      <template #content="{ item }">
+                        <ui-image :item="{ ...item }"></ui-image>
+                      </template>
+                    </ui-swiper>
+                  </template>
+                </ui-card> </template
+            ></ui-lazyload>
+            <ui-lazyload>
+              <template #content>
+                <ui-card>
+                  <template #content>
+                    <ui-collapse-group :item="collapseData">
+                      <template #content="{ item }">
+                        <ui-collapse
+                          v-for="(collapse, index) in item.data"
+                          :key="index"
+                          :item="{
+                            title: collapse.title,
+                            collapse: item.current === index ? true : false,
+                            index: index,
+                          }"
+                        >
+                          <template #content> 123456 </template>
+                        </ui-collapse>
+                      </template>
+                    </ui-collapse-group>
+                  </template>
+                </ui-card>
+              </template>
+            </ui-lazyload>
+            <ui-lazyload>
+              <template #content>
+                <ui-card>
+                  <template #content>
+                    <ui-scroll-view
                       :item="{
-                        title: collapse.title,
-                        collapse: item.current === index ? true : false,
-                        index: index,
+                        flex: 'row',
+                        width: 335,
+                        scrollTo: scrollValue || 30,
+                        scrolltolower: scrolltolower,
+                        scrolltoupper: scrolltoupper,
+                        scroll: scrollHandle,
                       }"
                     >
-                      <template #content> 123456 </template>
-                    </ui-collapse>
+                      <template #content>
+                        <div :style="{ width: (4 * 200) / 23.44 + 'rem' }">
+                          <div
+                            v-for="(i, index) in [1, 2, 3, 4]"
+                            :key="index"
+                            :style="{
+                              width: 200 / 23.44 + 'rem',
+                              height: 30 / 23.44 + 'rem',
+                              float: 'left',
+                            }"
+                          >
+                            {{ i }}
+                          </div>
+                        </div>
+                      </template>
+                    </ui-scroll-view>
                   </template>
-                </ui-collapse-group>
-              </template>
-            </ui-card>
-            <ui-card>
+                </ui-card>
+              </template></ui-lazyload
+            >
+            <ui-lazyload>
               <template #content>
-                <ui-scroll-view
-                  :item="{
-                    flex: 'row',
-                    width: 335,
-                    scrollTo: scrollValue || 30,
-                    scrolltolower: scrolltolower,
-                    scrolltoupper: scrolltoupper,
-                    scroll: scrollHandle,
-                  }"
-                >
+                <ui-card>
                   <template #content>
-                    <div :style="{ width: (4 * 200) / 23.44 + 'rem' }">
-                      <div
-                        v-for="(i, index) in [1, 2, 3, 4]"
-                        :key="index"
-                        :style="{
-                          width: 200 / 23.44 + 'rem',
-                          height: 30 / 23.44 + 'rem',
-                          float: 'left',
-                        }"
-                      >
-                        {{ i }}
-                      </div>
-                    </div>
+                    <ui-stepper
+                      :item="{
+                        step: 200,
+                        min: 0,
+                        max: 1000,
+                        value: 0,
+                        changeHandle: stepChangeHandle,
+                      }"
+                    ></ui-stepper>
+                    <ui-scroll-view
+                      :item="{
+                        flex: 'column',
+                        height: 200,
+                        scrollTo: scrollValue || 30,
+                        scrolltolower: scrolltolower,
+                        scrolltoupper: scrolltoupper,
+                        scroll: scrollHandle,
+                      }"
+                    >
+                      <template #content>
+                        <div :style="{ width: (4 * 200) / 23.44 + 'rem' }">
+                          <div
+                            v-for="(i, index) in [1, 2, 3, 4]"
+                            :key="index"
+                            :style="{
+                              width: '100%',
+                              height: 200 / 23.44 + 'rem',
+                            }"
+                          >
+                            {{ i }}
+                          </div>
+                        </div>
+                      </template>
+                    </ui-scroll-view>
                   </template>
-                </ui-scroll-view>
-              </template>
-            </ui-card>
-            <ui-card>
+                </ui-card>
+              </template></ui-lazyload
+            >
+            <ui-lazyload>
               <template #content>
-                <ui-stepper
-                  :item="{
-                    step: 200,
-                    min: 0,
-                    max: 1000,
-                    value: 0,
-                    changeHandle: stepChangeHandle,
-                  }"
-                ></ui-stepper>
-                <ui-scroll-view
-                  :item="{
-                    flex: 'column',
-                    height: 200,
-                    scrollTo: scrollValue || 30,
-                    scrolltolower: scrolltolower,
-                    scrolltoupper: scrolltoupper,
-                    scroll: scrollHandle,
-                  }"
-                >
+                <ui-card>
                   <template #content>
-                    <div :style="{ width: (4 * 200) / 23.44 + 'rem' }">
-                      <div
-                        v-for="(i, index) in [1, 2, 3, 4]"
-                        :key="index"
-                        :style="{
-                          width: '100%',
-                          height: 200 / 23.44 + 'rem',
-                        }"
-                      >
-                        {{ i }}
-                      </div>
-                    </div>
+                    <ui-animate :item="{ type: 'fadeInLeft', speed: 3 }">
+                      <template #content>ui-animate test</template>
+                    </ui-animate>
                   </template>
-                </ui-scroll-view>
+                </ui-card>
               </template>
-            </ui-card>
-            <ui-card>
+            </ui-lazyload>
+            <ui-lazyload>
               <template #content>
-                <ui-animate :item="{ type: 'fadeInLeft', speed: 3 }">
-                  <template #content>ui-animate test</template>
-                </ui-animate>
+                <ui-card :item="card.item">
+                  <template #handle>
+                    <ui-button
+                      :item="{
+                        icon: 'more',
+                        text: 'more',
+                        clickHandle: clickHandle,
+                      }"
+                    ></ui-button>
+                  </template>
+                  <template #content>
+                    <div>content</div>
+                  </template>
+                </ui-card>
               </template>
-            </ui-card>
-            <ui-card :item="card.item">
-              <template #handle>
-                <ui-button
-                  :item="{
-                    icon: 'more',
-                    text: 'more',
-                    clickHandle: clickHandle,
-                  }"
-                ></ui-button>
-              </template>
-              <template #content>
-                <div>content</div>
-              </template>
-            </ui-card>
+            </ui-lazyload>
             <ui-card>
               <template #content>
                 <div

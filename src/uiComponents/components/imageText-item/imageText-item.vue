@@ -8,7 +8,13 @@
       <div class="content_item">
         <ui-link :item="item">
           <template #content>
-            <ui-image :item="{ image: item.image, fit: 'cover' }"></ui-image>
+            <ui-image
+              :item="{
+                image: item.image,
+                fit: 'cover',
+                lazyload: item.lazyload || true,
+              }"
+            ></ui-image>
           </template>
         </ui-link>
       </div>
@@ -31,7 +37,13 @@
       <div class="content_item">
         <ui-link :item="item">
           <template #content>
-            <ui-image :item="{ image: item.image, fit: 'cover' }"></ui-image>
+            <ui-image
+              :item="{
+                image: item.image,
+                fit: 'cover',
+                lazyload: item.lazyload || true,
+              }"
+            ></ui-image>
           </template>
         </ui-link>
       </div>
@@ -44,7 +56,13 @@
       <div class="content_item">
         <ui-link :item="item">
           <template #content>
-            <ui-image :item="{ image: item.image, fit: 'cover' }"></ui-image>
+            <ui-image
+              :item="{
+                image: item.image,
+                fit: 'cover',
+                lazyload: item.lazyload || true,
+              }"
+            ></ui-image>
           </template>
         </ui-link>
       </div>
@@ -67,7 +85,13 @@
       <div class="content_item">
         <ui-link :item="item">
           <template #content>
-            <ui-image :item="{ image: item.image, fit: 'cover' }"></ui-image>
+            <ui-image
+              :item="{
+                image: item.image,
+                fit: 'cover',
+                lazyload: item.lazyload || true,
+              }"
+            ></ui-image>
           </template>
         </ui-link>
       </div>

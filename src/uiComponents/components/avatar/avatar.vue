@@ -2,7 +2,11 @@
   <div class="ui_avatar">
     <div class="ui_avatar_content" :class="item.type || 'normal'">
       <ui-image
-        :item="{ image: item.image, fit: item.fit || 'contain' }"
+        :item="{
+          image: item.image,
+          fit: item.fit || 'contain',
+          lazyload: item.lazyload || true,
+        }"
       ></ui-image>
     </div>
   </div>
