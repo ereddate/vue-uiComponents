@@ -177,6 +177,7 @@ export const components = {
 75. ui-tabs-card
 76. ui-pull-refresh
 77. ui-empty
+78. ui-lazyload
 
 ```
 this.$confirm('message', function(){console.log('enter!')}, function(){console.log('cancel!')});
