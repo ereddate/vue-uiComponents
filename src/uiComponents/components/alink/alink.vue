@@ -26,7 +26,9 @@ export default {
   },
   methods: {
     clickHandle() {
-      this.$router.push(this.$props.item.router);
+      //this.$router.push(this.$props.item.router);
+      this.$props.item.clickHandle &&
+        this.$props.item.clickHandle(this.$props.item.data);
     },
   },
 };

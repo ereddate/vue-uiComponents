@@ -74,6 +74,13 @@
                 ></ui-dropdown-item>
               </template>
             </ui-tools-bar>
+            <ui-card>
+              <template #content>
+                <ui-icon-shuttle
+                  :item="{ ...shuttleData, clickHandle: shuttleClickHandle }"
+                ></ui-icon-shuttle>
+              </template>
+            </ui-card>
             <ui-tabs-card
               :item="{
                 data: [
@@ -1020,6 +1027,32 @@ export default {
   },
   data() {
     return {
+      shuttleData: {
+        data: [
+          {
+            image:
+              "//m.360buyimg.com/mobilecms/s120x120_jfs/t1/196472/7/12807/7127/60ec0ea3Efe11835b/37c65625d94cae75.png!q70.jpg.dpg",
+          },
+          {
+            image:
+              "//m.360buyimg.com/mobilecms/s120x120_jfs/t1/196472/7/12807/7127/60ec0ea3Efe11835b/37c65625d94cae75.png!q70.jpg.dpg",
+          },
+          {
+            image:
+              "//m.360buyimg.com/mobilecms/s120x120_jfs/t1/196472/7/12807/7127/60ec0ea3Efe11835b/37c65625d94cae75.png!q70.jpg.dpg",
+          },
+        ],
+        more: [
+          {
+            image:
+              "//m.360buyimg.com/mobilecms/s120x120_jfs/t1/196472/7/12807/7127/60ec0ea3Efe11835b/37c65625d94cae75.png!q70.jpg.dpg",
+          },
+          {
+            image:
+              "//m.360buyimg.com/mobilecms/s120x120_jfs/t1/196472/7/12807/7127/60ec0ea3Efe11835b/37c65625d94cae75.png!q70.jpg.dpg",
+          },
+        ],
+      },
       swipeCardData: {
         avatar: {
           image:
@@ -2299,6 +2332,9 @@ export default {
     }, 1000);
   },
   methods: {
+    shuttleClickHandle(data) {
+      console.log(JSON.stringify(data));
+    },
     refreshHandle() {
       return new Promise((resolve, reject) => {
         try {
