@@ -178,6 +178,7 @@ export const components = {
 76. ui-pull-refresh
 77. ui-empty
 78. ui-lazyload
+79. ui-icon-shuttle
 
 ```
 this.$confirm('message', function(){console.log('enter!')}, function(){console.log('cancel!')});
