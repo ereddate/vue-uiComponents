@@ -180,6 +180,8 @@ export const components = {
 78. ui-lazyload
 79. ui-icon-shuttle
 80. ui-result
+81. ui-progress
+82. ui-vote
 
 ```
 this.$confirm('message', function(){console.log('enter!')}, function(){console.log('cancel!')});
