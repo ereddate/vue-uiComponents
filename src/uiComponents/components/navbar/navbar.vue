@@ -52,7 +52,7 @@ export default {
   &.fixed {
     .fixedTop;
     z-index: 99;
-    box-shadow: 0 (2 / @base) @miniFont rgba(100, 101, 102, 0.12);
+    box-shadow: @easyboxshadow;
   }
   padding: 0 @paddingRight 0 @paddingLeft;
   background-color: @white;

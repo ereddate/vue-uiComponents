@@ -89,7 +89,7 @@ export default {
     display: flex;
     text-align: left;
     .ui_multip_navbar_item {
-      box-shadow: 0 2px 12px rgba(100, 101, 102, 0.12);
+      box-shadow: @easyboxshadow;
       position: relative;
       padding: (5 / @base) @paddingRight (20 / @base) @paddingLeft;
       margin: 0 (5 / @base);

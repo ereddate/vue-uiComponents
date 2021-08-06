@@ -47,7 +47,6 @@ export default {
           (top > scrollTop && top < screenRangeTop) ||
           (left > scrollLeft && left < screenRangeLeft)
         ) {
-          console.log("show");
           that.show = true;
         }
       }, 500);
@@ -58,5 +57,6 @@ export default {
 <style lang="less">
 @import "../../style/common.less";
 .ui_lazyload {
+  min-height: (30 / @base);
 }
 </style>

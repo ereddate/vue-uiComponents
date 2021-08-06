@@ -58,7 +58,7 @@ export default {
     font-size: @baseFont;
     padding: @paddingAll;
     text-align: center;
-    box-shadow: 0 2px 12px rgb(100 101 102 / 12%);
+    box-shadow: @easyboxshadow;
     z-index: 98;
   }
   .ui_startapp_content {

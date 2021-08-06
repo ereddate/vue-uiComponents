@@ -114,8 +114,8 @@ export default {
     this.$uic.query(window).off("scroll");
   },
   methods: {
-    scrollHandle(e) {
-      let top = (e.target.documentElement || e.target.body).scrollTop,
+    scrollHandle() {
+      let top = this.$uic.query(document).scrollTop(),
         domTop = this.$uic.query(".ui_tab").offset().top;
       if (top >= domTop) {
         this.isFixed = true;
@@ -142,7 +142,7 @@ export default {
     background-color: @white;
     .absoluteTop;
     z-index: 98;
-    box-shadow: 0 2px 12px rgba(100, 101, 102, 0.12);
+    box-shadow: @easyboxshadow;
     &.fixed {
       position: fixed;
     }
@@ -197,7 +197,7 @@ export default {
     background-color: @white;
     text-align: left;
     padding: (5 / @base) @paddingRight (5 / @base) @paddingLeft;
-    box-shadow: 0 2px 12px rgba(100, 101, 102, 0.12);
+    box-shadow: @easyboxshadow;
     .ui_tab_header_content_more_menu_item {
       font-size: @baseFont;
       padding: (10 / @base) 0;

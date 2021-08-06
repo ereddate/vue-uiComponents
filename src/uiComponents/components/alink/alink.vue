@@ -5,11 +5,12 @@
       v-if="item.url"
       :style="{ height: item.height ? item.height / 23.44 + 'rem' : 'auto' }"
       :target="item.target || '_blank'"
+      :class="item.type || 'info'"
     >
       <slot name="content"></slot>
     </a>
     <router-link :to="item.to" v-else-if="item.to"></router-link>
-    <a @click.prevent="clickHandle" v-else>
+    <a @click.prevent="clickHandle" v-else :class="item.type || 'info'">
       <slot name="content"></slot>
     </a>
   </span>
@@ -40,6 +41,21 @@ export default {
   a {
     .auto;
     text-decoration: none;
+    &.primary {
+      color: @blue;
+    }
+    &.success {
+      color: @green;
+    }
+    &.warning {
+      color: @yellow;
+    }
+    &.danger {
+      color: @red;
+    }
+    &.info {
+      color: @lightBlack;
+    }
   }
 }
 </style>

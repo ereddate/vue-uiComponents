@@ -125,7 +125,7 @@ export default {
         background-color: @white;
         background-clip: padding-box;
         border-radius: (4 / @base);
-        box-shadow: 0 (1 / @base) (6 / @base) rgb(0 0 0 / 20%);
+        box-shadow: @easyboxshadow;
         white-space: nowrap;
         .inner_content {
           padding: @paddingAll;

@@ -22,7 +22,7 @@ export default {
 @import "../../style/common.less";
 .ui_tools_bar {
   background-color: @white;
-  box-shadow: 0 2px 12px rgb(100 101 102 / 12%);
+  box-shadow: @easyboxshadow;
   padding: 0;
   .ui_tools_bar_content {
     display: flex;

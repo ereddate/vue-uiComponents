@@ -63,14 +63,14 @@ export default {
   watch: {
     isShow(v) {
       if (v) {
-        window.addEventListener("scroll", this.scrollHandle);
+        this.$uic.query(window).on("scroll", this.scrollHandle).scroll();
       } else {
-        window.removeEventListener("scroll", this.scrollHandle);
+        this.$uic.query(window).off("scroll");
       }
     },
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.scrollHandle);
+    this.$uic.query(window).off("scroll");
   },
   methods: {
     scrollHandle() {
@@ -137,7 +137,7 @@ export default {
     z-index: 97;
   }
   .list {
-    box-shadow: 0 2px 12px rgb(100 101 102 / 12%);
+    box-shadow: @easyboxshadow;
     position: fixed;
     top: (44 / @base);
     left: 0;

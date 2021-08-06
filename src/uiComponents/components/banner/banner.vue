@@ -513,7 +513,7 @@ export default {
     .ui_banner_float_item {
       position: fixed;
       border-radius: @baseRadius;
-      box-shadow: 0 2px 12px rgba(100, 101, 102, 0.12);
+      box-shadow: @easyboxshadow;
       width: (120 / @base);
       background-color: @white;
       .van-icon {
@@ -527,7 +527,7 @@ export default {
         overflow: hidden;
         font-size: @baseFont;
         line-height: (20 / @base);
-        box-shadow: 0 2px 12px rgba(100, 101, 102, 0.12);
+        box-shadow: @easyboxshadow;
         top: -(5 / @base);
         right: -(5 / @base);
       }

@@ -94,6 +94,14 @@
                 {{ item }}
               </template>
             </ui-tabs-card>
+            <ui-card>
+              <template #content>
+                <ui-result :item="{ type: 'success' }"></ui-result>
+                <ui-result :item="{ type: 'warning' }"></ui-result>
+                <ui-result :item="{ type: 'error' }"></ui-result>
+                <ui-result :item="{ type: 'info' }"></ui-result>
+              </template>
+            </ui-card>
             <ui-lazyload>
               <template #content>
                 <ui-swipe-card :item="swipeCardData">

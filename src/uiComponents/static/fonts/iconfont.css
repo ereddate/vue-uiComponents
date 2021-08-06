@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1627008375717') format('truetype');
+  src: url('iconfont.ttf?t=1628229493941') format('truetype');
 }
 
 .iconfont {
@@ -9,94 +9,6 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-arrow-up-filling:before {
-  content: "\e688";
-}
-
-.icon-arrow-down-filling:before {
-  content: "\e689";
-}
-
-.icon-arrow-left-filling:before {
-  content: "\e68a";
-}
-
-.icon-arrow-right-filling:before {
-  content: "\e68b";
-}
-
-.icon-comment-filling:before {
-  content: "\e68c";
-}
-
-.icon-clock-filling:before {
-  content: "\e68d";
-}
-
-.icon-delete-filling:before {
-  content: "\e68e";
-}
-
-.icon-favorite-filling:before {
-  content: "\e68f";
-}
-
-.icon-help-filling:before {
-  content: "\e690";
-}
-
-.icon-filter-filling:before {
-  content: "\e691";
-}
-
-.icon-file-common-filling:before {
-  content: "\e692";
-}
-
-.icon-notification-filling:before {
-  content: "\e693";
-}
-
-.icon-user-filling:before {
-  content: "\e694";
-}
-
-.icon-setting-filling:before {
-  content: "\e695";
-}
-
-.icon-success-filling:before {
-  content: "\e696";
-}
-
-.icon-warning-filling:before {
-  content: "\e697";
-}
-
-.icon-map-filling:before {
-  content: "\e698";
-}
-
-.icon-prompt-filling:before {
-  content: "\e699";
-}
-
-.icon-meh-filling:before {
-  content: "\e69a";
-}
-
-.icon-cry-filling:before {
-  content: "\e69b";
-}
-
-.icon-home-filling:before {
-  content: "\e69c";
-}
-
-.icon-sorting:before {
-  content: "\e69d";
 }
 
 .icon-warning:before {
@@ -373,5 +285,21 @@
 
 .icon-success1:before {
   content: "\e645";
+}
+
+.icon-success-result:before {
+  content: "\e646";
+}
+
+.icon-help-result:before {
+  content: "\e647";
+}
+
+.icon-warning-result:before {
+  content: "\e648";
+}
+
+.icon-error-result:before {
+  content: "\e649";
 }
 

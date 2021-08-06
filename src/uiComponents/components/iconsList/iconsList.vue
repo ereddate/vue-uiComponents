@@ -102,7 +102,7 @@ export default {
       .ui_icons_list_item {
         float: left;
         margin: (5 / @base);
-        box-shadow: 0 2px 12px rgba(100, 101, 102, 0.12);
+        box-shadow: @easyboxshadow;
         border-radius: @baseRadius;
         padding: 0;
         overflow: hidden;
