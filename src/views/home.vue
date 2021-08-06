@@ -96,6 +96,16 @@
             </ui-tabs-card>
             <ui-card>
               <template #content>
+                <ui-progress :item="{ total: 1000, current: 500, text: '%' }">
+                  <template #content> 500票 </template>
+                </ui-progress>
+                <ui-vote
+                  :item="{ ...voteData, clickHandle: voteClickHandle }"
+                ></ui-vote>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
                 <ui-result :item="{ type: 'success' }"></ui-result>
                 <ui-result :item="{ type: 'warning' }"></ui-result>
                 <ui-result :item="{ type: 'error' }"></ui-result>
@@ -1035,6 +1045,34 @@ export default {
   },
   data() {
     return {
+      voteData: {
+        total: 1000,
+        unit: "票",
+        title: "测试选票投递",
+        desc: "单选",
+        data: [
+          {
+            text: "选项1",
+            count: 300,
+          },
+          {
+            text: "选项2",
+            count: 100,
+          },
+          {
+            text: "选项3",
+            count: 500,
+          },
+          {
+            text: "选项4",
+            count: 260,
+          },
+          {
+            text: "选项5",
+            count: 390,
+          },
+        ],
+      },
       shuttleData: {
         data: [
           {
@@ -2340,6 +2378,17 @@ export default {
     }, 1000);
   },
   methods: {
+    voteClickHandle(data) {
+      let that = this;
+      return new Promise((resolve, reject) => {
+        try {
+          that.voteData.data[data.index].count += 1;
+          resolve();
+        } catch (e) {
+          reject(e);
+        }
+      });
+    },
     shuttleClickHandle(data) {
       console.log(JSON.stringify(data));
     },

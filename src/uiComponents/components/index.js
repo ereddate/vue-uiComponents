@@ -79,6 +79,8 @@ import uiPop from "./pop/index";
 import uiLazyload from "./lazyload/index";
 import uiIconShuttle from "./iconShuttle/index";
 import uiResult from "./result/index";
+import uiVote from "./vote/index";
+import uiProgress from "./progress/index";
 
 Vue.component("ui-remote-script", {
     render: function(createElement) {
@@ -192,4 +194,6 @@ export const components = {
     uiLazyload,
     uiIconShuttle,
     uiResult,
+    uiVote,
+    uiProgress,
 };
