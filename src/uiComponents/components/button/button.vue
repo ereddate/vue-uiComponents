@@ -3,12 +3,12 @@
     :type="item.type || 'button'"
     class="ui_button"
     @click="buttonClickHandle"
-    :class="(item.class || 'mini') + (item.disabled ? ' disabled' : '')"
+    :class="(item.class || 'mini') + (item.disabled ? ' disabled' : item.shape ? ' circle' : '')"
     :disabled="item.disabled"
     :data-value="item.data"
   >
     <ui-icon :item="{ icon: item.icon }" v-if="item.icon"></ui-icon>
-    <span v-if="item.text">{{ i18n("lang." + item.text) }}</span>
+    <span v-if="!item.shape && item.text">{{ i18n("lang." + item.text) }}</span>
   </button>
 </template>
 <script>
@@ -83,6 +83,12 @@ export default {
   }
   &.disabled {
     color: @grey;
+  }
+  &.circle {
+    border-radius: 50%;
+    width: (30 / @base);
+    height: (30 / @base);
+    .flexCenter;
   }
 }
 </style>

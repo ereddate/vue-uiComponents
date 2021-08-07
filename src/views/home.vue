@@ -76,6 +76,11 @@
             </ui-tools-bar>
             <ui-card>
               <template #content>
+                <ui-button :item="{text:'test',shape:'circle',class:'primary',icon:'search'}"></ui-button>
+              </template>
+            </ui-card>
+            <ui-card>
+              <template #content>
                 <ui-icon-shuttle
                   :item="{ ...shuttleData, clickHandle: shuttleClickHandle }"
                 ></ui-icon-shuttle>

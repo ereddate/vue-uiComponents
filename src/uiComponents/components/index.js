@@ -81,9 +81,10 @@ import uiIconShuttle from "./iconShuttle/index";
 import uiResult from "./result/index";
 import uiVote from "./vote/index";
 import uiProgress from "./progress/index";
+import uiButtonGroup from "./button-group/index"
 
 Vue.component("ui-remote-script", {
-    render: function(createElement) {
+    render: function (createElement) {
         var self = this;
         return createElement("script", {
             attrs: {
@@ -91,13 +92,13 @@ Vue.component("ui-remote-script", {
                 src: this.src,
             },
             on: {
-                load: function(event) {
+                load: function (event) {
                     self.$emit("load", event);
                 },
-                error: function(event) {
+                error: function (event) {
                     self.$emit("error", event);
                 },
-                readystatechange: function(event) {
+                readystatechange: function (event) {
                     if (this.readyState == "complete") {
                         self.$emit("load", event);
                     }
@@ -196,4 +197,5 @@ export const components = {
     uiResult,
     uiVote,
     uiProgress,
+    uiButtonGroup
 };
