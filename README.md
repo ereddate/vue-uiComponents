@@ -182,6 +182,7 @@ export const components = {
 80. ui-result
 81. ui-progress
 82. ui-vote
+83. ui-button-group
 
 ```
 this.$confirm('message', function(){console.log('enter!')}, function(){console.log('cancel!')});
