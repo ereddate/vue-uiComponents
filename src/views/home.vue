@@ -77,6 +77,18 @@
             <ui-card>
               <template #content>
                 <ui-button :item="{text:'test',shape:'circle',class:'primary',icon:'search'}"></ui-button>
+                <ui-button-group :item="{shape:'circle'}">
+                  <template #content>
+                    <ui-button :item="{text:'test1',class:'primary'}"></ui-button>
+                    <ui-button :item="{text:'test2',class:'warning'}"></ui-button>
+                  </template>
+                </ui-button-group>
+                <ui-button-group :item="{shape:'circle',vertical:true}">
+                  <template #content>
+                    <ui-button :item="{text:'test3',class:'primary'}"></ui-button>
+                    <ui-button :item="{text:'test4',class:'warning'}"></ui-button>
+                  </template>
+                </ui-button-group>
               </template>
             </ui-card>
             <ui-card>
